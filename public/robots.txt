@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: http://cleanairhats.org/sitemap-index.xml
+Sitemap: http://rfindiana.org/sitemap-index.xml

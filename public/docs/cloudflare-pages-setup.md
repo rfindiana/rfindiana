@@ -7,15 +7,15 @@ A reusable checklist for setting up Cloudflare Pages with a custom domain, root 
 
 ## 1️⃣ Deploy to Cloudflare Pages
 
-- Connect your GitHub repo (e.g., `cleanairhats-astroship`)
+- Connect your GitHub repo (e.g., `rfindiana-astroship`)
 - **Framework preset**: Astro (or your preferred stack)
 - **Build command**: `npm run build`
 - **Output directory**: `dist`
 - Deploy!
 
 Then add:
-- ✅ Custom domain: `www.cleanairhats.org`
-- ❌ Avoid adding `cleanairhats.org` unless you’re serving directly from the root
+- ✅ Custom domain: `www.rfindiana.org`
+- ❌ Avoid adding `rfindiana.org` unless you’re serving directly from the root
 
 ---
 
@@ -38,16 +38,16 @@ Create these under **Rules → Redirect Rules** to forward root domain to `www`.
 
 - **Name**: Redirect: Root to WWW (HTTPS)
 - **Match**: Wildcard pattern
-- **Request URL**: `https://cleanairhats.org/*`
-- **Redirect To**: `https://www.cleanairhats.org/${1}`
+- **Request URL**: `https://rfindiana.org/*`
+- **Redirect To**: `https://www.rfindiana.org/${1}`
 - **Status Code**: `301`
 
 ### 🔁 Rule 2 – HTTP Redirect
 
 - **Name**: Redirect: Root to WWW (HTTP)
 - **Match**: Wildcard pattern
-- **Request URL**: `http://cleanairhats.org/*`
-- **Redirect To**: `https://www.cleanairhats.org/${1}`
+- **Request URL**: `http://rfindiana.org/*`
+- **Redirect To**: `https://www.rfindiana.org/${1}`
 - **Status Code**: `301`
 
 ⚠️ You need two rules because Cloudflare doesn't support protocol-less wildcards in this UI.
@@ -64,18 +64,18 @@ Rule 2 must follow Rule 1.
 
 ## 5️⃣ Verification
 
-- Visit `https://cleanairhats.org` → should redirect to `https://www.cleanairhats.org`
-- Visit `http://cleanairhats.org` → should redirect as well
-- Visit `https://www.cleanairhats.org` → should load your site
+- Visit `https://rfindiana.org` → should redirect to `https://www.rfindiana.org`
+- Visit `http://rfindiana.org` → should redirect as well
+- Visit `https://www.rfindiana.org` → should load your site
 - Test with:  
   ```
-  curl -I https://cleanairhats.org
+  curl -I https://rfindiana.org
   ```
 
 Should show:
 ```
 HTTP/2 301
-location: https://www.cleanairhats.org/
+location: https://www.rfindiana.org/
 ```
 
 ---
@@ -85,7 +85,7 @@ location: https://www.cleanairhats.org/
 - [x] Domain pointed to Cloudflare
 - [x] CNAME for `www` → `yourproject.pages.dev`
 - [x] A record `@` → `192.0.2.1`
-- [x] Pages custom domain set to `www.cleanairhats.org`
+- [x] Pages custom domain set to `www.rfindiana.org`
 - [x] Two redirect rules (HTTP and HTTPS)
 - [x] Orange cloud (proxy) ON
 - [x] SSL enabled and working
