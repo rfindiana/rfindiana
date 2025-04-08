@@ -22,7 +22,7 @@ const menuitems = [
           />
         </a>
         <div class="block lg:hidden">
-          <MenuIcon class="w-4 h-4 text-gray-800" />
+          <MenuIcon class="w-4 h-4 text-text" />
         </div>
       </div>
       <!-- Add specific left margin for large screens -->
@@ -39,8 +39,8 @@ const menuitems = [
               const baseClasses = "flex lg:px-3 py-2 items-center";
               // Define active state classes
               const activeStateClasses = isActive
-                ? "font-bold text-blue-600"
-                : "text-black hover:text-blue-700"; // Apply hover only if inactive
+                ? "font-bold text-primary"
+                : "text-text hover:text-primary"; // Apply hover only if inactive
 
               return (
                 <li>

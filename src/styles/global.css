@@ -1,57 +1,22 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 /* @theme { ... } */
 
 /* Add your custom variables */
 :root {
-  --primary-color: rgb(59 130 246);
-  --text-color: rgb(31 41 55);
-  --bg-color: rgb(249 250 251);
-  --chart-green: rgb(34 197 94);
-  --chart-red: rgb(239 68 68);
-}
-
-/* Add your custom utility classes */
-.bg-primary {
-  background-color: var(--primary-color);
-}
-
-.text-primary {
-  color: var(--primary-color);
-}
-
-.bg-chart-green {
-  background-color: var(--chart-green);
-}
-
-.bg-chart-red {
-  background-color: var(--chart-red);
-}
-
-.text-chart-green {
-  color: var(--chart-green);
-}
-
-.text-chart-red {
-  color: var(--chart-red);
-}
-
-.border-chart-green {
-  border-color: var(--chart-green);
-}
-
-.border-chart-red {
-  border-color: var(--chart-red);
+  /* We can keep this empty for now, or add any non-color related variables you need */
 }
 
 /* Keep the compatibility styles from the template */
 @layer base {
   *,
-  \ ::after,
-  \ ::before,
-  \ ::backdrop,
-  \ ::file-selector-button {
-    border-color: var(--color-gray-200, currentColor);
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: currentColor;
   }
 }
 

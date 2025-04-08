@@ -8,7 +8,7 @@ import Button from "@/components/ui/button.astro";
      Then you will get all form submissions in your email inbox. -->
 <Layout title="Contact Us - Religious Freedom Indiana">
   <Container>
-    <h1 class="text-3xl font-bold my-6">Contact Us</h1>
+    <h1 class="text-3xl font-bold my-6 text-primary">Contact Us</h1>
     <p class="mb-6 text-lg">
       Have questions or want to get in touch? Fill out the form below.
     </p>
@@ -38,10 +38,10 @@ import Button from "@/components/ui/button.astro";
           type="text"
           placeholder="Full Name"
           required
-          class="w-full px-4 py-3 border-2 placeholder:text-gray-800 rounded-md outline-hidden focus:ring-4 border-gray-300 focus:border-gray-600 ring-gray-100"
+          class="w-full px-4 py-3 border-2 placeholder:text-text rounded-md outline-hidden focus:ring-4 border-text-light focus:border-text ring-text-light"
           name="name"
         />
-        <div class="empty-feedback invalid-feedback text-red-400 text-sm mt-1">
+        <div class="empty-feedback invalid-feedback text-primary text-sm mt-1">
           Please provide your full name.
         </div>
       </div>
@@ -52,12 +52,12 @@ import Button from "@/components/ui/button.astro";
           placeholder="Email Address"
           name="email"
           required
-          class="w-full px-4 py-3 border-2 placeholder:text-gray-800 rounded-md outline-hidden focus:ring-4 border-gray-300 focus:border-gray-600 ring-gray-100"
+          class="w-full px-4 py-3 border-2 placeholder:text-text rounded-md outline-hidden focus:ring-4 border-text-light focus:border-text ring-text-light"
         />
-        <div class="empty-feedback text-red-400 text-sm mt-1">
+        <div class="empty-feedback text-primary text-sm mt-1">
           Please provide your email address.
         </div>
-        <div class="invalid-feedback text-red-400 text-sm mt-1">
+        <div class="invalid-feedback text-primary text-sm mt-1">
           Please provide a valid email address.
         </div>
       </div>
@@ -68,9 +68,9 @@ import Button from "@/components/ui/button.astro";
           name="message"
           required
           placeholder="Your Message"
-          class="w-full px-4 py-3 border-2 placeholder:text-gray-800 rounded-md outline-hidden h-36 focus:ring-4 border-gray-300 focus:border-gray-600 ring-gray-100"
+          class="w-full px-4 py-3 border-2 placeholder:text-text rounded-md outline-hidden h-36 focus:ring-4 border-text-light focus:border-text ring-text-light"
         ></textarea>
-        <div class="empty-feedback invalid-feedback text-red-400 text-sm mt-1">
+        <div class="empty-feedback invalid-feedback text-primary text-sm mt-1">
           Please enter your message.
         </div>
       </div>
@@ -114,7 +114,7 @@ import Button from "@/components/ui/button.astro";
         const json = JSON.stringify(object);
 
         result.innerHTML = "Sending...";
-        result.classList.remove("text-green-500", "text-red-500"); // Clear previous status color
+        result.classList.remove("text-primary", "text-primary-dark"); // Clear previous status color
 
         fetch("https://api.web3forms.com/submit", {
           method: "POST",
@@ -127,30 +127,30 @@ import Button from "@/components/ui/button.astro";
           .then(async (response) => {
             let json = await response.json();
             if (response.status == 200) {
-              result.classList.add("text-green-500");
+              result.classList.add("text-primary");
               // Display success message AND Go Back link
-              result.innerHTML = `${json.message} <br> <a href="javascript:history.back()" class="underline hover:text-blue-700">Go Back</a>`;
+              result.innerHTML = `${json.message} <br> <a href="javascript:history.back()" class="underline hover:text-primary">Go Back</a>`;
               form.reset(); // Reset form only on success
               form.classList.remove("was-validated");
             } else {
               console.log(response);
-              result.classList.add("text-red-500");
+              result.classList.add("text-primary-dark");
               result.innerHTML = json.message;
             }
           })
           .catch((error) => {
             console.log(error);
-            result.classList.add("text-red-500"); // Add error color
+            result.classList.add("text-primary-dark"); // Add error color
             result.innerHTML = "Something went wrong!";
           })
           .then(function () {
             // Don't reset form or remove validation class on error here
             // Clear the result message after 5 seconds ONLY IF successful
             // We check if the success class is present
-            if (result.classList.contains("text-green-500")) {
+            if (result.classList.contains("text-primary")) {
               setTimeout(() => {
                 result.innerHTML = "";
-                result.classList.remove("text-green-500");
+                result.classList.remove("text-primary");
               }, 5000);
             }
             // If it failed, the error message stays until next submission attempt

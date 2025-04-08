@@ -7,9 +7,22 @@ const config = {
     extend: {
       // You can merge theme settings from the template later if needed
       colors: {
-        // Your custom colors:
-        primary: "rgb(59 130 246)", // Consider using Tailwind's blue-500 or defining custom CSS vars
-        "primary-text": "var(--text-color)", // Make sure --text-color is defined in your global CSS
+        // Brand colors
+        primary: {
+          DEFAULT: "#800020", // Burgundy - for headings and accents
+          light: "#A00030", // Lighter burgundy
+          dark: "#600010", // Darker burgundy
+        },
+        secondary: {
+          DEFAULT: "#000000", // Black - for secondary elements
+          light: "#333333", // Dark gray
+        },
+        // Text colors
+        text: {
+          DEFAULT: "#000000", // Black - for body text
+          light: "#333333", // Dark gray - for secondary text
+          inverse: "#FFFFFF", // White - for text on dark backgrounds
+        },
       },
       // Add font families if you want to customize them globally
       // fontFamily: {

@@ -17,14 +17,16 @@ Then add:
 - ✅ Custom domain: `www.rfindiana.org`
 - ❌ Avoid adding `rfindiana.org` unless you’re serving directly from the root
 
+BE SURE THE CUSTOM DOMAIN IS WWW.
+
 ---
 
 ## 2️⃣ DNS Configuration (Cloudflare DNS tab)
 
-| Type  | Name | Content (Value)               | Proxy |
-|-------|------|-------------------------------|--------|
-| CNAME | www  | `yourproject.pages.dev`       | ✅ Proxied (orange cloud) |
-| A     | @    | `192.0.2.1` *(dummy IP)*      | ✅ Proxied (orange cloud) |
+| Type  | Name | Content (Value)                  | Proxy |
+|-------|------|-------------------------------   |--------|
+| CNAME | www  | `rfindiana-astroship.pages.dev`  | ✅ Proxied (orange cloud) |
+| A     | @    | `192.0.2.1` *(dummy IP)*         | ✅ Proxied (orange cloud) |
 
 ℹ️ The dummy A record allows Cloudflare to handle redirects from the root domain.
 
