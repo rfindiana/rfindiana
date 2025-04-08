@@ -20,9 +20,10 @@ const resolvedImageWithDomain = new URL(
 
 const { title } = Astro.props;
 
-const makeTitle = title
-  ? title + " | " + "Religious Freedom Indiana"
-  : "Hoosiers working for religious freedom";
+const makeTitle =
+  title === "Religious Freedom Indiana"
+    ? "Religious Freedom Indiana"
+    : title + " | " + "Religious Freedom Indiana";
 ---
 
 <!doctype html>
@@ -36,7 +37,7 @@ const makeTitle = title
     <!-- <link rel="preload" as="image" href={src} alt="Hero" /> -->
     <SEO
       title={makeTitle}
-      description="Hoosiers working for religious freedom."
+      description="Religious Freedom Indiana - Hoosiers working for religious freedom."
       canonical={canonicalURL}
       twitter={{
         creator: "@surjithctly",
@@ -47,11 +48,11 @@ const makeTitle = title
         basic: {
           url: canonicalURL,
           type: "website",
-          title: `Hoosiers working for religious freedom`,
+          title: "Religious Freedom Indiana",
           image: resolvedImageWithDomain,
         },
         image: {
-          alt: "Astroship Homepage Screenshot",
+          alt: "Religious Freedom Indiana",
         },
       }}
     />
