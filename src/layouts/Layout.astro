@@ -86,6 +86,31 @@ const makeTitle =
     <Navbar />
     <slot />
     <Footer />
+
+    <script>
+      // Declare ml function to satisfy TypeScript/linter
+      declare const ml: Function;
+
+      // Re-initialize MailerLite forms after Astro View Transitions
+      document.addEventListener("astro:after-swap", () => {
+        console.log(
+          "Astro swap finished. Attempting MailerLite form update..."
+        ); // DEBUG
+        if (typeof ml === "function") {
+          console.log('ml function found. Calling ml("update")...'); // DEBUG
+          try {
+            // Try calling an update/re-scan command instead of account init
+            ml("update");
+            console.log("MailerLite update command called successfully."); // DEBUG
+          } catch (error) {
+            console.error('Error calling ml("update") command:', error); // DEBUG
+          }
+        } else {
+          console.log("ml function NOT found at time of swap."); // DEBUG
+        }
+      });
+    </script>
+
     <style is:global>
       /* Improve Page speed */
       /* https://css-tricks.com/almanac/properties/c/content-visibility/ */
