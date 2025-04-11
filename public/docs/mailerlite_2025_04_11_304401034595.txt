@@ -1,0 +1,384 @@
+Conversation with MailerLite
+Started on April 11, 2025 at 05:37 PM Vilnius time EEST (GMT+0300)
+
+---
+
+05:37 PM | Dale Brubaker: 💭 Not sure
+
+05:37 PM | LiteBot: Please share more with us below.
+​
+​​ℹ️ For the best experience, provide all relevant details upfront. If you have multiple questions, please share them one at a time.
+
+05:38 PM | Dale Brubaker: The CTA form I can design seems to be limited to 1 column. Is there any way to do a 2-column form? Even with the full html (instead of just the snippet) this seems to be single-column only. Am I missing something?
+
+05:39 PM | LiteBot: I understand you're looking to create a 2-column CTA form in MailerLite. Unfortunately, our current form builder doesn't support multi-column layouts for forms directly. However, we do have a workaround that might help you achieve a similar result. 
+ You can use our website builder's column feature to create a two-column layout and then add a form to one of the columns. Here's how: 
+ 1. Go to the Sites section in your dashboard. 
+2. Create a new website or landing page. 
+3. Drag the "2 columns block" into position. 
+4. In one column, add your form using the form block. 
+5. In the other column, you can add complementary content or design elements. 
+ This approach allows you to create a visually appealing two-column layout with your CTA form. Remember, you can customize the form's fields, colors, and styling to match your design needs. 
+ Let me know if you'd like more details on customizing your form or using our website builder! 
+ 
+Sources:
+11 More Features to Build Websites With MailerLite - MailerLite (https://www.mailerlite.com/blog/improved-mailerlite-website-builder)
+How to create an embedded form (https://support.mailerlite.com/en/articles/6196269-how-to-create-an-embedded-form)
+Introducing the New HTML Editor (with Best Practices) - MailerLite (https://www.mailerlite.com/blog/html-email-editor)
+
+05:39 PM | LiteBot: Is that what you were looking for?
+
+05:53 PM | Jhonatan from MailerLite: Hi Dale, thanks for reaching out.
+
+05:53 PM | Jhonatan from MailerLite: Please tell me the name of the form you're editing, I'll take a look at it
+
+05:59 PM | Dale Brubaker: Hi Jhonatan, I thought the chat ended, The form is our only one, called Join Us
+
+06:04 PM | Jhonatan from MailerLite: Checking now
+
+06:10 PM | Jhonatan from MailerLite: Dale, do you have an example of form with the structure you want to use?
+
+06:10 PM | Dale Brubaker: This exact form would be fine if I could split it into two columns instead of only one.
+
+06:11 PM | Dale Brubaker: I thought there would be some documentation about an api that would allow a button to send field info to a MailerLite email, but I haven't found it. Maybe it's too advanced for me...
+
+06:14 PM | Jhonatan from MailerLite: Ok, this isn't possible using the native editor, but might be possible editing the style of the HTML. 
+ 
+ Please bear in mind that we can't provide you with support on custom HTML, but I can make an exception this time 😊
+
+06:14 PM | Jhonatan from MailerLite: So you would like your form to look like this? 
+ 
+ [Image "image.png?expires=1744388100&signature=a6c6fa248560685d67416bf6de37f33a7da65153be8ece62bebb0bcb1134287b&req=dSQgF8l%2Fm4dfWPMW1HO4zfH9uCr%2BWQLhcKbTPi329TTKp07cmPdoX8pZCrQO%0AWzmPnjNv3wrmq%2BW%2BveE%3D%0A"]
+
+06:14 PM | Dale Brubaker: sounds good
+
+06:22 PM | Jhonatan from MailerLite: Thanks for your patience, I'm adjusting the code
+
+06:35 PM | Jhonatan from MailerLite: Done, you can use this HTML code to embed your signup form: 
+ 
+ This is how it looks: 
+ [Image "image.png?expires=1744387200&signature=c291e7d574435cf08d49f141b7ccc93eccdaf1f90f3b0338a67f071abe6f4551&req=dSQgF8l7nIhZWPMW1HO4zXGA%2BhPaxBIhEP5NyuSZfuLThDsQl3ow5v0jqlSA%0AqV9n%0A"] 
+ <!DOCTYPE html> 
+ <html lang="en"> 
+ <head> 
+ <meta charset="UTF-8"> 
+ <title>MailerLite Form - Responsive Two Columns</title> 
+ <style type="text/css"> 
+ @import url("https://assets.mlcdn.com/fonts.css?version=1744283"); 
+ </style> 
+ <style type="text/css"> 
+ /* LOADER */ 
+ .ml-form-embedSubmitLoad { 
+ display: inline-block; 
+ width: 20px; 
+ height: 20px; 
+ } 
+ .g-recaptcha { 
+ transform: scale(1); 
+ -webkit-transform: scale(1); 
+ transform-origin: 0 0; 
+ -webkit-transform-origin: 0 0; 
+ } 
+ .sr-only { 
+ position: absolute; 
+ width: 1px; 
+ height: 1px; 
+ padding: 0; 
+ margin: -1px; 
+ overflow: hidden; 
+ clip: rect(0,0,0,0); 
+ border: 0; 
+ } 
+ .ml-form-embedSubmitLoad:after { 
+ content: " "; 
+ display: block; 
+ width: 11px; 
+ height: 11px; 
+ margin: 1px; 
+ border-radius: 50%; 
+ border: 4px solid #fff; 
+ border-color: #ffffff #ffffff #ffffff transparent; 
+ animation: ml-form-embedSubmitLoad 1.2s linear infinite; 
+ } 
+ @keyframes ml-form-embedSubmitLoad { 
+ 0% { transform: rotate(0deg); } 
+ 100% { transform: rotate(360deg); } 
+ } 
+ #mlb2-24646657.ml-form-embedContainer { 
+ box-sizing: border-box; 
+ display: table; 
+ margin: 0 auto; 
+ position: static; 
+ width: 100% !important; 
+ } 
+ #mlb2-24646657.ml-form-embedContainer h4, 
+ #mlb2-24646657.ml-form-embedContainer p, 
+ #mlb2-24646657.ml-form-embedContainer span, 
+ #mlb2-24646657.ml-form-embedContainer button { 
+ text-transform: none !important; 
+ letter-spacing: normal !important; 
+ } 
+ #mlb2-24646657.ml-form-embedContainer .ml-form-embedWrapper { 
+ background-color: #f6f6f6; 
+ border-width: 0px; 
+ border-color: transparent; 
+ border-radius: 4px; 
+ border-style: solid; 
+ box-sizing: border-box; 
+ display: inline-block !important; 
+ margin: 0; 
+ padding: 0; 
+ position: relative; 
+ } 
+ #mlb2-24646657.ml-form-embedContainer .ml-form-embedWrapper.embedPopup, 
+ #mlb2-24646657.ml-form-embedContainer .ml-form-embedWrapper.embedDefault { 
+ width: 400px; 
+ } 
+ #mlb2-24646657.ml-form-embedContainer .ml-form-embedWrapper.embedForm { 
+ max-width: 400px; 
+ width: 100%; 
+ } 
+ #mlb2-24646657.ml-form-embedContainer .ml-form-align-left { text-align: left; } 
+ #mlb2-24646657.ml-form-embedContainer .ml-form-align-center { text-align: center; } 
+ #mlb2-24646657.ml-form-embedContainer .ml-form-align-default { display: table-cell !important; vertical-align: middle !important; text-align: center !important; } 
+ #mlb2-24646657.ml-form-embedContainer .ml-form-align-right { text-align: right; } 
+ #mlb2-24646657.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedHeader img { 
+ border-top-left-radius: 4px; 
+ border-top-right-radius: 4px; 
+ height: auto; 
+ margin: 0 auto !important; 
+ max-width: 100%; 
+ width: 686px; 
+ } 
+ #mlb2-24646657.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody, 
+ #mlb2-24646657.ml-form-embedContainer .ml-form-embedWrapper .ml-form-successBody { 
+ padding: 20px 20px 0 20px; 
+ } 
+ #mlb2-24646657.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody.ml-form-embedBodyHorizontal { 
+ padding-bottom: 0; 
+ } 
+ #mlb2-24646657.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedContent, 
+ #mlb2-24646657.ml-form-embedContainer .ml-form-embedWrapper .ml-form-successBody .ml-form-successContent { 
+ text-align: left; 
+ margin: 0 0 20px 0; 
+ } 
+ #mlb2-24646657.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedContent h4, 
+ #mlb2-24646657.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-successBody .ml-form-successContent h4 { 
+ color: #000000; 
+ font-family: 'Open Sans', Arial, Helvetica, sans-serif; 
+ font-size: 30px; 
+ font-weight: 400; 
+ margin: 0 0 10px 0; 
+ text-align: left; 
+ word-break: break-word; 
+ } 
+ #mlb2-24646657.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedContent p, 
+ #mlb2-24646657.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-successBody .ml-form-successContent p { 
+ color: #000000; 
+ font-family: 'Open Sans', Arial, Helvetica, sans-serif; 
+ font-size: 14px; 
+ font-weight: 400; 
+ line-height: 20px; 
+ margin: 0 0 10px 0; 
+ text-align: left; 
+ } 
+ /* Two-columns layout styles */ 
+ .two-columns { 
+ display: flex; 
+ flex-wrap: wrap; 
+ gap: 20px; 
+ } 
+ .two-columns .column { 
+ flex: 1 1 45%; 
+ box-sizing: border-box; 
+ } 
+ /* Responsive rule for smaller screens */ 
+ @media only screen and (max-width: 600px) { 
+ .two-columns .column { 
+ flex: 1 1 100%; 
+ } 
+ } 
+ /* Ensure labels wrap if they’re too long */ 
+ .ml-field-group label { 
+ display: block; 
+ margin-bottom: 5px; 
+ white-space: normal; 
+ } 
+ /* Add a minimum height for the City label to align with Religious Group */ 
+ .ml-field-group.ml-field-city label { 
+ min-height: 40px; /* Adjust this value if needed */ 
+ } 
+ /* Align checkbox and its label inline */ 
+ .ml-form-checkboxRow label.checkbox { 
+ display: flex; 
+ align-items: center; 
+ } 
+ .ml-form-checkboxRow label.checkbox input[type="checkbox"] { 
+ margin-right: 8px; 
+ transform: scale(1); 
+ } 
+ </style> 
+ <style type="text/css"> 
+ /* Additional permission and privacy-related styles can remain here */ 
+ </style> 
+ </head> 
+ <body> 
+ <div id="mlb2-24646657" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-24646657"> 
+ <div class="ml-form-align-center"> 
+ <div class="ml-form-embedWrapper embedForm"> 
+ <div class="ml-form-embedHeader"> 
+ <img src="https://storage.mlcdn.com/account_image/1436469/jamIZO1gSvBDjGE7FHdpHnOc78ETJp6FJUIcyciJ.jpg" alt="Religious Freedom Indiana" border="0" style="display: block;"> 
+ <style> 
+ @media only screen and (max-width: 400px){ 
+ .ml-form-embedHeader { display: none !important; } 
+ } 
+ </style> 
+ </div> 
+ <div class="ml-form-embedBody ml-form-embedBodyDefault row-form"> 
+ <div class="ml-form-embedContent"> 
+ <h4>Register</h4> 
+ <p>Signup for email updates.</p> 
+ </div> 
+ <form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/1436469/forms/151213897669412490/subscribe" data-code="" method="post" target="_blank"> 
+ <!-- Two-columns content --> 
+ <div class="ml-form-formContent"> 
+ <div class="two-columns"> 
+ <!-- Left column --> 
+ <div class="column"> 
+ <div class="ml-form-fieldRow"> 
+ <div class="ml-field-group ml-field-email ml-validate-email ml-validate-required"> 
+ <label>Email</label> 
+ <input aria-label="email" aria-required="true" type="email" class="form-control" name="fields[email]" placeholder="" autocomplete="email"> 
+ </div> 
+ </div> 
+ <div class="ml-form-fieldRow"> 
+ <div class="ml-field-group ml-field-name ml-validate-required"> 
+ <label>First Name</label> 
+ <input aria-label="name" aria-required="true" type="text" class="form-control" name="fields[name]" placeholder="" autocomplete="given-name"> 
+ </div> 
+ </div> 
+ <div class="ml-form-fieldRow"> 
+ <div class="ml-field-group ml-field-last_name ml-validate-required"> 
+ <label>Last name</label> 
+ <input aria-label="last_name" aria-required="true" type="text" class="form-control" name="fields[last_name]" placeholder="" autocomplete="family-name"> 
+ </div> 
+ </div> 
+ <div class="ml-form-fieldRow"> 
+ <div class="ml-field-group ml-field-city"> 
+ <label>City (Optional)</label> 
+ <input aria-label="city" type="text" class="form-control" name="fields[city]" placeholder="" autocomplete=""> 
+ </div> 
+ </div> 
+ </div> 
+ <!-- Right column --> 
+ <div class="column"> 
+ <div class="ml-form-fieldRow"> 
+ <div class="ml-field-group ml-field-state"> 
+ <label>State (Optional)</label> 
+ <input aria-label="state" type="text" class="form-control" name="fields[state]" placeholder="" autocomplete=""> 
+ </div> 
+ </div> 
+ <div class="ml-form-fieldRow"> 
+ <div class="ml-field-group ml-field-z_i_p"> 
+ <label>Zip (Optional)</label> 
+ <input aria-label="z_i_p" type="text" class="form-control" name="fields[z_i_p]" placeholder="" autocomplete=""> 
+ </div> 
+ </div> 
+ <div class="ml-form-fieldRow"> 
+ <div class="ml-field-group ml-field-phone"> 
+ <label>Phone (Optional)</label> 
+ <input aria-label="phone" type="text" class="form-control" name="fields[phone]" placeholder="" autocomplete=""> 
+ </div> 
+ </div> 
+ <div class="ml-form-fieldRow ml-last-item"> 
+ <div class="ml-field-group ml-field-denomination"> 
+ <label>Religious Group (Optional)</label> 
+ <input aria-label="denomination" type="text" class="form-control" name="fields[denomination]" placeholder="" autocomplete=""> 
+ </div> 
+ </div> 
+ </div> 
+ </div> 
+ </div> 
+ 
+ <!-- Privacy policy --> 
+ <div class="ml-form-embedPermissions"> 
+ <div class="ml-form-embedPermissionsContent default privacy-policy"> 
+ <p>You can unsubscribe anytime. For more details, review our Privacy Policy.</p> 
+ </div> 
+ </div> 
+ <!-- /Privacy policy --> 
+ 
+ <div class="ml-form-checkboxRow ml-validate-required"> 
+ <label class="checkbox"> 
+ <input type="checkbox"> 
+ <div class="label-description"> 
+ <p>Opt in to receive news and updates.</p> 
+ </div> 
+ </label> 
+ </div> 
+ 
+ <div class="ml-form-recaptcha ml-validate-required" style="float: left;"> 
+ <style type="text/css"> 
+ .ml-form-recaptcha { 
+ margin-bottom: 20px; 
+ } 
+ .ml-form-recaptcha.ml-error iframe { 
+ border: solid 1px #ff0000; 
+ } 
+ @media screen and (max-width: 480px) { 
+ .ml-form-recaptcha { 
+ width: 220px !important; 
+ } 
+ .g-recaptcha { 
+ transform: scale(0.78); 
+ -webkit-transform: scale(0.78); 
+ transform-origin: 0 0; 
+ -webkit-transform-origin: 0 0; 
+ } 
+ } 
+ </style> 
+ <script src="https://www.google.com/recaptcha/api.js"></script> 
+ <div class="g-recaptcha" data-sitekey="6Lf1KHQUAAAAAFNKEX1hdSWCS3mRMv4FlFaNslaD"></div> 
+ </div> 
+ 
+ <input type="hidden" name="ml-submit" value="1"> 
+ 
+ <div class="ml-form-embedSubmit"> 
+ <button type="submit" class="primary">Subscribe</button> 
+ <button disabled="disabled" style="display: none;" type="button" class="loading"> 
+ <div class="ml-form-embedSubmitLoad"></div> 
+ <span class="sr-only">Loading...</span> 
+ </button> 
+ </div> 
+ 
+ <input type="hidden" name="anticsrf" value="true"> 
+ </form> 
+ </div> 
+ <div class="ml-form-successBody row-success" style="display: none"> 
+ <div class="ml-form-successContent"> 
+ <h4>Thank you!</h4> 
+ <p>You have successfully joined our subscriber list.</p> 
+ </div> 
+ </div> 
+ </div> 
+ </div> 
+ 
+ <script> 
+ function ml_webform_success_24646657() { 
+ var $ = ml_jQuery || jQuery; 
+ $('.ml-subscribe-form-24646657 .row-success').show(); 
+ $('.ml-subscribe-form-24646657 .row-form').hide(); 
+ } 
+ </script> 
+ <script src="https://groot.mailerlite.com/js/w/webforms.min.js?v176e10baa5e7ed80d35ae235be3d5024" type="text/javascript"></script> 
+ <script> 
+ fetch("https://assets.mailerlite.com/jsonp/1436469/forms/151213897669412490/takel") 
+ </script> 
+ </div> 
+ </body> 
+ </html>
+
+06:36 PM | Dale Brubaker: Wow, thank you. I'll download the transcript and work with that. 5 stars1
+
+---
+Exported from MailerLite on April 11, 2025 at 06:38 PM Vilnius time EEST (GMT+0300)
