@@ -55,9 +55,8 @@ const menuitems = [
                 if (item.submenu) {
                   return (
                     <li class="relative group">
-                      <a
-                        href={item.path}
-                        class={`${baseClasses} ${activeStateClasses}`}>
+                      <span
+                        class={`${baseClasses} ${activeStateClasses} cursor-pointer`}>
                         <span>{item.title}</span>
                         <svg
                           class="w-4 h-4 ml-1 inline-block"
@@ -71,12 +70,12 @@ const menuitems = [
                             d="M19 9l-7 7-7-7"
                           />
                         </svg>
-                      </a>
-                      <div class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50 hidden group-hover:block">
+                      </span>
+                      <div class="absolute left-0 w-48 bg-white rounded-md shadow-lg py-1 z-50 hidden group-hover:block">
                         {item.submenu.map((subitem) => (
                           <a
                             href={subitem.path}
-                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                            class="block px-4 py-2 text-sm text-gray-700 hover:text-primary">
                             {subitem.title}
                           </a>
                         ))}
