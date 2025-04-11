@@ -5,6 +5,16 @@ import { Astronav, MenuItems, MenuIcon } from "astro-navbar";
 
 const menuitems = [
   { title: "About", path: "/about" },
+  { title: "Events", path: "/events" },
+  {
+    title: "Resources",
+    path: "/resources",
+    submenu: [
+      { title: "Books", path: "/books" },
+      { title: "Videos", path: "/videos" },
+      { title: "Documents", path: "/documents" },
+    ],
+  },
   { title: "Contact Us", path: "/contactform" },
 ];
 ---
@@ -42,6 +52,39 @@ const menuitems = [
                   ? "font-bold text-primary"
                   : "text-text hover:text-primary"; // Apply hover only if inactive
 
+                if (item.submenu) {
+                  return (
+                    <li class="relative group">
+                      <a
+                        href={item.path}
+                        class={`${baseClasses} ${activeStateClasses}`}>
+                        <span>{item.title}</span>
+                        <svg
+                          class="w-4 h-4 ml-1 inline-block"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24">
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M19 9l-7 7-7-7"
+                          />
+                        </svg>
+                      </a>
+                      <div class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50 hidden group-hover:block">
+                        {item.submenu.map((subitem) => (
+                          <a
+                            href={subitem.path}
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                            {subitem.title}
+                          </a>
+                        ))}
+                      </div>
+                    </li>
+                  );
+                }
+
                 return (
                   <li>
                     <a
@@ -67,3 +110,20 @@ const menuitems = [
     </div>
   </header>
 </Container>
+
+<style>
+  /* Ensure dropdown menu is visible on hover */
+  .group:hover .group-hover\:block {
+    display: block;
+  }
+
+  /* Mobile menu styles */
+  @media (max-width: 1024px) {
+    .group:hover .group-hover\:block {
+      display: none;
+    }
+    .group:focus-within .group-hover\:block {
+      display: block;
+    }
+  }
+</style>
