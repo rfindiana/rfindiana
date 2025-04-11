@@ -64,7 +64,7 @@ const lastUpdated = "April 10, 2025"; // <-- UPDATE THIS DATE MANUALLY
         <div
           class="flex flex-col sm:flex-row justify-between items-baseline mb-3">
           <span class="text-lg font-semibold text-primary">
-            {currentMembers.toLocaleString()} / {goal.toLocaleString()} Members
+            {currentMembers.toLocaleString()} / {goal.toLocaleString()} Total Supporters
           </span>
           <span class="text-sm font-medium text-gray-600">
             {percentage}% towards our goal!
@@ -78,6 +78,11 @@ const lastUpdated = "April 10, 2025"; // <-- UPDATE THIS DATE MANUALLY
           </div>
         </div>
         <p class="text-xs text-gray-500 mt-2">Last updated: {lastUpdated}</p>
+        <p class="text-sm text-gray-600 mt-4">
+          Note: If you want to show your support but don't wish to receive
+          regular emails, you can subscribe and then unsubscribe immediately
+          after confirming your subscription.
+        </p>
       </div>
 
       {/* Growth Milestones Table */}
@@ -97,7 +102,7 @@ const lastUpdated = "April 10, 2025"; // <-- UPDATE THIS DATE MANUALLY
                 <th
                   scope="col"
                   class="px-6 py-3 text-left font-medium text-gray-500 uppercase tracking-wider"
-                  >Members</th
+                  >Total Supporters</th
                 >
               </tr>
             </thead>
