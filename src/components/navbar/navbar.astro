@@ -56,7 +56,29 @@ const menuitems = [
                 if (item.submenu) {
                   return (
                     <li class="relative group">
-                      <div class="flex items-center">
+                      {/* Desktop version */}
+                      <div class="hidden lg:block">
+                        <button
+                          type="button"
+                          class={`${baseClasses} ${activeStateClasses} cursor-pointer w-full lg:w-auto text-left`}>
+                          <span>{item.title}</span>
+                          <svg
+                            class="w-4 h-4 ml-1 inline-block transform transition-transform duration-200 group-hover:rotate-180"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M19 9l-7 7-7-7"
+                            />
+                          </svg>
+                        </button>
+                      </div>
+
+                      {/* Mobile version */}
+                      <div class="lg:hidden">
                         <input
                           type="checkbox"
                           id={`menu-${item.title.toLowerCase()}`}
@@ -79,23 +101,23 @@ const menuitems = [
                             />
                           </svg>
                         </label>
-                      </div>
-                      <div class="submenu-container lg:absolute lg:left-0 w-full lg:w-48 bg-white lg:rounded-md lg:shadow-lg py-1 z-50 hidden lg:group-hover:block">
-                        {item.submenu.map((subitem) => {
-                          const isSubActive =
-                            Astro.url.pathname === subitem.path;
-                          return (
-                            <a
-                              href={subitem.path}
-                              class={`block px-4 py-2 text-sm ${
-                                isSubActive
-                                  ? "text-primary font-bold"
-                                  : "text-gray-700 hover:text-primary"
-                              }`}>
-                              {subitem.title}
-                            </a>
-                          );
-                        })}
+                        <div class="submenu-container">
+                          {item.submenu.map((subitem) => {
+                            const isSubActive =
+                              Astro.url.pathname === subitem.path;
+                            return (
+                              <a
+                                href={subitem.path}
+                                class={`block px-4 py-2 text-sm ${
+                                  isSubActive
+                                    ? "text-primary font-bold"
+                                    : "text-gray-700 hover:text-primary"
+                                }`}>
+                                {subitem.title}
+                              </a>
+                            );
+                          })}
+                        </div>
                       </div>
                     </li>
                   );
@@ -150,7 +172,7 @@ const menuitems = [
       padding-left: 1rem; /* Indent submenu container */
     }
 
-    /* Hide the checkbox */
+    /* Hide the checkbox on mobile */
     .menu-checkbox {
       position: absolute;
       opacity: 0;
@@ -159,7 +181,7 @@ const menuitems = [
     }
 
     /* Show submenu when checkbox is checked */
-    .menu-checkbox:checked + .submenu-container {
+    .menu-checkbox:checked ~ .submenu-container {
       display: block;
     }
 
@@ -169,11 +191,27 @@ const menuitems = [
       align-items: center;
       cursor: pointer;
       width: 100%;
+      position: relative;
     }
 
     /* Style for submenu items on mobile */
     .submenu-container a {
       padding-left: 1rem; /* Further indent submenu links */
+    }
+
+    /* Rotate arrow when menu is open */
+    .menu-checkbox:checked ~ .menu-label svg {
+      transform: rotate(180deg);
+    }
+  }
+
+  /* Hide checkbox on desktop */
+  @media (min-width: 1024px) {
+    .menu-checkbox {
+      display: none;
+    }
+    .menu-label {
+      display: none;
     }
   }
 </style>
