@@ -55,8 +55,11 @@ const menuitems = [
                 if (item.submenu) {
                   return (
                     <li class="relative group">
-                      <span
-                        class={`${baseClasses} ${activeStateClasses} cursor-pointer`}>
+                      <button
+                        type="button"
+                        class={`${baseClasses} ${activeStateClasses} cursor-pointer w-full lg:w-auto text-left`}
+                        aria-expanded="false"
+                        aria-controls={`submenu-${item.title.toLowerCase()}`}>
                         <span>{item.title}</span>
                         <svg
                           class="w-4 h-4 ml-1 inline-block"
@@ -70,8 +73,10 @@ const menuitems = [
                             d="M19 9l-7 7-7-7"
                           />
                         </svg>
-                      </span>
-                      <div class="absolute left-0 w-48 bg-white rounded-md shadow-lg py-1 z-50 hidden group-hover:block">
+                      </button>
+                      <div
+                        id={`submenu-${item.title.toLowerCase()}`}
+                        class="lg:absolute lg:left-0 w-full lg:w-48 bg-white lg:rounded-md lg:shadow-lg py-1 z-50 hidden lg:group-hover:block">
                         {item.submenu.map((subitem) => (
                           <a
                             href={subitem.path}
@@ -111,7 +116,7 @@ const menuitems = [
 </Container>
 
 <style>
-  /* Ensure dropdown menu is visible on hover */
+  /* Ensure dropdown menu is visible on hover for desktop */
   .group:hover .group-hover\:block {
     display: block;
   }
@@ -121,8 +126,37 @@ const menuitems = [
     .group:hover .group-hover\:block {
       display: none;
     }
-    .group:focus-within .group-hover\:block {
+
+    /* Show submenu when parent is focused */
+    button:focus + div,
+    button:focus-within + div {
       display: block;
+    }
+
+    /* Style for submenu items on mobile */
+    .submenu-item {
+      padding-left: 1.5rem;
     }
   }
 </style>
+
+<script>
+  // Add click handler for mobile submenus
+  document.addEventListener("DOMContentLoaded", () => {
+    const submenuButtons = document.querySelectorAll<HTMLButtonElement>(
+      "button[aria-expanded]"
+    );
+
+    submenuButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const submenu = button.nextElementSibling as HTMLElement;
+        if (!submenu) return;
+
+        const isExpanded = button.getAttribute("aria-expanded") === "true";
+
+        button.setAttribute("aria-expanded", String(!isExpanded));
+        submenu.style.display = isExpanded ? "none" : "block";
+      });
+    });
+  });
+</script>
