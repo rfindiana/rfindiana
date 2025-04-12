@@ -56,28 +56,31 @@ const menuitems = [
                 if (item.submenu) {
                   return (
                     <li class="relative group">
-                      <button
-                        type="button"
-                        class={`${baseClasses} ${activeStateClasses} cursor-pointer w-full lg:w-auto text-left flex justify-between items-center`}
-                        aria-expanded="false"
-                        aria-controls={`submenu-${item.title.toLowerCase()}`}>
-                        <span>{item.title}</span>
-                        <svg
-                          class="w-4 h-4 ml-1 inline-block transform transition-transform duration-200 group-hover:rotate-180"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24">
-                          <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M19 9l-7 7-7-7"
-                          />
-                        </svg>
-                      </button>
-                      <div
-                        id={`submenu-${item.title.toLowerCase()}`}
-                        class="submenu-container lg:absolute lg:left-0 w-full lg:w-48 bg-white lg:rounded-md lg:shadow-lg py-1 z-50 hidden lg:group-hover:block">
+                      <div class="flex items-center">
+                        <input
+                          type="checkbox"
+                          id={`menu-${item.title.toLowerCase()}`}
+                          class="menu-checkbox"
+                        />
+                        <label
+                          for={`menu-${item.title.toLowerCase()}`}
+                          class={`${baseClasses} ${activeStateClasses} menu-label`}>
+                          <span>{item.title}</span>
+                          <svg
+                            class="w-4 h-4 ml-1 inline-block transform transition-transform duration-200"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M19 9l-7 7-7-7"
+                            />
+                          </svg>
+                        </label>
+                      </div>
+                      <div class="submenu-container lg:absolute lg:left-0 w-full lg:w-48 bg-white lg:rounded-md lg:shadow-lg py-1 z-50 hidden lg:group-hover:block">
                         {item.submenu.map((subitem) => {
                           const isSubActive =
                             Astro.url.pathname === subitem.path;
@@ -147,39 +150,34 @@ const menuitems = [
       padding-left: 1rem; /* Indent submenu container */
     }
 
-    /* Show submenu when the parent group contains focus */
-    .group:focus-within .submenu-container {
+    /* Hide the checkbox */
+    .menu-checkbox {
+      position: absolute;
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    /* Show submenu when checkbox is checked */
+    .menu-checkbox:checked + .submenu-container {
       display: block;
+    }
+
+    /* Style the label to look like a button */
+    .menu-label {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      width: 100%;
     }
 
     /* Style for submenu items on mobile */
     .submenu-container a {
       padding-left: 1rem; /* Further indent submenu links */
     }
-
-    /* Ensure the button itself doesn't look weird */
-    button[aria-expanded] {
-      cursor: pointer;
-    }
   }
 </style>
 
 <script>
-  // Simple mobile menu toggle
-  document.addEventListener("DOMContentLoaded", () => {
-    const menuButtons = document.querySelectorAll("button[aria-expanded]");
-
-    menuButtons.forEach((button) => {
-      button.addEventListener("click", (e) => {
-        e.preventDefault();
-        const submenu = button.nextElementSibling as HTMLElement;
-        if (submenu && submenu.classList.contains("submenu-container")) {
-          const isHidden =
-            submenu.style.display === "none" || submenu.style.display === "";
-          submenu.style.display = isHidden ? "block" : "none";
-          button.setAttribute("aria-expanded", String(isHidden));
-        }
-      });
-    });
-  });
+  // No JavaScript needed for mobile menu
 </script>
