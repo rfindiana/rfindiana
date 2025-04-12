@@ -58,12 +58,12 @@ const menuitems = [
                     <li class="relative group">
                       <button
                         type="button"
-                        class={`${baseClasses} ${activeStateClasses} cursor-pointer w-full lg:w-auto text-left`}
+                        class={`${baseClasses} ${activeStateClasses} cursor-pointer w-full lg:w-auto text-left flex justify-between items-center`}
                         aria-expanded="false"
                         aria-controls={`submenu-${item.title.toLowerCase()}`}>
                         <span>{item.title}</span>
                         <svg
-                          class="w-4 h-4 ml-1 inline-block"
+                          class="w-4 h-4 ml-1 inline-block transform transition-transform duration-200 group-hover:rotate-180"
                           fill="none"
                           stroke="currentColor"
                           viewBox="0 0 24 24">
@@ -148,7 +148,8 @@ const menuitems = [
     }
 
     /* Show submenu when the parent group contains focus */
-    .group:focus-within .submenu-container {
+    .group:focus-within .submenu-container,
+    .group[aria-expanded="true"] .submenu-container {
       display: block;
     }
 
@@ -164,8 +165,23 @@ const menuitems = [
   }
 </style>
 
-<!-- Script tag might be removable if astro-navbar handles everything -->
 <script>
-  // No custom JavaScript for submenu toggling needed now.
-  // Leave this empty or remove if no other script logic exists.
+  // Add JavaScript to handle mobile menu toggle
+  document.addEventListener("DOMContentLoaded", () => {
+    const menuButtons = document.querySelectorAll("button[aria-expanded]");
+
+    menuButtons.forEach((button) => {
+      button.addEventListener("click", (e) => {
+        e.preventDefault();
+        const isExpanded = button.getAttribute("aria-expanded") === "true";
+        button.setAttribute("aria-expanded", String(!isExpanded));
+
+        // Toggle the submenu
+        const submenu = button.nextElementSibling as HTMLElement;
+        if (submenu && submenu.classList.contains("submenu-container")) {
+          submenu.style.display = isExpanded ? "none" : "block";
+        }
+      });
+    });
+  });
 </script>
