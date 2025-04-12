@@ -13,7 +13,9 @@
       <p class="text-sm text-text-light">
         © 2025 Religious Freedom Indiana. All rights reserved.
       </p>
-      <p class="text-xs text-text-light">Build: {import.meta.env.PUBLIC_BUILD_VERSION}</p>
+      <p class="text-[10px] text-gray-400">
+        Build: {import.meta.env.PUBLIC_BUILD_VERSION || "dev"}
+      </p>
     </div>
 
     {/* Right side: Links and Button */}
