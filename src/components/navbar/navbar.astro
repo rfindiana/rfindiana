@@ -170,17 +170,52 @@ const menuitems = [
   document.addEventListener("DOMContentLoaded", () => {
     const menuButtons = document.querySelectorAll("button[aria-expanded]");
 
+    // Function to close all submenus
+    const closeAllSubmenus = () => {
+      menuButtons.forEach((button) => {
+        button.setAttribute("aria-expanded", "false");
+        const submenu = button.nextElementSibling as HTMLElement;
+        if (submenu && submenu.classList.contains("submenu-container")) {
+          submenu.style.display = "none";
+        }
+      });
+    };
+
+    // Handle menu button clicks
     menuButtons.forEach((button) => {
       button.addEventListener("click", (e) => {
         e.preventDefault();
-        const isExpanded = button.getAttribute("aria-expanded") === "true";
-        button.setAttribute("aria-expanded", String(!isExpanded));
+        e.stopPropagation();
 
-        // Toggle the submenu
+        const isExpanded = button.getAttribute("aria-expanded") === "true";
+
+        // Close all other submenus first
+        if (!isExpanded) {
+          closeAllSubmenus();
+        }
+
+        // Toggle current submenu
+        button.setAttribute("aria-expanded", String(!isExpanded));
         const submenu = button.nextElementSibling as HTMLElement;
         if (submenu && submenu.classList.contains("submenu-container")) {
           submenu.style.display = isExpanded ? "none" : "block";
         }
+      });
+    });
+
+    // Close submenus when clicking outside
+    document.addEventListener("click", (e) => {
+      const target = e.target as HTMLElement;
+      if (!target.closest(".group")) {
+        closeAllSubmenus();
+      }
+    });
+
+    // Handle submenu item clicks
+    document.querySelectorAll(".submenu-container a").forEach((link) => {
+      link.addEventListener("click", () => {
+        // Close all submenus after clicking a submenu item
+        closeAllSubmenus();
       });
     });
   });
