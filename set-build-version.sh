@@ -8,6 +8,6 @@ DATE=$(date +%Y-%m-%d)
 TIME=$(date +%H:%M)
 
 # Compose version
-echo "PUBLIC_BUILD_VERSION=$DATE $TIME-$SHORT_SHA" > .env.production
+echo "PUBLIC_BUILD_VERSION=$DATE ${TIME}UTC-$SHORT_SHA" > .env.production
 
 echo "Set PUBLIC_BUILD_VERSION=$DATE $TIME-$SHORT_SHA"
