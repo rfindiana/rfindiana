@@ -1,3 +1,7 @@
+---
+// No imports needed in the frontmatter
+---
+
 <footer class="bg-white text-text py-4 px-6 border-t">
   <div
     class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 md:gap-6">
@@ -14,7 +18,9 @@
         © 2025 Religious Freedom Indiana. All rights reserved.
       </p>
       <p class="text-[8px] text-gray-300">
-        Build: {import.meta.env.PUBLIC_BUILD_VERSION || "dev"}
+        Build: <span id="build-version"
+          >{import.meta.env.PUBLIC_BUILD_VERSION || "dev"}</span
+        >
       </p>
     </div>
 
@@ -37,3 +43,41 @@
     </div>
   </div>
 </footer>
+
+<script>
+  // Declare Day.js types
+  declare const dayjs: any;
+  declare const dayjs_plugin_utc: any;
+  declare const dayjs_plugin_timezone: any;
+
+  // Load Day.js and its plugins
+  import("https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js")
+    .then(() => import("https://cdn.jsdelivr.net/npm/dayjs@1/plugin/utc.js"))
+    .then(
+      () => import("https://cdn.jsdelivr.net/npm/dayjs@1/plugin/timezone.js")
+    )
+    .then(() => {
+      const buildVersionElement = document.getElementById("build-version");
+      if (!buildVersionElement) return;
+
+      const buildVersion = buildVersionElement.textContent;
+      if (!buildVersion || buildVersion === "dev") return;
+
+      // Extract the date part from the build version (format: YYYY-MM-DD HH:mmUTC-XXXX)
+      const dateMatch = buildVersion.match(/(\d{4}-\d{2}-\d{2} \d{2}:\d{2})/);
+      if (dateMatch) {
+        const utcDate = dateMatch[1];
+        const easternTime = dayjs
+          .utc(utcDate)
+          .tz("America/New_York")
+          .format("YYYY-MM-DD HH:mm");
+        buildVersionElement.textContent = buildVersion.replace(
+          utcDate,
+          easternTime + " ET"
+        );
+      }
+    })
+    .catch((error) => {
+      console.error("Error loading Day.js:", error);
+    });
+</script>
