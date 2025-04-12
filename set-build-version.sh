@@ -1,12 +1,13 @@
 #!/bin/bash
 
-# Trim the commit SHA to 7 characters
+# Get short commit SHA
 SHORT_SHA=$(echo $CF_PAGES_COMMIT_SHA | cut -c1-7)
 
-# Get today's date
+# Get current date and time (in local time)
 DATE=$(date +%Y-%m-%d)
+TIME=$(date +%H:%M)
 
-# Write the value to .env.production
-echo "PUBLIC_BUILD_VERSION=$DATE-$SHORT_SHA" > .env.production
+# Compose version
+echo "PUBLIC_BUILD_VERSION=$DATE $TIME-$SHORT_SHA" > .env.production
 
-echo "Set PUBLIC_BUILD_VERSION=$DATE-$SHORT_SHA"
+echo "Set PUBLIC_BUILD_VERSION=$DATE $TIME-$SHORT_SHA"
