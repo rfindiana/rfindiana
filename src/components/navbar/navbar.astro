@@ -75,6 +75,23 @@ const menuitems = [
                             />
                           </svg>
                         </button>
+                        <div class="submenu-container lg:absolute lg:left-0 w-full lg:w-48 bg-white lg:rounded-md lg:shadow-lg py-1 z-50 hidden lg:group-hover:block">
+                          {item.submenu.map((subitem) => {
+                            const isSubActive =
+                              Astro.url.pathname === subitem.path;
+                            return (
+                              <a
+                                href={subitem.path}
+                                class={`block px-4 py-2 text-sm ${
+                                  isSubActive
+                                    ? "text-primary font-bold"
+                                    : "text-gray-700 hover:text-primary"
+                                }`}>
+                                {subitem.title}
+                              </a>
+                            );
+                          })}
+                        </div>
                       </div>
 
                       {/* Mobile version */}
