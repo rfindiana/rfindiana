@@ -5,156 +5,152 @@ import PageTitle from "@/components/PageTitle.astro";
 ---
 
 <Layout title="Books">
-  <Container>
-    <article class="max-w-3xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
-      <PageTitle title="Books" />
+  <Container article>
+    <PageTitle title="Books" />
 
-      <div class="bg-white rounded-lg shadow-md overflow-hidden">
-        <table class="min-w-full divide-y divide-gray-200">
-          <thead class="bg-gray-50">
-            <tr>
-              <th
-                scope="col"
-                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                Date
-              </th>
-              <th
-                scope="col"
-                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                Author
-              </th>
-              <th
-                scope="col"
-                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                Title
-              </th>
-              <th
-                scope="col"
-                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                More Info
-              </th>
-              <th
-                scope="col"
-                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                Amazon
-              </th>
-            </tr>
-          </thead>
-          <tbody class="bg-white divide-y divide-gray-200">
-            <tr>
-              <td class="px-6 py-4 text-sm text-gray-900">2024-10</td>
-              <td class="px-6 py-4 text-sm text-gray-900">Amanda Tyler</td>
-              <td class="px-6 py-4 text-sm text-gray-900"
-                >How to End Christian Nationalism</td
+    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+      <table class="min-w-full divide-y divide-gray-200">
+        <thead class="bg-gray-50">
+          <tr>
+            <th
+              scope="col"
+              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              Date
+            </th>
+            <th
+              scope="col"
+              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              Author
+            </th>
+            <th
+              scope="col"
+              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              Title
+            </th>
+            <th
+              scope="col"
+              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              More Info
+            </th>
+            <th
+              scope="col"
+              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              Amazon
+            </th>
+          </tr>
+        </thead>
+        <tbody class="bg-white divide-y divide-gray-200">
+          <tr>
+            <td class="px-6 py-4 text-sm text-gray-900">2024-10</td>
+            <td class="px-6 py-4 text-sm text-gray-900">Amanda Tyler</td>
+            <td class="px-6 py-4 text-sm text-gray-900"
+              >How to End Christian Nationalism</td
+            >
+            <td class="px-6 py-4 text-sm">
+              <a
+                href="https://www.broadleafbooks.com/store/product/9781506498287/How-to-End-Christian-Nationalism"
+                target="_blank"
+                class="text-primary hover:text-primary-dark">More Info</a
               >
-              <td class="px-6 py-4 text-sm">
-                <a
-                  href="https://www.broadleafbooks.com/store/product/9781506498287/How-to-End-Christian-Nationalism"
-                  target="_blank"
-                  class="text-primary hover:text-primary-dark">More Info</a
-                >
-              </td>
-              <td class="px-6 py-4 text-sm">
-                <a
-                  href="https://www.amazon.com/dp/1506498280/?bestFormat=true&k=how%20to%20end%20christian%20nationalism%20amanda%20tyler&ref_=nb_sb_ss_w_scx-ent-pd-bk-d_de_k0_1_13&crid=33N2LOB3VHVFH&sprefix=how%20to%20end%20ch"
-                  target="_blank"
-                  class="text-primary hover:text-primary-dark">Amazon</a
-                >
-              </td>
-            </tr>
-            <tr>
-              <td class="px-6 py-4 text-sm text-gray-900">2024-09</td>
-              <td class="px-6 py-4 text-sm text-gray-900">Taylor, Matthew D.</td
+            </td>
+            <td class="px-6 py-4 text-sm">
+              <a
+                href="https://www.amazon.com/dp/1506498280/?bestFormat=true&k=how%20to%20end%20christian%20nationalism%20amanda%20tyler&ref_=nb_sb_ss_w_scx-ent-pd-bk-d_de_k0_1_13&crid=33N2LOB3VHVFH&sprefix=how%20to%20end%20ch"
+                target="_blank"
+                class="text-primary hover:text-primary-dark">Amazon</a
               >
-              <td class="px-6 py-4 text-sm text-gray-900"
-                >The Violent Take it by Force</td
+            </td>
+          </tr>
+          <tr>
+            <td class="px-6 py-4 text-sm text-gray-900">2024-09</td>
+            <td class="px-6 py-4 text-sm text-gray-900">Taylor, Matthew D.</td>
+            <td class="px-6 py-4 text-sm text-gray-900"
+              >The Violent Take it by Force</td
+            >
+            <td class="px-6 py-4 text-sm">
+              <a
+                href="https://icjs.org/the-violent-take-it-by-force/"
+                target="_blank"
+                class="text-primary hover:text-primary-dark">More Info</a
               >
-              <td class="px-6 py-4 text-sm">
-                <a
-                  href="https://icjs.org/the-violent-take-it-by-force/"
-                  target="_blank"
-                  class="text-primary hover:text-primary-dark">More Info</a
-                >
-              </td>
-              <td class="px-6 py-4 text-sm">
-                <a
-                  href="https://www.amazon.com/dp/1506497780/?bestFormat=true&k=the%20violent%20take%20it%20by%20force&ref_=nb_sb_ss_w_scx-ent-pd-bk-d_de_k0_1_10&crid=2ZUBRU3PJIB32&sprefix=the%20violen"
-                  target="_blank"
-                  class="text-primary hover:text-primary-dark">Amazon</a
-                >
-              </td>
-            </tr>
-            <tr>
-              <td class="px-6 py-4 text-sm text-gray-900">2024-07</td>
-              <td class="px-6 py-4 text-sm text-gray-900">Drew J. Strait</td>
-              <td class="px-6 py-4 text-sm text-gray-900">Strange Worship</td>
-              <td class="px-6 py-4 text-sm">
-                <a
-                  href="https://www.drewstrait.com/"
-                  target="_blank"
-                  class="text-primary hover:text-primary-dark">More Info</a
-                >
-              </td>
-              <td class="px-6 py-4 text-sm">
-                <a
-                  href="https://www.amazon.com/Strange-Worship-Challenging-Christian-Nationalism-ebook/dp/B0DB9VRS4S/ref=sr_1_1?crid=38RNOTNHPAJ99&dib=eyJ2IjoiMSJ9.it1JDJ1zVoXEWNqDHLgBGrEpXQEXtUBWzd0wA7GJ_QguRuPq5R-CdNoBXALP-8WvTjW2N7-Jfe-hcL3DSelwpAaW4SrtPDyQ3TLtjNm-ZDNuJa-5pVE_9RkrLCHOrQ-9cE8cQpYys5ZHKp9bx8X7BBAs1Q-e_f-8YDgzt5u8o_bR6DYXVSwf_aOYe6A1-n0Z.TKOuJHvmvQDivtg6eftY-mtq6qN0ZdWlXV3br9mMba4&dib_tag=se&keywords=strange+worship&qid=1744391571&s=digital-text&sprefix=strange+worship%2Cdigital-text%2C110&sr=1-1"
-                  target="_blank"
-                  class="text-primary hover:text-primary-dark">Amazon</a
-                >
-              </td>
-            </tr>
-            <tr>
-              <td class="px-6 py-4 text-sm text-gray-900">2020-06</td>
-              <td class="px-6 py-4 text-sm text-gray-900"
-                >Kristin Kobes Du Mez</td
+            </td>
+            <td class="px-6 py-4 text-sm">
+              <a
+                href="https://www.amazon.com/dp/1506497780/?bestFormat=true&k=the%20violent%20take%20it%20by%20force&ref_=nb_sb_ss_w_scx-ent-pd-bk-d_de_k0_1_10&crid=2ZUBRU3PJIB32&sprefix=the%20violen"
+                target="_blank"
+                class="text-primary hover:text-primary-dark">Amazon</a
               >
-              <td class="px-6 py-4 text-sm text-gray-900"
-                >Jesus and John Wayne - How White Evangelicals Corrupted a Faith
-                and Fractured a Nation</td
+            </td>
+          </tr>
+          <tr>
+            <td class="px-6 py-4 text-sm text-gray-900">2024-07</td>
+            <td class="px-6 py-4 text-sm text-gray-900">Drew J. Strait</td>
+            <td class="px-6 py-4 text-sm text-gray-900">Strange Worship</td>
+            <td class="px-6 py-4 text-sm">
+              <a
+                href="https://www.drewstrait.com/"
+                target="_blank"
+                class="text-primary hover:text-primary-dark">More Info</a
               >
-              <td class="px-6 py-4 text-sm">
-                <a
-                  href="https://kristindumez.com/books/jesus-and-john-wayne/"
-                  target="_blank"
-                  class="text-primary hover:text-primary-dark">More Info</a
-                >
-              </td>
-              <td class="px-6 py-4 text-sm">
-                <a
-                  href="https://www.amazon.com/Jesus-John-Wayne-Evangelicals-Corrupted-ebook/dp/B07ZTSVLX3/ref=sr_1_1?crid=XVG0EW52HX91&dib=eyJ2IjoiMSJ9.cT_BQDxepDlcDimSKA7wWA.x6ynPe7ceAV-eQXctO5xoR3Gp-GorHFGng-ymzH3-m8&dib_tag=se&keywords=Jesus+and+John+Wayne%3A+How+White+Evangelicals+Corrupted+a+Faith+and+Fractured+a+Nation&qid=1744392080&s=books&sprefix=jesus+and+john+wayne+how+white+evangelicals+corrupted+a+faith+and+fractured+a+nation%2Cstripbooks%2C92&sr=1-1"
-                  target="_blank"
-                  class="text-primary hover:text-primary-dark">Amazon</a
-                >
-              </td>
-            </tr>
-            <tr>
-              <td class="px-6 py-4 text-sm text-gray-900">2020-03</td>
-              <td class="px-6 py-4 text-sm text-gray-900"
-                >Andrew L. Whitehead & Samuel L. Perry</td
+            </td>
+            <td class="px-6 py-4 text-sm">
+              <a
+                href="https://www.amazon.com/Strange-Worship-Challenging-Christian-Nationalism-ebook/dp/B0DB9VRS4S/ref=sr_1_1?crid=38RNOTNHPAJ99&dib=eyJ2IjoiMSJ9.it1JDJ1zVoXEWNqDHLgBGrEpXQEXtUBWzd0wA7GJ_QguRuPq5R-CdNoBXALP-8WvTjW2N7-Jfe-hcL3DSelwpAaW4SrtPDyQ3TLtjNm-ZDNuJa-5pVE_9RkrLCHOrQ-9cE8cQpYys5ZHKp9bx8X7BBAs1Q-e_f-8YDgzt5u8o_bR6DYXVSwf_aOYe6A1-n0Z.TKOuJHvmvQDivtg6eftY-mtq6qN0ZdWlXV3br9mMba4&dib_tag=se&keywords=strange+worship&qid=1744391571&s=digital-text&sprefix=strange+worship%2Cdigital-text%2C110&sr=1-1"
+                target="_blank"
+                class="text-primary hover:text-primary-dark">Amazon</a
               >
-              <td class="px-6 py-4 text-sm text-gray-900"
-                >Taking America Back for God: Christian Nationalism in the
-                United States</td
+            </td>
+          </tr>
+          <tr>
+            <td class="px-6 py-4 text-sm text-gray-900">2020-06</td>
+            <td class="px-6 py-4 text-sm text-gray-900">Kristin Kobes Du Mez</td
+            >
+            <td class="px-6 py-4 text-sm text-gray-900"
+              >Jesus and John Wayne - How White Evangelicals Corrupted a Faith
+              and Fractured a Nation</td
+            >
+            <td class="px-6 py-4 text-sm">
+              <a
+                href="https://kristindumez.com/books/jesus-and-john-wayne/"
+                target="_blank"
+                class="text-primary hover:text-primary-dark">More Info</a
               >
-              <td class="px-6 py-4 text-sm">
-                <a
-                  href="https://readingreligion.org/9780190057886/"
-                  target="_blank"
-                  class="text-primary hover:text-primary-dark">More Info</a
-                >
-              </td>
-              <td class="px-6 py-4 text-sm">
-                <a
-                  href="https://www.amazon.com/Taking-America-Back-God-Nationalism-ebook/dp/B083WJD245/ref=sr_1_2?crid=3ONVJ8K9OO5MP&dib=eyJ2IjoiMSJ9.gmXvLK_aypwl77pPjk9gYlj7OBPVXGpC5puPMaXibD0Nnh1AE-zRH-kleMP5PJFEm2BzPfvjKcOmfDbKb8HyNG1BhJR2iCthIB7H2aoZPgGzVo0w3tVPw205NaAfYUiogIhOWhdUjDty1AbsUnCwlwGo52vpjMpIBdnDoSfG5l1PAnAJKOCuLLW-TP5CbQ4_adT3lgzMrDwf5jPBfOrAOGkdhRwrd6u0D8cARBlgir4.50nmvOdW8iVDZfqk5ng9_xOFndT1UCqIjAFNUXRhLXI&dib_tag=se&keywords=andrew+whitehead&qid=1744391641&s=digital-text&sprefix=andrew+whitehead+%2Cdigital-text%2C104&sr=1-2"
-                  target="_blank"
-                  class="text-primary hover:text-primary-dark">Amazon</a
-                >
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </article>
+            </td>
+            <td class="px-6 py-4 text-sm">
+              <a
+                href="https://www.amazon.com/Jesus-John-Wayne-Evangelicals-Corrupted-ebook/dp/B07ZTSVLX3/ref=sr_1_1?crid=XVG0EW52HX91&dib=eyJ2IjoiMSJ9.cT_BQDxepDlcDimSKA7wWA.x6ynPe7ceAV-eQXctO5xoR3Gp-GorHFGng-ymzH3-m8&dib_tag=se&keywords=Jesus+and+John+Wayne%3A+How+White+Evangelicals+Corrupted+a+Faith+and+Fractured+a+Nation&qid=1744392080&s=books&sprefix=jesus+and+john+wayne+how+white+evangelicals+corrupted+a+faith+and+fractured+a+nation%2Cstripbooks%2C92&sr=1-1"
+                target="_blank"
+                class="text-primary hover:text-primary-dark">Amazon</a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td class="px-6 py-4 text-sm text-gray-900">2020-03</td>
+            <td class="px-6 py-4 text-sm text-gray-900"
+              >Andrew L. Whitehead & Samuel L. Perry</td
+            >
+            <td class="px-6 py-4 text-sm text-gray-900"
+              >Taking America Back for God: Christian Nationalism in the United
+              States</td
+            >
+            <td class="px-6 py-4 text-sm">
+              <a
+                href="https://readingreligion.org/9780190057886/"
+                target="_blank"
+                class="text-primary hover:text-primary-dark">More Info</a
+              >
+            </td>
+            <td class="px-6 py-4 text-sm">
+              <a
+                href="https://www.amazon.com/Taking-America-Back-God-Nationalism-ebook/dp/B083WJD245/ref=sr_1_2?crid=3ONVJ8K9OO5MP&dib=eyJ2IjoiMSJ9.gmXvLK_aypwl77pPjk9gYlj7OBPVXGpC5puPMaXibD0Nnh1AE-zRH-kleMP5PJFEm2BzPfvjKcOmfDbKb8HyNG1BhJR2iCthIB7H2aoZPgGzVo0w3tVPw205NaAfYUiogIhOWhdUjDty1AbsUnCwlwGo52vpjMpIBdnDoSfG5l1PAnAJKOCuLLW-TP5CbQ4_adT3lgzMrDwf5jPBfOrAOGkdhRwrd6u0D8cARBlgir4.50nmvOdW8iVDZfqk5ng9_xOFndT1UCqIjAFNUXRhLXI&dib_tag=se&keywords=andrew+whitehead&qid=1744391641&s=digital-text&sprefix=andrew+whitehead+%2Cdigital-text%2C104&sr=1-2"
+                target="_blank"
+                class="text-primary hover:text-primary-dark">Amazon</a
+              >
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </Container>
 </Layout>
 

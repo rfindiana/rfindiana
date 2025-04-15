@@ -1,7 +1,24 @@
 ---
-const { class: className } = Astro.props;
+interface Props {
+  class?: string;
+  /**
+   * Whether to wrap the content in an article element with standard styling
+   * @default false
+   */
+  article?: boolean;
+}
+
+const { class: className, article = false } = Astro.props;
 ---
 
 <div class:list={["max-w-(--breakpoint-xl) mx-auto px-5", className]}>
-  <slot />
+  {
+    article ? (
+      <article class="max-w-3xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
+        <slot />
+      </article>
+    ) : (
+      <slot />
+    )
+  }
 </div>

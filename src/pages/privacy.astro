@@ -1,13 +1,14 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import PageTitle from "@/components/PageTitle.astro";
+import Container from "@/components/container.astro";
 
 const title = "Privacy Policy";
 const description = "Our privacy policy details how we handle your data.";
 ---
 
 <Layout title={title}>
-  <article class="max-w-3xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
+  <Container article>
     <PageTitle title={title} />
 
     <p class="mb-4 text-text">
@@ -122,5 +123,5 @@ const description = "Our privacy policy details how we handle your data.";
         >info@rfindiana.org</a
       >.
     </p>
-  </article>
+  </Container>
 </Layout>
