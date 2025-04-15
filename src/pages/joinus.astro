@@ -1,14 +1,15 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import Container from "@/components/container.astro";
+import ContentWrapper from "@/components/ContentWrapper.astro";
 ---
 
 <Layout title="Join Hoosiers Working For Religious Freedom">
   <Container>
-    <article class="max-w-3xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
+    <ContentWrapper width="wide">
       <div class="flex flex-col lg:flex-row lg:gap-12">
         <div class="lg:w-7/12">
-          <h1 class="text-3xl font-bold text-primary mb-8">
+          <h1 class="text-2xl font-bold text-primary mb-4">
             Join Hoosiers Working for Religious Freedom
           </h1>
           <div class="mailerlite-embed-container">
@@ -19,7 +20,7 @@ import Container from "@/components/container.astro";
         <div class="lg:w-5/12 mt-8 lg:mt-0">
           <h2 class="text-2xl font-bold text-primary mb-4">Notes</h2>
           <div class="bg-gray-50 rounded-lg p-6">
-            <ol class="list-decimal list-inside space-y-4 text-base">
+            <ol class="list-decimal list-inside space-y-3 text-lg">
               <li>
                 If you want to show your support but don't wish to receive
                 regular emails, you can subscribe and then unsubscribe
@@ -58,6 +59,6 @@ import Container from "@/components/container.astro";
           </div>
         </div>
       </div>
-    </article>
+    </ContentWrapper>
   </Container>
 </Layout>

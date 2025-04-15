@@ -1,124 +1,109 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import Container from "@/components/container.astro";
+import ContentWrapper from "@/components/ContentWrapper.astro";
 ---
 
 <Layout title="Network">
   <Container>
-    <article class="max-w-3xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
+    <ContentWrapper>
       <h1 class="text-3xl font-bold text-primary mb-8">Network</h1>
-      <p class="text-lg mb-4">
-        Religious Freedom Indiana believes in the power of working together. By
-        building a diverse network of like-minded organizations — from national
-        voices to local initiatives — we strengthen our collective efforts to
-        protect genuine religious freedom for all. Below are some of the allies,
-        collaborators, and organizations we've connected with as we work
-        together to safeguard faith, equity, and democracy in Indiana and
-        beyond.
-      </p>
-      <p class="text-lg mb-8">
-        We encourage our members to consider subscribing to these organizations
-        and to review their resources.
-      </p>
 
-      <h2 class="text-2xl font-semibold text-primary mb-6">National Allies</h2>
+      <div class="space-y-12">
+        <section>
+          <h2 class="text-2xl font-semibold mb-4 text-primary">
+            National Organizations
+          </h2>
+          <div class="space-y-6">
+            <div class="bg-white rounded-lg shadow-md p-6">
+              <h3 class="text-xl font-semibold mb-3 text-primary">
+                Christians Against Christian Nationalism
+              </h3>
+              <p class="text-lg mb-4">
+                A campaign bringing together Christians to oppose Christian
+                nationalism and its threat to both faith and democracy.
+              </p>
+              <div class="flex items-center space-x-4">
+                <a
+                  href="https://www.christiansagainstchristiannationalism.org/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center text-primary hover:text-primary-dark">
+                  Visit Website
+                  <svg
+                    class="w-4 h-4 ml-1"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    ><path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                    ></path></svg
+                  >
+                </a>
+              </div>
+            </div>
 
-      <div class="bg-white rounded-lg shadow-md overflow-hidden mb-8">
-        <table class="min-w-full divide-y divide-gray-200">
-          <thead class="bg-gray-50">
-            <tr>
-              <th
-                scope="col"
-                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                Organization
-              </th>
-              <th
-                scope="col"
-                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                Description
-              </th>
-            </tr>
-          </thead>
-          <tbody class="bg-white divide-y divide-gray-200">
-            <tr>
-              <td class="px-6 py-4">
-                <div
-                  class="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-                  <div class="flex-shrink-0">
-                    <a
-                      href="https://www.christiansagainstchristiannationalism.org/"
-                      target="_blank"
-                      rel="noopener noreferrer">
-                      <img
-                        src="/images/cacn.jpg"
-                        alt="Christians Against Christian Nationalism Logo"
-                        class="h-16 w-auto object-contain"
-                      />
-                    </a>
-                  </div>
-                  <div class="text-sm text-gray-900">
-                    <a
-                      href="https://www.christiansagainstchristiannationalism.org/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="text-lg font-medium text-primary hover:text-primary-dark">
-                      Christians Against Christian Nationalism
-                    </a>
-                    <p class="mt-2 text-gray-600">
-                      Christians Against Christian Nationalism is a grassroots
-                      campaign to combat Christian nationalism in local, state
-                      and national contexts. Launched in 2019, this effort is
-                      not in response to any one event or statement; rather,
-                      it's a sustained campaign built to resist Christian
-                      nationalism and the threat it poses to our faith and
-                      country.
-                    </p>
-                  </div>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td class="px-6 py-4">
-                <div
-                  class="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-                  <div class="flex-shrink-0">
-                    <div
-                      class="h-16 w-48 bg-gray-100 flex items-center justify-center">
-                      <span class="text-gray-400">Logo Coming Soon</span>
-                    </div>
-                  </div>
-                  <div class="text-sm text-gray-900">
-                    <p class="text-lg font-medium text-gray-600">
-                      More National Organizations
-                    </p>
-                    <p class="mt-2 text-gray-600 italic">
-                      Coming soon — organizations who are working for religious
-                      freedom, all across the country.
-                    </p>
-                  </div>
-                </div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+            <div class="bg-white rounded-lg shadow-md p-6">
+              <h3 class="text-xl font-semibold mb-3 text-primary">
+                Baptist Joint Committee for Religious Liberty (BJC)
+              </h3>
+              <p class="text-lg mb-4">
+                A national organization working to defend and extend religious
+                liberty for all people.
+              </p>
+              <div class="flex items-center space-x-4">
+                <a
+                  href="https://bjconline.org/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center text-primary hover:text-primary-dark">
+                  Visit Website
+                  <svg
+                    class="w-4 h-4 ml-1"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    ><path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                    ></path></svg
+                  >
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2 class="text-2xl font-semibold mb-4 text-primary">
+            State Organizations
+          </h2>
+          <div class="bg-gray-50 rounded-lg p-6">
+            <p class="text-lg italic text-gray-600">
+              We are currently building relationships with organizations across
+              Indiana. Check back soon for updates.
+            </p>
+          </div>
+        </section>
+
+        <section>
+          <h2 class="text-2xl font-semibold mb-4 text-primary">
+            Local Organizations
+          </h2>
+          <div class="bg-gray-50 rounded-lg p-6">
+            <p class="text-lg italic text-gray-600">
+              We are actively connecting with local churches, nonprofits, and
+              civic groups who share our mission. Check back soon for updates.
+            </p>
+          </div>
+        </section>
       </div>
-
-      <h2 class="text-2xl font-semibold text-primary mb-6">
-        Statewide Collaborators
-      </h2>
-      <p class="text-lg mb-4 italic text-gray-600">
-        Coming soon — organizations across Indiana we are building relationships
-        with.
-      </p>
-
-      <h2 class="text-2xl font-semibold text-primary mb-6">
-        Local Connections
-      </h2>
-      <p class="text-lg mb-4 italic text-gray-600">
-        Coming soon — local churches, nonprofits, and civic groups who share our
-        mission.
-      </p>
-    </article>
+    </ContentWrapper>
   </Container>
 </Layout>
 
