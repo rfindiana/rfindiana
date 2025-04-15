@@ -1,6 +1,7 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import Container from "@/components/container.astro";
+import PageTitle from "@/components/PageTitle.astro";
 ---
 
 <Layout title="Events">
@@ -8,7 +9,7 @@ import Container from "@/components/container.astro";
     <div class="max-w-4xl mx-auto py-12 px-4">
       <!-- Upcoming Events Section -->
       <section class="mb-16">
-        <h2 class="text-3xl font-bold text-primary mb-8">Upcoming Events</h2>
+        <PageTitle title="Upcoming Events" />
 
         <div class="bg-white rounded-lg shadow-md p-6 mb-6">
           <div class="flex flex-col md:flex-row gap-6">
@@ -24,8 +25,8 @@ import Container from "@/components/container.astro";
                 Virtual Meeting
               </h3>
               <p class="text-gray-600 mb-4">
-                Join us for a virtual gathering to discuss religious
-                freedom in Indiana.
+                Join us for a virtual gathering to discuss religious freedom in
+                Indiana.
               </p>
               <div class="space-y-2">
                 <p class="flex items-center text-gray-700">
@@ -70,7 +71,7 @@ import Container from "@/components/container.astro";
 
       <!-- Past Events Section -->
       <section>
-        <h2 class="text-3xl font-bold text-primary mb-8">Past Events</h2>
+        <PageTitle title="Past Events" />
         <div class="text-center py-12">
           <p class="text-gray-600 text-lg">
             No past events to display at this time.

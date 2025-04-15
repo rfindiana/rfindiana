@@ -1,12 +1,13 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import Container from "@/components/container.astro";
+import PageTitle from "@/components/PageTitle.astro";
 ---
 
 <Layout title="About Us - Religious Freedom Indiana">
   <Container>
     <article class="max-w-3xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
-      <h1 class="text-3xl font-bold mb-6 text-primary">About Us</h1>
+      <PageTitle title="About Us" />
       <div class="mt-2 w-full text-text">
         <p class="text-lg mb-4">
           Religious Freedom Indiana (RFI) is dedicated to building an Indiana
@@ -37,7 +38,7 @@ import Container from "@/components/container.astro";
         </p>
       </div>
 
-      <h1 class="text-3xl font-bold my-6 text-primary">Our Network</h1>
+      <PageTitle title="Our Network" class="mt-12" />
       <p class="text-lg mb-4">
         Religious Freedom Indiana believes in the power of working together. By
         building a diverse network of like-minded organizations — from national

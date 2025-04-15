@@ -1,16 +1,14 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import Container from "@/components/container.astro";
+import PageTitle from "@/components/PageTitle.astro";
 import { COMMON_TEXT } from "@/utils/constants";
 ---
 
 <Layout title="Videos">
   <Container>
     <article class="max-w-3xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
-      <h1 class="text-3xl font-bold text-primary mb-8">Videos</h1>
-      <p class="text-sm text-gray-600 mb-8">
-        {COMMON_TEXT.amazonNote}
-      </p>
+      <PageTitle title="Videos" subtitle={COMMON_TEXT.amazonNote} />
 
       <div class="space-y-8">
         <div class="bg-white rounded-lg shadow-md p-6">

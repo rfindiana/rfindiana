@@ -1,0 +1,22 @@
+---
+/**
+ * Props for the PageTitle component
+ * @interface Props
+ * @property {string} title - The title text to display
+ * @property {string} [subtitle] - Optional subtitle text to display below the title
+ * @property {string} [class] - Optional additional CSS classes to apply to the container
+ */
+interface Props {
+  title: string;
+  subtitle?: string;
+  class?: string;
+}
+
+const { title, subtitle, class: className = "" } = Astro.props;
+---
+
+<div class:list={["mb-8", className]}>
+  <h1 class="text-3xl font-bold text-primary">{title}</h1>
+  {subtitle && <p class="text-sm text-gray-600 mt-2">{subtitle}</p>}
+</div>
+
