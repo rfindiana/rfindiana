@@ -1,57 +1,63 @@
 ---
 import Layout from "@/layouts/Layout.astro";
+import Container from "@/components/container.astro";
 ---
 
 <Layout title="Join Hoosiers Working For Religious Freedom">
-  <div class="container mx-auto px-4 py-12">
-    <div class="flex flex-col md:flex-row md:gap-12">
-      <div class="md:w-1/2 mb-8 md:mb-0">
-        <h2 class="text-2xl font-bold text-primary mb-4">
-          Join Hoosiers Working for Religious Freedom
-        </h2>
-        <div class="mailerlite-embed-container">
-          <div class="ml-embedded" data-form="GG8nAR"></div>
+  <Container>
+    <article class="max-w-3xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col lg:flex-row lg:gap-12">
+        <div class="lg:w-7/12">
+          <h1 class="text-3xl font-bold text-primary mb-8">
+            Join Hoosiers Working for Religious Freedom
+          </h1>
+          <div class="mailerlite-embed-container">
+            <div class="ml-embedded" data-form="GG8nAR"></div>
+          </div>
+        </div>
+
+        <div class="lg:w-5/12 mt-8 lg:mt-0">
+          <h2 class="text-2xl font-bold text-primary mb-4">Notes</h2>
+          <div class="bg-gray-50 rounded-lg p-6">
+            <ol class="list-decimal list-inside space-y-4 text-base">
+              <li>
+                If you want to show your support but don't wish to receive
+                regular emails, you can subscribe and then unsubscribe
+                immediately after confirming your subscription.
+              </li>
+              <li>
+                We respect your privacy. Your responses — including religious
+                affiliation — will be kept confidential. We will never sell your
+                information or share it without your permission. Your name or
+                details will not be publicly listed unless you explicitly agree.
+                You'll only receive updates from Religious Freedom Indiana, and
+                you can unsubscribe at any time.
+              </li>
+              <li>
+                If you are concerned about security, you might consider a free
+                email from <a
+                  href="https://proton.me/mail"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-primary hover:underline font-medium"
+                  >Proton Mail</a
+                >. We use Proton Mail at rfindiana.org to communicate with you.
+              </li>
+              <li>
+                We also encourage you to subscribe to Christians Against
+                Christian Nationalism for their email updates and resources:
+                Subscribe at <a
+                  href="https://christiansagainstchristiannationalism.org/subscribe/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-primary hover:underline font-medium">
+                  ChristiansAgainstChristianNationalism.org
+                </a>
+              </li>
+            </ol>
+          </div>
         </div>
       </div>
-
-      <div class="md:w-1/2">
-        <h2 class="text-2xl font-bold text-primary mb-4">Notes</h2>
-
-        <ol class="list-decimal list-inside space-y-3 text-lg">
-          <li>
-            If you want to show your support but don't wish to receive regular
-            emails, you can subscribe and then unsubscribe immediately after
-            confirming your subscription.
-          </li>
-          <li>
-            We respect your privacy. Your responses — including religious
-            affiliation — will be kept confidential. We will never sell your
-            information or share it without your permission. Your name or
-            details will not be publicly listed unless you explicitly agree.
-            You'll only receive updates from Religious Freedom Indiana, and you
-            can unsubscribe at any time.
-          </li>
-          <li>
-            If you are concerned about security, you might consider a free email
-            from <a
-              href="https://proton.me/mail"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="text-primary hover:underline font-medium">Proton Mail</a
-            >. We use Proton Mail at rfindiana.org to communicate with you.
-          </li>
-          <li>
-            We also encourage you to subscribe to Christians Against Christian
-            Nationalism for their email updates and resources: Subscribe at <a
-              href="https://christiansagainstchristiannationalism.org/subscribe/"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="text-primary hover:underline font-medium">
-              ChristiansAgainstChristianNationalism.org
-            </a>
-          </li>
-        </ol>
-      </div>
-    </div>
-  </div>
+    </article>
+  </Container>
 </Layout>

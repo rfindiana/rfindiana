@@ -12,126 +12,116 @@ const lastUpdated = "April 10, 2025"; // <-- UPDATE THIS DATE MANUALLY
 
 <Layout title="Religious Freedom Indiana">
   <Hero />
-  <div class="container mx-auto px-4 py-8">
-    <section id="about" class="mb-8">
-      <h2 class="text-2xl font-semibold mb-3 text-primary">Vision</h2>
-      <p class="text-lg">
-        An Indiana in which there are no second-class faiths, and in which the
-        Hoosier Christian community speaks in one voice to condemn Christian
-        nationalism as a distortion of the gospel of Jesus and a threat to
-        democracy.
-      </p>
-    </section>
-    <section id="mission" class="mb-8">
-      <h2 class="text-2xl font-semibold mb-3 text-primary">Mission</h2>
-      <p class="text-lg mb-4">
-        To nurture the Hoosier community of Christians who oppose Christian
-        nationalism, Religious Freedom Indiana builds fellowship, scholarship,
-        and championship in our common, peaceful purpose to:
-      </p>
-      <ul class="list-disc pl-5 space-y-2 text-lg">
-        <li>
-          Create a safe space for those who are concerned about Christian
-          Nationalism and want to learn more about its origins and impact
-        </li>
-        <li>Speak out against Christian Nationalism</li>
-        <li>
-          Reverse Christian Nationalism's toxic influence in politics, policy,
-          church teaching, and the spiritual health of our brothers and sisters
-          in Christ
-        </li>
-      </ul>
-    </section>
+  <Container>
+    <article class="max-w-3xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
+      <section id="about" class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4 text-primary">Vision</h2>
+        <p class="text-lg">
+          An Indiana in which there are no second-class faiths, and in which the
+          Hoosier Christian community speaks in one voice to condemn Christian
+          nationalism as a distortion of the gospel of Jesus and a threat to
+          democracy.
+        </p>
+      </section>
 
-    {/* Membership Goal Section */}
-    <section class="mt-12 pt-8 border-t">
-      <h2 class="text-2xl font-semibold text-primary mb-4">
-        Our Membership Goal
-      </h2>
-      <p class="text-lg text-gray-700 mb-6">
-        Our goal is to connect with 100,000 Hoosiers
-        <span class="text-sm text-gray-600"
-          >(approx. 3.4% of Indiana voters in the 2024 presidential election)</span
-        >
-        dedicated to protecting true religious freedom. Here's our progress:
-      </p>
+      <section id="mission" class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4 text-primary">Mission</h2>
+        <p class="text-lg mb-6">
+          To nurture the Hoosier community of Christians who oppose Christian
+          nationalism, Religious Freedom Indiana builds fellowship, scholarship,
+          and championship in our common, peaceful purpose to:
+        </p>
+        <ul class="list-disc pl-6 space-y-3 text-lg">
+          <li>
+            Create a safe space for those who are concerned about Christian
+            Nationalism and want to learn more about its origins and impact
+          </li>
+          <li>Speak out against Christian Nationalism</li>
+          <li>
+            Reverse Christian Nationalism's toxic influence in politics, policy,
+            church teaching, and the spiritual health of our brothers and
+            sisters in Christ
+          </li>
+        </ul>
+      </section>
 
-      {/* Current Progress Display */}
-      <div class="bg-gray-100 rounded-lg p-6 mb-8">
-        <h3 class="text-xl font-medium text-gray-800 mb-3">
-          Current Progress:
-        </h3>
-        <div
-          class="flex flex-col sm:flex-row justify-between items-baseline mb-3">
-          <span class="text-lg font-semibold text-primary">
-            {currentMembers.toLocaleString()} / {goal.toLocaleString()} Total Supporters
-          </span>
-          <span class="text-sm font-medium text-gray-600">
-            {percentage}% towards our goal!
-          </span>
-        </div>
-        {/* Optional Progress Bar */}
-        <div class="w-full bg-gray-300 rounded-full h-4 overflow-hidden">
+      <section class="pt-8 border-t">
+        <h2 class="text-2xl font-semibold text-primary mb-6">
+          Our Membership Goal
+        </h2>
+        <p class="text-lg text-gray-700 mb-6">
+          Our goal is to connect with 100,000 Hoosiers
+          <span class="text-sm text-gray-600"
+            >(approx. 3.4% of Indiana voters in the 2024 presidential election)</span
+          >
+          dedicated to protecting true religious freedom. Here's our progress:
+        </p>
+
+        <div class="bg-gray-50 rounded-lg p-6 mb-8">
+          <h3 class="text-xl font-medium text-gray-800 mb-4">
+            Current Progress:
+          </h3>
           <div
-            class="bg-primary h-4 rounded-full"
-            style={`width: ${percentage}%`}>
+            class="flex flex-col sm:flex-row justify-between items-baseline mb-4">
+            <span class="text-lg font-semibold text-primary">
+              {currentMembers.toLocaleString()} / {goal.toLocaleString()} Total Supporters
+            </span>
+            <span class="text-sm font-medium text-gray-600">
+              {percentage}% towards our goal!
+            </span>
+          </div>
+          <div class="w-full bg-gray-200 rounded-full h-4 overflow-hidden">
+            <div
+              class="bg-primary h-4 rounded-full transition-all duration-500"
+              style={`width: ${percentage}%`}>
+            </div>
+          </div>
+          <p class="text-xs text-gray-500 mt-2">Last updated: {lastUpdated}</p>
+          <p class="text-sm text-gray-600 mt-4">
+            Note: If you want to show your support but don't wish to receive
+            regular emails, you can subscribe and then unsubscribe immediately
+            after confirming your subscription.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-medium text-gray-800 mb-4">
+            Growth Milestones:
+          </h3>
+          <div class="overflow-x-auto">
+            <table class="min-w-full divide-y divide-gray-200 text-sm">
+              <thead class="bg-gray-50">
+                <tr>
+                  <th
+                    scope="col"
+                    class="px-6 py-3 text-left font-medium text-gray-500 uppercase tracking-wider"
+                    >Date</th
+                  >
+                  <th
+                    scope="col"
+                    class="px-6 py-3 text-left font-medium text-gray-500 uppercase tracking-wider"
+                    >Total Supporters</th
+                  >
+                </tr>
+              </thead>
+              <tbody class="bg-white divide-y divide-gray-200">
+                <tr>
+                  <td class="px-6 py-4 whitespace-nowrap text-gray-900"
+                    >March 27, 2025</td
+                  >
+                  <td class="px-6 py-4 whitespace-nowrap text-gray-900">28</td>
+                </tr>
+                <tr>
+                  <td class="px-6 py-4 whitespace-nowrap text-gray-900"
+                    >April 10, 2025</td
+                  >
+                  <td class="px-6 py-4 whitespace-nowrap text-gray-900">69</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
-        <p class="text-xs text-gray-500 mt-2">Last updated: {lastUpdated}</p>
-        <p class="text-sm text-gray-600 mt-4">
-          Note: If you want to show your support but don't wish to receive
-          regular emails, you can subscribe and then unsubscribe immediately
-          after confirming your subscription.
-        </p>
-      </div>
-
-      {/* Growth Milestones Table */}
-      <div>
-        <h3 class="text-xl font-medium text-gray-800 mb-3">
-          Growth Milestones:
-        </h3>
-        <div class="overflow-x-auto">
-          <table class="min-w-full divide-y divide-gray-200 text-sm">
-            <thead class="bg-gray-50">
-              <tr>
-                <th
-                  scope="col"
-                  class="px-6 py-3 text-left font-medium text-gray-500 uppercase tracking-wider"
-                  >Date</th
-                >
-                <th
-                  scope="col"
-                  class="px-6 py-3 text-left font-medium text-gray-500 uppercase tracking-wider"
-                  >Total Supporters</th
-                >
-              </tr>
-            </thead>
-            <tbody class="bg-white divide-y divide-gray-200">
-              <tr>
-                <td class="px-6 py-4 whitespace-nowrap text-gray-900"
-                  >March 27, 2025</td
-                >
-                <td class="px-6 py-4 whitespace-nowrap text-gray-900">28</td>
-              </tr>
-              <tr>
-                <td class="px-6 py-4 whitespace-nowrap text-gray-900"
-                  >April 10, 2025</td
-                >
-                <td class="px-6 py-4 whitespace-nowrap text-gray-900">69</td>
-              </tr>
-              {/* Add new milestone rows here manually */}
-              {
-                /* Example: 
-              <tr>
-                <td class="px-6 py-4 whitespace-nowrap text-gray-900">[New Date]</td>
-                <td class="px-6 py-4 whitespace-nowrap text-gray-900">[New Count]</td>
-              </tr> 
-              */
-              }
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-  </div>
+      </section>
+    </article>
+  </Container>
 </Layout>
