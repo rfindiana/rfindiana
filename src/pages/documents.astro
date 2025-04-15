@@ -1,12 +1,11 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import Container from "@/components/container.astro";
-import ContentWrapper from "@/components/ContentWrapper.astro";
 ---
 
 <Layout title="Documents">
   <Container>
-    <ContentWrapper width="wide">
+    <article class="max-w-3xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
       <h1 class="text-3xl font-bold text-primary mb-8">Documents</h1>
 
       <div class="bg-white rounded-lg shadow-md overflow-hidden">
@@ -195,7 +194,7 @@ import ContentWrapper from "@/components/ContentWrapper.astro";
           </tbody>
         </table>
       </div>
-    </ContentWrapper>
+    </article>
   </Container>
 </Layout>
 

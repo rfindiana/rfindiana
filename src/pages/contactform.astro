@@ -2,14 +2,13 @@
 import Layout from "@/layouts/Layout.astro";
 import Container from "@/components/container.astro";
 import Button from "@/components/ui/button.astro";
-import ContentWrapper from "@/components/ContentWrapper.astro";
 ---
 
 <!-- To make this contact form work, create your free access key from https://web3forms.com/
      Then you will get all form submissions in your email inbox. -->
 <Layout title="Contact Us - Religious Freedom Indiana">
   <Container>
-    <ContentWrapper width="wide">
+    <article class="max-w-3xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
       <h1 class="text-3xl font-bold text-primary mb-8">Contact Us</h1>
       <div class="max-w-2xl">
         <p class="text-lg mb-8">
@@ -84,7 +83,7 @@ import ContentWrapper from "@/components/ContentWrapper.astro";
           <div id="result" class="mt-3 text-center"></div>
         </form>
       </div>
-    </ContentWrapper>
+    </article>
   </Container>
 </Layout>
 
