@@ -2,11 +2,18 @@
 import { SEO } from "astro-seo";
 import Footer from "@/components/footer.astro";
 import Navbar from "@/components/navbar/navbar.astro";
+import { SITE, SOCIAL } from "@/utils/constants";
 import "@fontsource-variable/inter/index.css";
 import "@fontsource-variable/bricolage-grotesque";
 import "../styles/global.css";
 import { ViewTransitions } from "astro:transitions";
 
+/**
+ * Props for the Layout component
+ * @interface Props
+ * @property {string} title - The page title. If it matches the site name, it will be used as is.
+ *                           Otherwise, it will be combined with the site name using the template pattern.
+ */
 export interface Props {
   title: string;
 }
@@ -21,9 +28,9 @@ const resolvedImageWithDomain = new URL(
 const { title } = Astro.props;
 
 const makeTitle =
-  title === "Religious Freedom Indiana"
-    ? "Religious Freedom Indiana"
-    : title + " | " + "Religious Freedom Indiana";
+  title === SITE.name
+    ? SITE.title.default
+    : SITE.title.template.replace("%s", title);
 ---
 
 <!doctype html>
@@ -37,22 +44,22 @@ const makeTitle =
     <!-- <link rel="preload" as="image" href={src} alt="Hero" /> -->
     <SEO
       title={makeTitle}
-      description="Religious Freedom Indiana - Hoosiers working for religious freedom."
+      description={SITE.description}
       canonical={canonicalURL}
       twitter={{
-        creator: "@surjithctly",
-        site: "@web3templates",
-        card: "summary_large_image",
+        creator: SOCIAL.twitter.creator,
+        site: SOCIAL.twitter.site,
+        card: SOCIAL.twitter.cardType,
       }}
       openGraph={{
         basic: {
           url: canonicalURL,
           type: "website",
-          title: "Religious Freedom Indiana",
+          title: SITE.name,
           image: resolvedImageWithDomain,
         },
         image: {
-          alt: "Religious Freedom Indiana",
+          alt: SITE.name,
         },
       }}
     />
@@ -88,7 +95,10 @@ const makeTitle =
     <Footer />
 
     <script>
-      // Declare ml function to satisfy TypeScript/linter
+      /**
+       * Declare ml function to satisfy TypeScript/linter
+       * This is used by the MailerLite integration
+       */
       declare const ml: Function;
     </script>
 
