@@ -31,6 +31,9 @@ const makeTitle =
   title === SITE.name
     ? SITE.title.default
     : SITE.title.template.replace("%s", title);
+
+// Get MailerLite account ID from environment variables
+const mailerLiteAccountId = import.meta.env.MAILERLITE_ACCOUNT_ID || "1436469";
 ---
 
 <!doctype html>
@@ -66,7 +69,7 @@ const makeTitle =
     <ViewTransitions />
 
     {/* MailerLite Universal */}
-    <script is:inline>
+    <script is:inline define:vars={{ mailerLiteAccountId }}>
       (function (w, d, e, u, f, l, n) {
         (w[f] =
           w[f] ||
@@ -85,7 +88,7 @@ const makeTitle =
         "https://assets.mailerlite.com/js/universal.js",
         "ml"
       );
-      ml("account", "1436469");
+      ml("account", mailerLiteAccountId);
     </script>
     {/* End MailerLite Universal */}
   </head>
