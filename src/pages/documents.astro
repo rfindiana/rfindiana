@@ -14,7 +14,7 @@ import Container from "@/components/container.astro";
             <tr>
               <th
                 scope="col"
-                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-48">
                 Title
               </th>
               <th
@@ -25,14 +25,15 @@ import Container from "@/components/container.astro";
               <th
                 scope="col"
                 class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                Download
+                Preview (Click to Download)
               </th>
             </tr>
           </thead>
           <tbody class="bg-white divide-y divide-gray-200">
             <tr>
               <td class="px-6 py-4 whitespace-nowrap">
-                <div class="text-sm font-medium text-gray-900">
+                <div
+                  class="text-sm font-medium text-gray-900 whitespace-normal">
                   What is Christian Nationalism?
                 </div>
               </td>
@@ -42,30 +43,23 @@ import Container from "@/components/container.astro";
                   religious freedom.
                 </div>
               </td>
-              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+              <td class="px-6 py-4">
                 <a
                   href="/docs/what+is+christian+nationalism.pdf"
                   target="_blank"
-                  class="text-primary hover:text-primary-dark flex items-center">
-                  <svg
-                    class="w-5 h-5 mr-2"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24">
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
-                    ></path>
-                  </svg>
-                  Download PDF
+                  class="block hover:opacity-75 transition-opacity">
+                  <img
+                    src="/docs/thumbnails/what-is-christian-nationalism-thumb.jpg"
+                    alt="Preview of What is Christian Nationalism - Click to Download PDF"
+                    class="w-20 h-auto object-contain rounded shadow-sm"
+                  />
                 </a>
               </td>
             </tr>
             <tr>
               <td class="px-6 py-4 whitespace-nowrap">
-                <div class="text-sm font-medium text-gray-900">
+                <div
+                  class="text-sm font-medium text-gray-900 whitespace-normal">
                   Getting Started with a Local Group
                 </div>
               </td>
@@ -75,30 +69,23 @@ import Container from "@/components/container.astro";
                   religious freedom.
                 </div>
               </td>
-              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+              <td class="px-6 py-4">
                 <a
                   href="/docs/getting+started+with+a+local+group.pdf"
                   target="_blank"
-                  class="text-primary hover:text-primary-dark flex items-center">
-                  <svg
-                    class="w-5 h-5 mr-2"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24">
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
-                    ></path>
-                  </svg>
-                  Download PDF
+                  class="block hover:opacity-75 transition-opacity">
+                  <img
+                    src="/docs/thumbnails/getting-started-thumb.jpg"
+                    alt="Preview of Getting Started Guide - Click to Download PDF"
+                    class="w-20 h-auto object-contain rounded shadow-sm"
+                  />
                 </a>
               </td>
             </tr>
             <tr>
               <td class="px-6 py-4 whitespace-nowrap">
-                <div class="text-sm font-medium text-gray-900">
+                <div
+                  class="text-sm font-medium text-gray-900 whitespace-normal">
                   Business Cards Front
                 </div>
               </td>
@@ -110,30 +97,23 @@ import Container from "@/components/container.astro";
                   labels 5877.
                 </div>
               </td>
-              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+              <td class="px-6 py-4">
                 <a
                   href="/docs/business+cards+front.docx"
                   target="_blank"
-                  class="text-primary hover:text-primary-dark flex items-center">
-                  <svg
-                    class="w-5 h-5 mr-2"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24">
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
-                    ></path>
-                  </svg>
-                  Download DOCX
+                  class="block hover:opacity-75 transition-opacity">
+                  <img
+                    src="/docs/thumbnails/business-cards-front-thumb.jpg"
+                    alt="Preview of Business Cards Front - Click to Download DOCX"
+                    class="w-20 h-auto object-contain rounded shadow-sm"
+                  />
                 </a>
               </td>
             </tr>
             <tr>
               <td class="px-6 py-4 whitespace-nowrap">
-                <div class="text-sm font-medium text-gray-900">
+                <div
+                  class="text-sm font-medium text-gray-900 whitespace-normal">
                   Business Cards Back
                 </div>
               </td>
@@ -145,30 +125,23 @@ import Container from "@/components/container.astro";
                   labels 5877.
                 </div>
               </td>
-              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+              <td class="px-6 py-4">
                 <a
                   href="/docs/business+cards+back.docx"
                   target="_blank"
-                  class="text-primary hover:text-primary-dark flex items-center">
-                  <svg
-                    class="w-5 h-5 mr-2"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24">
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
-                    ></path>
-                  </svg>
-                  Download DOCX
+                  class="block hover:opacity-75 transition-opacity">
+                  <img
+                    src="/docs/thumbnails/business-cards-back-thumb.jpg"
+                    alt="Preview of Business Cards Back - Click to Download DOCX"
+                    class="w-20 h-auto object-contain rounded shadow-sm"
+                  />
                 </a>
               </td>
             </tr>
             <tr>
               <td class="px-6 py-4 whitespace-nowrap">
-                <div class="text-sm font-medium text-gray-900">
+                <div
+                  class="text-sm font-medium text-gray-900 whitespace-normal">
                   Poster 8.5" x 11" Landscape
                 </div>
               </td>
@@ -178,56 +151,43 @@ import Container from "@/components/container.astro";
                   x 11" landscape orientation.
                 </div>
               </td>
-              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+              <td class="px-6 py-4">
                 <a
                   href="/docs/poster8.5x11_landscape.docx"
                   target="_blank"
-                  class="text-primary hover:text-primary-dark flex items-center">
-                  <svg
-                    class="w-5 h-5 mr-2"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24">
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
-                    ></path>
-                  </svg>
-                  Download DOCX
+                  class="block hover:opacity-75 transition-opacity">
+                  <img
+                    src="/docs/thumbnails/poster-8.5x11-landscape-thumb.jpg"
+                    alt="Preview of 8.5x11 Landscape Poster - Click to Download DOCX"
+                    class="w-20 h-auto object-contain rounded shadow-sm"
+                  />
                 </a>
               </td>
             </tr>
             <tr>
               <td class="px-6 py-4 whitespace-nowrap">
-                <div class="text-sm font-medium text-gray-900">
-                  Poster 16" x 20" Portrait 
+                <div
+                  class="text-sm font-medium text-gray-900 whitespace-normal">
+                  Poster 16" x 20" Portrait
                 </div>
               </td>
               <td class="px-6 py-4">
                 <div class="text-sm text-gray-700 whitespace-normal">
-                  Poster for demonstrations, etc. Image is in PNG format 16" x 20" in portrait orientation. You can order prints online at Office Depot, laminated, for about $25 each.
+                  Poster for demonstrations, etc. Image is in PNG format 16" x
+                  20" in portrait orientation. You can order prints online at
+                  Office Depot, laminated, for about $25 each.
                 </div>
               </td>
-              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+              <td class="px-6 py-4">
                 <a
                   href="/docs/poster_portrait16x20.png"
                   target="_blank"
-                  class="text-primary hover:text-primary-dark flex items-center">
-                  <svg
-                    class="w-5 h-5 mr-2"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24">
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
-                    ></path>
-                  </svg>
-                  Download PNG
+                  class="block hover:opacity-75 transition-opacity">
+                  <img
+                    src="/docs/thumbnails/poster-16x20-portrait-thumb.jpg"
+                    alt="Preview of 16x20 Portrait Poster - Click to Download PNG"
+                    class="w-20 h-auto object-contain rounded shadow-sm"
+                  />
                 </a>
               </td>
             </tr>
