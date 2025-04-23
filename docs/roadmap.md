@@ -2,6 +2,8 @@
 
 ## H0 – MVP (0 → 100 users)
 
+- Brevo from MailerLite -- See brevoFromMailerLite.md
+  
 - rsvp Pages Function saving to D1
 - Brevo transactional confirmation email helper
 - Manual CSV export from D1
