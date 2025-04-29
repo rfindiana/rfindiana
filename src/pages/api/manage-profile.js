@@ -21,8 +21,9 @@ export async function onRequestPost(context) {
 
     // Save to Cloudflare D1
     const db = env.DB; // Ensure DB binding is set up in Cloudflare Pages
-    await db.prepare(
-      `INSERT INTO profiles (email, firstName, lastName, city, state, zip, phone, religiousGroup, emailFrequency) 
+    await db
+      .prepare(
+        `INSERT INTO profiles (email, firstName, lastName, city, state, zip, phone, religiousGroup, emailFrequency) 
        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?) 
        ON CONFLICT(email) DO UPDATE SET 
          firstName = excluded.firstName, 
@@ -32,8 +33,20 @@ export async function onRequestPost(context) {
          zip = excluded.zip, 
          phone = excluded.phone, 
          religiousGroup = excluded.religiousGroup, 
-         emailFrequency = excluded.emailFrequency;`
-    ).bind(email, firstName, lastName, city, state, zip, phone, religiousGroup, emailFrequency).run();
+         emailFrequency = excluded.emailFrequency;`,
+      )
+      .bind(
+        email,
+        firstName,
+        lastName,
+        city,
+        state,
+        zip,
+        phone,
+        religiousGroup,
+        emailFrequency,
+      )
+      .run();
 
     // Trigger Brevo email
     const response = await fetch("https://api.brevo.com/v3/smtp/email", {
