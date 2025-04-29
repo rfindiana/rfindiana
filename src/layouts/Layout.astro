@@ -2,6 +2,7 @@
 import { SEO } from "astro-seo";
 import Footer from "@/components/footer.astro";
 import Navbar from "@/components/navbar/navbar.astro";
+import Container from "@/components/container.astro";
 import { SITE, SOCIAL } from "@/utils/constants";
 import "@fontsource-variable/inter/index.css";
 import "@fontsource-variable/bricolage-grotesque";
@@ -93,9 +94,13 @@ const mailerLiteAccountId = import.meta.env.MAILERLITE_ACCOUNT_ID || "1436469";
     {/* End MailerLite Universal */}
   </head>
   <body>
-    <Navbar />
+    <Container>
+      <Navbar />
+    </Container>
     <slot />
-    <Footer />
+    <Container>
+      <Footer />
+    </Container>
 
     <script>
       /**

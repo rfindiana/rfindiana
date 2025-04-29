@@ -1,43 +1,39 @@
 ---
-// No imports needed in the frontmatter
+import Container from "@/components/container.astro";
 ---
 
-<footer class="bg-white text-text py-4 px-6 border-t">
-  <div
-    class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 md:gap-6">
-    {/* Left side: Logo and Copyright */}
-    <div class="flex items-center gap-3">
-      <a href="/">
-        <img
-          src="/images/logo.svg"
-          alt="Religious Freedom Indiana Logo"
-          class="h-12 w-auto"
-        />
-      </a>
-      <p class="text-sm text-text-light">
-        © 2025 Religious Freedom Indiana. All rights reserved.
-      </p>
-      <p class="text-[8px] text-gray-300">
-        Build: {import.meta.env.PUBLIC_BUILD_VERSION || "dev"}
-      </p>
-    </div>
+<footer class="bg-white border-t">
+  <Container>
+    <div class="py-4 flex flex-col md:flex-row items-center justify-between gap-4 md:gap-6">
+      {/* Left side: Logo and Copyright */}
+      <div class="flex items-center gap-3">
+        <a href="/">
+          <img
+            src="/images/logo.svg"
+            alt="Religious Freedom Indiana Logo"
+            class="h-12 w-auto"
+          />
+        </a>
+        <p class="text-sm text-text-light">
+          © 2025 Religious Freedom Indiana. All rights reserved.
+        </p>
+        <p class="text-[8px] text-gray-300">
+          Build: {import.meta.env.PUBLIC_BUILD_VERSION || "dev"}
+        </p>
+      </div>
 
-    {/* Right side: Links and Button */}
-    <div
-      class="text-sm text-text-light flex flex-col sm:flex-row items-center gap-4">
-      {/* Standard Footer Links */}
-      <a href="/about" class="hover:text-primary transition">About</a>
-      <a href="/contactform" class="hover:text-primary transition">Contact Us</a
-      >
-      <a href="/privacy" class="hover:text-primary transition">Privacy Policy</a
-      >
-      {/* Join Us Button */}
-      <a
-        href="/joinus"
-        data-astro-reload
-        class="bg-green-600 hover:bg-green-700 text-white text-sm font-bold py-1.5 px-3 rounded transition duration-300 ease-in-out">
-        Join Us
-      </a>
+      {/* Right side: Links and Button */}
+      <div class="text-sm text-text-light flex flex-col sm:flex-row items-center gap-4">
+        <a href="/about" class="hover:text-primary transition">About</a>
+        <a href="/contactform" class="hover:text-primary transition">Contact Us</a>
+        <a href="/privacy" class="hover:text-primary transition">Privacy Policy</a>
+        <a
+          href="/joinus"
+          data-astro-reload
+          class="bg-green-600 hover:bg-green-700 text-white text-sm font-bold py-1.5 px-3 rounded transition duration-300 ease-in-out">
+          Join Us
+        </a>
+      </div>
     </div>
-  </div>
+  </Container>
 </footer>
