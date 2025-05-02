@@ -1,6 +1,3 @@
-
-
-
 # Switching from MailerLite to Brevo for RFIndiana.org
 
 This document outlines the necessary steps to migrate from MailerLite to Brevo, with a focus on supporting RSVP confirmation emails via Brevo's transactional email API. This transition supports our H0 roadmap objectives.
@@ -51,7 +48,7 @@ async function sendConfirmationEmail({ email, name, event }) {
     method: "POST",
     headers: {
       "api-key": process.env.BREVO_API_KEY,
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
     },
     body: JSON.stringify({
       to: [{ email, name }],
@@ -61,9 +58,9 @@ async function sendConfirmationEmail({ email, name, event }) {
         event_name: event.title,
         event_date: event.date,
         event_time: event.time,
-        zoom_url: event.zoom
-      }
-    })
+        zoom_url: event.zoom,
+      },
+    }),
   });
 
   if (!response.ok) {
@@ -88,6 +85,7 @@ async function sendConfirmationEmail({ email, name, event }) {
 ## ✅ Result
 
 After implementing this, your RSVP Pages Function can:
+
 - Save data to D1
 - Trigger a transactional confirmation email via Brevo
 - Lay the foundation for Brevo marketing automations in H1
