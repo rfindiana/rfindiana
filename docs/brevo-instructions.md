@@ -20,9 +20,7 @@ This site uses Brevo for newsletter signups and email communications. The implem
 
 2. Get your embed code from Brevo and update:
 
-   - Open `/src/components/BrevoEmbedForm.astro`
-   - Replace `YOUR_BREVO_PUBLIC_KEY` with your actual Brevo public key
-   - Replace `YOUR_FORM_ID` with the specific form ID from Brevo
+   Embed the correct iFrame for the Brevo code
 
 3. Managing user preferences:
    - Since there's no direct API integration, users are instructed to email the admin for preference updates

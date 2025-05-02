@@ -10,16 +10,19 @@ import PageTitle from "@/components/PageTitle.astro";
       <div class="lg:w-7/12">
         <PageTitle title="Join Hoosiers Working for Religious Freedom" />
 
-        <!-- Updated Brevo Form Iframe -->
-        <iframe
-          width="840"
-          height="305"
-          src="https://sibforms.com/serve/MUIFALGahb1aEbsqBvll0UMwdTbon0ae7PEqM5iaiindKVW0xaz6lnog-0OYZHPVttYjaX1dB_P3bO4ap4xreVPAqpBu1XW6JZJrlHY-Nwip7pUOJT-BNJyuwCYp_ztD7nsEf4F-39nTi7uuvhW4kEx3-m6X7v4oQ1iMacGoW-pTXv0ReRa-DpcGA-yfx49VPhKDDmutxjoZfFX-"
-          frameborder="0"
-          scrolling="auto"
-          allowfullscreen
-          style="display: block;margin-left: auto;margin-right: auto;max-width: 100%;">
-        </iframe>
+        <!-- Brevo Form Container with Custom Styling -->
+        <div class="brevo-form-container">
+          <iframe
+            id="brevo-form-iframe"
+            width="100%"
+            height="1000"
+            src="https://sibforms.com/serve/MUIFALGahb1aEbsqBvll0UMwdTbon0ae7PEqM5iaiindKVW0xaz6lnog-0OYZHPVttYjaX1dB_P3bO4ap4xreVPAqpBu1XW6JZJrlHY-Nwip7pUOJT-BNJyuwCYp_ztD7nsEf4F-39nTi7uuvhW4kEx3-m6X7v4oQ1iMacGoW-pTXv0ReRa-DpcGA-yfx49VPhKDDmutxjoZfFX-"
+            frameborder="0"
+            scrolling="auto"
+            allowfullscreen
+            style="display: block; margin: 0 auto; max-width: 100%; min-height: 1000px;">
+          </iframe>
+        </div>
       </div>
 
       <div class="lg:w-5/12 mt-8 lg:mt-0">
@@ -72,3 +75,52 @@ import PageTitle from "@/components/PageTitle.astro";
     </div>
   </Container>
 </Layout>
+
+<style>
+  /* Custom styles for Brevo form container */
+  .brevo-form-container {
+    position: relative;
+    width: 100%;
+    height: auto;
+    min-height: 1000px;
+    overflow: visible;
+  }
+
+  #brevo-form-iframe {
+    position: relative;
+    width: 100%;
+    border: none;
+    display: block;
+  }
+</style>
+
+<script>
+  // Auto-resize iframe based on content
+  document.addEventListener("DOMContentLoaded", function () {
+    const iframe = document.getElementById("brevo-form-iframe");
+    if (iframe) {
+      // Try to resize the iframe based on its content height
+      function resizeIframe() {
+        try {
+          const iframeContent = iframe.contentWindow || iframe.contentDocument;
+          if (iframeContent.document && iframeContent.document.body) {
+            const newHeight = iframeContent.document.body.scrollHeight;
+            if (newHeight > 500) {
+              // Only set if it's a reasonable height
+              iframe.style.height = newHeight + 50 + "px"; // Add some padding
+            }
+          }
+        } catch (e) {
+          // Cross-origin restrictions may prevent access to iframe content
+          console.log("Could not auto-resize iframe:", e);
+        }
+      }
+
+      // Try to resize when iframe loads
+      iframe.addEventListener("load", resizeIframe);
+
+      // Also try periodically
+      setInterval(resizeIframe, 1000); // Check every second
+    }
+  });
+</script>
