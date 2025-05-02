@@ -12,24 +12,38 @@ import PageTitle from "@/components/PageTitle.astro";
 
         <!-- Brevo Form Container with Custom Styling -->
         <div class="brevo-form-container">
-          <iframe
-            id="brevo-form-iframe"
-            width="100%"
-            height="1000"
-            src="https://sibforms.com/serve/MUIFAE6xfJ1OpPIR-ji-SOLXnYuHND2ex8LmZoZl7tC0JpnW0idQ059UQgHCPz2Xj1WbhETYympTzh6e5kf0BxKA-eCB4tsP4bKbOpziu2k0uYGDSEqEGpXUDqKRvCpNuOHliiKRIRpbCM60GcFflXXBeORXGQpWjljEmZSD1fYX2u3yHabScDUBfdMvctHt79-HNyl7727Iy3vl"
-            frameborder="0"
-            scrolling="auto"
-            allowfullscreen
-            style="display: block; margin: 0 auto; max-width: 100%; min-height: 1000px;">
-          </iframe>
+          <!-- Temporary Form Message -->
+          <div class="border border-gray-300 rounded-lg p-8 my-6 bg-gray-50">
+            <h3 class="text-xl font-semibold text-primary mb-4">Join Our Mailing List</h3>
+            <p class="mb-6">We're currently updating our signup form. In the meantime, you can join our mailing list by:</p>
+            
+            <div class="mb-6">
+              <h4 class="font-medium mb-2">Option 1: Email Us Directly</h4>
+              <p>Send an email to <a href="mailto:info@rfindiana.org" class="text-primary hover:underline font-medium">info@rfindiana.org</a> with:</p>
+              <ul class="list-disc ml-6 mt-2">
+                <li>Your name</li>
+                <li>Email address</li>
+                <li>City/State (optional)</li>
+                <li>Religious affiliation (optional)</li>
+              </ul>
+            </div>
+            
+            <div class="mt-4">
+              <h4 class="font-medium mb-2">Option 2: Check Back Soon</h4>
+              <p>Our sign-up form will be back shortly. Thank you for your patience!</p>
+            </div>
+          </div>
           
           <!-- Backup Email Option -->
-          <div class="mt-8 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
+          <div
+            class="mt-8 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
             <p class="text-sm">
-              Having trouble with the form? Please email 
-              <a href="mailto:info@rfindiana.org" class="text-primary hover:underline font-medium">
+              Having trouble with the form? Please email
+              <a
+                href="mailto:info@rfindiana.org"
+                class="text-primary hover:underline font-medium">
                 info@rfindiana.org
-              </a> 
+              </a>
               with your name and email address to join our list.
             </p>
           </div>
@@ -106,38 +120,15 @@ import PageTitle from "@/components/PageTitle.astro";
 </style>
 
 <script>
-  // Auto-resize iframe based on content
+  // Simplified script that doesn't try to access iframe content
   document.addEventListener("DOMContentLoaded", function () {
-    const iframe = document.getElementById("brevo-form-iframe");
-    if (iframe) {
-      // Try to resize the iframe based on its content height
-      function resizeIframe() {
-        try {
-          const iframeContent = iframe.contentWindow || iframe.contentDocument;
-          if (iframeContent.document && iframeContent.document.body) {
-            const newHeight = iframeContent.document.body.scrollHeight;
-            if (newHeight > 500) {
-              // Only set if it's a reasonable height
-              iframe.style.height = newHeight + 50 + "px"; // Add some padding
-            }
-          }
-        } catch (e) {
-          // Cross-origin restrictions may prevent access to iframe content
-          console.log("Could not auto-resize iframe:", e);
-        }
-      }
-
-      // Try to resize when iframe loads
-      iframe.addEventListener("load", resizeIframe);
-
-      // Also try periodically
-      setInterval(resizeIframe, 1000); // Check every second
-    }
-    
     // Add message listener to debug form submission
-    window.addEventListener('message', function(event) {
-      console.log('Message received from Brevo iframe:', event.data);
-      // This will help debug issues with form submissions
+    window.addEventListener("message", function (event) {
+      console.log("Message received from Brevo iframe:", event.data);
+      // Check if the message contains form submission status
+      if (event.data && event.data.formSubmissionStatus) {
+        console.log("Form submission status:", event.data.formSubmissionStatus);
+      }
     });
   });
 </script>
