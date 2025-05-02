@@ -12,38 +12,24 @@ import PageTitle from "@/components/PageTitle.astro";
 
         <!-- Brevo Form Container with Custom Styling -->
         <div class="brevo-form-container">
-          <!-- Temporary Form Message -->
-          <div class="border border-gray-300 rounded-lg p-8 my-6 bg-gray-50">
-            <h3 class="text-xl font-semibold text-primary mb-4">Join Our Mailing List</h3>
-            <p class="mb-6">We're currently updating our signup form. In the meantime, you can join our mailing list by:</p>
-            
-            <div class="mb-6">
-              <h4 class="font-medium mb-2">Option 1: Email Us Directly</h4>
-              <p>Send an email to <a href="mailto:info@rfindiana.org" class="text-primary hover:underline font-medium">info@rfindiana.org</a> with:</p>
-              <ul class="list-disc ml-6 mt-2">
-                <li>Your name</li>
-                <li>Email address</li>
-                <li>City/State (optional)</li>
-                <li>Religious affiliation (optional)</li>
-              </ul>
-            </div>
-            
-            <div class="mt-4">
-              <h4 class="font-medium mb-2">Option 2: Check Back Soon</h4>
-              <p>Our sign-up form will be back shortly. Thank you for your patience!</p>
-            </div>
-          </div>
+          <iframe
+            id="brevo-form-iframe"
+            width="100%"
+            height="1000"
+            src="https://sibforms.com/serve/MUIFAOI1gceea1xR3q_T_T5NyycxGgqzC-JAzj0BnExyjU8aPePbDw9TG-DSkQvQ043K4SjWOrIMUF4UIOiSgtxYH2xQNf6Dez5dDLipE8nAgOmXExB4WP3V-4QhYYXww40H9f3VCm-wuxYWRrM_BCSJXa7AS86xR7jEKbAdItnykhTHpX-_1nGHXac7F7xV6qubb8C-qSjeheZL"
+            frameborder="0"
+            scrolling="auto"
+            allowfullscreen
+            style="display: block; margin: 0 auto; max-width: 100%; min-height: 1000px;">
+          </iframe>
           
           <!-- Backup Email Option -->
-          <div
-            class="mt-8 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
+          <div class="mt-8 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
             <p class="text-sm">
-              Having trouble with the form? Please email
-              <a
-                href="mailto:info@rfindiana.org"
-                class="text-primary hover:underline font-medium">
+              Having trouble with the form? Please email 
+              <a href="mailto:info@rfindiana.org" class="text-primary hover:underline font-medium">
                 info@rfindiana.org
-              </a>
+              </a> 
               with your name and email address to join our list.
             </p>
           </div>
