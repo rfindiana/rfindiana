@@ -16,12 +16,23 @@ import PageTitle from "@/components/PageTitle.astro";
             id="brevo-form-iframe"
             width="100%"
             height="1000"
-        src="https://sibforms.com/serve/MUIFAE6xfJ1OpPIR-ji-SOLXnYuHND2ex8LmZoZl7tC0JpnW0idQ059UQgHCPz2Xj1WbhETYympTzh6e5kf0BxKA-eCB4tsP4bKbOpziu2k0uYGDSEqEGpXUDqKRvCpNuOHliiKRIRpbCM60GcFflXXBeORXGQpWjljEmZSD1fYX2u3yHabScDUBfdMvctHt79-HNyl7727Iy3vl"
+            src="https://sibforms.com/serve/MUIFAE6xfJ1OpPIR-ji-SOLXnYuHND2ex8LmZoZl7tC0JpnW0idQ059UQgHCPz2Xj1WbhETYympTzh6e5kf0BxKA-eCB4tsP4bKbOpziu2k0uYGDSEqEGpXUDqKRvCpNuOHliiKRIRpbCM60GcFflXXBeORXGQpWjljEmZSD1fYX2u3yHabScDUBfdMvctHt79-HNyl7727Iy3vl"
             frameborder="0"
             scrolling="auto"
             allowfullscreen
             style="display: block; margin: 0 auto; max-width: 100%; min-height: 1000px;">
           </iframe>
+          
+          <!-- Backup Email Option -->
+          <div class="mt-8 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
+            <p class="text-sm">
+              Having trouble with the form? Please email 
+              <a href="mailto:info@rfindiana.org" class="text-primary hover:underline font-medium">
+                info@rfindiana.org
+              </a> 
+              with your name and email address to join our list.
+            </p>
+          </div>
         </div>
       </div>
 
@@ -122,5 +133,11 @@ import PageTitle from "@/components/PageTitle.astro";
       // Also try periodically
       setInterval(resizeIframe, 1000); // Check every second
     }
+    
+    // Add message listener to debug form submission
+    window.addEventListener('message', function(event) {
+      console.log('Message received from Brevo iframe:', event.data);
+      // This will help debug issues with form submissions
+    });
   });
 </script>
