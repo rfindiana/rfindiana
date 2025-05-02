@@ -9,15 +9,17 @@ This site uses Brevo for newsletter signups and email communications. The implem
 ### Setup Instructions
 
 1. Create a signup form in Brevo:
+
    - Log in to your Brevo account
    - Go to Contacts → Forms
    - Create a new form with all required fields (email, name, etc.)
    - Include an "Email Frequency" dropdown with options:
      - Weekly updates
-     - Monthly updates 
+     - Monthly updates
      - Important announcements only
 
 2. Get your embed code from Brevo and update:
+
    - Open `/src/components/BrevoEmbedForm.astro`
    - Replace `YOUR_BREVO_PUBLIC_KEY` with your actual Brevo public key
    - Replace `YOUR_FORM_ID` with the specific form ID from Brevo
