@@ -6,79 +6,98 @@ import PageTitle from "@/components/PageTitle.astro";
 
 <Layout title="Events">
   <Container article>
-    <div class="max-w-4xl mx-auto py-12 px-4">
-      <!-- Upcoming Events Section -->
-      <section class="mb-16">
-        <PageTitle title="Upcoming Events" />
+    <PageTitle title="Events Calendar & Details" />
 
-        <div class="bg-white rounded-lg shadow-md p-6 mb-6">
-          <div class="flex flex-col md:flex-row gap-6">
-            <div class="md:w-1/3">
-              <div class="bg-primary text-white p-4 rounded-lg text-center">
-                <div class="text-2xl font-bold">April</div>
-                <div class="text-4xl font-bold">13</div>
-                <div class="text-lg">2024</div>
-              </div>
+    <!-- Google Calendar Embed -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-semibold text-primary mb-4">Calendar View</h2>
+      <div class="relative w-full h-0 pb-[75%]">
+        <!-- Aspect ratio container -->
+        <iframe
+          src="https://calendar.google.com/calendar/embed?src=rfindiana2025%40gmail.com&ctz=America%2FIndiana%2FIndianapolis"
+          style="border: 0; position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+          width="800"
+          height="600"
+          frameborder="0"
+          scrolling="no">
+        </iframe>
+      </div>
+    </section>
+
+    <!-- Upcoming Events Details Section -->
+    <section class="mb-16">
+      <h2 class="text-2xl font-semibold text-primary mb-4">
+        Upcoming Event Details
+      </h2>
+
+      <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+        <div class="flex flex-col md:flex-row gap-6">
+          <div class="md:w-1/3">
+            <div class="bg-primary text-white p-4 rounded-lg text-center">
+              <div class="text-2xl font-bold">April</div>
+              <div class="text-4xl font-bold">13</div>
+              <div class="text-lg">2024</div>
             </div>
-            <div class="md:w-2/3">
-              <h3 class="text-2xl font-semibold text-primary mb-2">
-                Virtual Meeting
-              </h3>
-              <p class="text-gray-600 mb-4">
-                Join us for a virtual gathering to discuss religious freedom in
-                Indiana.
+          </div>
+          <div class="md:w-2/3">
+            <h3 class="text-2xl font-semibold text-primary mb-2">
+              Virtual Meeting
+            </h3>
+            <p class="text-gray-600 mb-4">
+              Join us for a virtual gathering to discuss religious freedom in
+              Indiana.
+            </p>
+            <div class="space-y-2">
+              <p class="flex items-center text-gray-700">
+                <svg
+                  class="w-5 h-5 mr-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                Sunday, April 13, 2024 at 2:00 PM EST
               </p>
-              <div class="space-y-2">
-                <p class="flex items-center text-gray-700">
-                  <svg
-                    class="w-5 h-5 mr-2"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24">
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                  </svg>
-                  Sunday, April 13, 2024 at 2:00 PM EST
-                </p>
-                <p class="flex items-center text-gray-700">
-                  <svg
-                    class="w-5 h-5 mr-2"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24">
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"
-                    ></path>
-                  </svg>
-                  Zoom Meeting
-                </p>
-              </div>
-              <div class="mt-4">
-                <p class="text-primary font-medium italic">
-                  Contact us for registration information.
-                </p>
-              </div>
+              <p class="flex items-center text-gray-700">
+                <svg
+                  class="w-5 h-5 mr-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"
+                  ></path>
+                </svg>
+                Zoom Meeting
+              </p>
+            </div>
+            <div class="mt-4">
+              <p class="text-primary font-medium italic">
+                Contact us for registration information.
+              </p>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+      <!-- Add more detailed event blocks here as needed -->
+    </section>
 
-      <!-- Past Events Section -->
-      <section>
-        <PageTitle title="Past Events" />
-        <div class="text-center py-12">
-          <p class="text-gray-600 text-lg">
-            No past events to display at this time.
-          </p>
-        </div>
-      </section>
-    </div>
+    <!-- Past Events Section -->
+    <section>
+      <h2 class="text-2xl font-semibold text-primary mb-4">Past Events</h2>
+      <div class="text-center py-12">
+        <p class="text-gray-600 text-lg">
+          No past events to display at this time.
+        </p>
+      </div>
+    </section>
   </Container>
 </Layout>
 
