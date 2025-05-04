@@ -2,6 +2,7 @@
 import Layout from "@/layouts/Layout.astro";
 import Container from "@/components/container.astro";
 import PageTitle from "@/components/PageTitle.astro";
+import BrevoForm from "@/components/BrevoForm.astro"; // Import the new component
 ---
 
 <Layout title="Join Hoosiers Working For Religious Freedom">
@@ -10,32 +11,21 @@ import PageTitle from "@/components/PageTitle.astro";
       <div class="lg:w-7/12">
         <PageTitle title="Join Hoosiers Working for Religious Freedom" />
 
-        <!-- Brevo Form Container with Custom Styling -->
-        <div class="brevo-form-container">
-          <iframe
-            id="brevo-form-iframe"
-            width="100%"
-            height="1000"
-            src="https://sibforms.com/serve/MUIFADlU2dri0GsYKu4M6zFyOsO7VFIFHu6sUM_W67LS59X2uGWycjctSnZYpDQV3gZAkL3hdw_4OR7PlKSS8e015sOg4Zf3dszL6NMtl6ri6psGMInAO9X5Tc4jWHFoZ9XtgxRBjvSTVhCYTIRUu7DdDEYkO8IcLgn_bCkF3JFyiU14xsutG4iG98vIh_-6bg4HND_nTqI-rPYz"
-            frameborder="0"
-            scrolling="auto"
-            allowfullscreen
-            style="display: block; margin: 0 auto; max-width: 100%; min-height: 1000px;">
-          </iframe>
+        <!-- Replace iframe with BrevoForm component -->
+        <BrevoForm />
 
-          <!-- Backup Email Option -->
-          <div
-            class="mt-8 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
-            <p class="text-sm">
-              Having trouble with the form? Please email
-              <a
-                href="mailto:info@rfindiana.org"
-                class="text-primary hover:underline font-medium">
-                info@rfindiana.org
-              </a>
-              with your name and email address to join our list.
-            </p>
-          </div>
+        <!-- Backup Email Option -->
+        <div
+          class="mt-8 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
+          <p class="text-sm">
+            Having trouble with the form? Please email
+            <a
+              href="mailto:info@rfindiana.org"
+              class="text-primary hover:underline font-medium">
+              info@rfindiana.org
+            </a>
+            with your name and email address to join our list.
+          </p>
         </div>
       </div>
 
@@ -92,18 +82,20 @@ import PageTitle from "@/components/PageTitle.astro";
 
 <style>
   /* Custom styles for Brevo form container */
+  /* These might need adjustment now that it's not an iframe */
   .brevo-form-container {
-    position: relative;
+    /* position: relative; */ /* May not be needed */
     width: 100%;
     height: auto;
-    min-height: 1000px;
+    /* min-height: 1000px; */ /* Remove fixed min-height */
     overflow: visible;
   }
 
-  #brevo-form-iframe {
+  /* Remove iframe specific styles */
+  /* #brevo-form-iframe {
     position: relative;
     width: 100%;
     border: none;
     display: block;
-  }
+  } */
 </style>
