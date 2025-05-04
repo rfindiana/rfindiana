@@ -107,17 +107,3 @@ import PageTitle from "@/components/PageTitle.astro";
     display: block;
   }
 </style>
-
-<script>
-  // Simplified script that doesn't try to access iframe content
-  document.addEventListener("DOMContentLoaded", function () {
-    // Add message listener to debug form submission
-    window.addEventListener("message", function (event) {
-      console.log("Message received from Brevo iframe:", event.data);
-      // Check if the message contains form submission status
-      if (event.data && event.data.formSubmissionStatus) {
-        console.log("Form submission status:", event.data.formSubmissionStatus);
-      }
-    });
-  });
-</script>
