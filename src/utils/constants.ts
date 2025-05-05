@@ -14,3 +14,11 @@ export const COMMON_TEXT = {
   amazonNote:
     "Note: Most videos listed here are available on Amazon Prime for a small fee or included with a subscription. Some may also be available for free elsewhere online.",
 } as const;
+
+export const SOCIAL = {
+  twitter: {
+    site: "@rfindiana",
+    creator: "@dalebrubaker",
+    cardType: "summary_large_image",
+  },
+} as const;
