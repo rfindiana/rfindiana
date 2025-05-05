@@ -21,7 +21,7 @@ export interface Props {
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
 
-const resolvedImageWithDomain = `${SITE.url}/opengraph.jpg`;
+const resolvedImageWithDomain = `${import.meta.env.SITE}/opengraph.jpg`;
 
 const { title } = Astro.props;
 
