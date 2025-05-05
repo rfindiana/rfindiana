@@ -7,13 +7,7 @@ export const SITE = {
   description: "Hoosiers working for religious freedom.",
 } as const;
 
-export const SOCIAL = {
-  twitter: {
-    creator: "@surjithctly",
-    site: "@web3templates",
-    cardType: "summary_large_image",
-  },
-} as const;
+
 
 // Common text used across pages
 export const COMMON_TEXT = {
