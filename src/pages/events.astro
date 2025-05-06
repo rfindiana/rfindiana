@@ -26,15 +26,14 @@ import PageTitle from "@/components/PageTitle.astro";
 
     <!-- Upcoming Events Section -->
     <section class="mb-16">
-      <h2 class="text-2xl font-semibold text-primary mb-4">
-        Upcoming Events
-      </h2>
+      <h2 class="text-2xl font-semibold text-primary mb-4">Upcoming Events</h2>
 
       <div class="grid grid-cols-1 gap-6">
         <!-- Event Item -->
         <div class="bg-white rounded-lg shadow-md p-4">
           <div class="flex items-center gap-4">
-            <div class="bg-primary text-white p-3 rounded-lg text-center flex-shrink-0 min-w-28">
+            <div
+              class="bg-primary text-white p-3 rounded-lg text-center flex-shrink-0 min-w-28">
               <div class="text-sm font-bold">Sunday</div>
               <div class="text-xl font-bold">May 18</div>
               <div class="text-xs">2025</div>
@@ -47,7 +46,8 @@ import PageTitle from "@/components/PageTitle.astro";
                 Join us for a virtual gathering to discuss religious freedom in
                 Indiana.
               </p>
-              <div class="flex flex-wrap items-center gap-x-4 text-sm text-gray-700">
+              <div
+                class="flex flex-wrap items-center gap-x-4 text-sm text-gray-700">
                 <span class="flex items-center">
                   <svg
                     class="w-4 h-4 mr-1"
@@ -90,19 +90,19 @@ import PageTitle from "@/components/PageTitle.astro";
     <!-- Past Events Section -->
     <section>
       <h2 class="text-2xl font-semibold text-primary mb-4">Past Events</h2>
-      <div class="grid grid-cols-1 gap-4">
-        <!-- Past Event Item -->
-        <div class="bg-white rounded-lg shadow-md p-3 flex items-center">
-          <div class="bg-gray-200 text-gray-700 p-2 rounded-lg text-center mr-4 flex-shrink-0 min-w-28">
-            <div class="text-sm font-bold">Sunday</div>
-            <div class="text-lg font-bold">Apr 13</div>
-            <div class="text-xs">2025</div>
-          </div>
-          <div class="flex flex-1 items-center">
-            <h3 class="text-lg font-semibold text-gray-700 mr-4">
-              General Meeting (Virtual)
-            </h3>
-            <p class="text-sm text-gray-600">Zoom Meeting, 2:00 PM EST</p>
+      <div class="grid grid-cols-1 gap-2">
+        <!-- Past Event Item - simplified as text without button -->
+        <div class="bg-white rounded-lg shadow-md p-2">
+          <div class="flex flex-col sm:flex-row items-start sm:items-center">
+            <div class="flex-shrink-0 text-gray-700 mr-3 mb-1 sm:mb-0">
+              <span class="font-semibold whitespace-normal">Sunday, Apr 13, 2025</span>
+            </div>
+            <div class="flex flex-col sm:flex-row sm:items-center">
+              <h3 class="font-medium text-gray-700 mr-3 mb-1 sm:mb-0">
+                General Meeting (Virtual)
+              </h3>
+              <p class="text-sm text-gray-600">Zoom Meeting, 2:00 PM EST</p>
+            </div>
           </div>
         </div>
         
