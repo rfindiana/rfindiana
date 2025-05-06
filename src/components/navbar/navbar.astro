@@ -5,7 +5,6 @@ import { Astronav, MenuItems, MenuIcon } from "astro-navbar";
 
 const menuitems = [
   { title: "About", path: "/about" },
-
   { title: "Events", path: "/events" },
   { title: "Books", path: "/books" },
   { title: "Videos", path: "/videos" },
@@ -17,217 +16,58 @@ const menuitems = [
 
 <Container class="sticky top-0 z-50 bg-white">
   <header
-    class="flex flex-col lg:flex-row justify-between items-center mt-5 mb-2">
-    <div class="flex items-center w-full lg:w-auto">
-      <a href="/" class="text-lg mr-8 flex-shrink-0">
-        <img
-          src="/images/logo.svg"
-          alt="Religious Freedom Indiana Logo"
-          class="h-16 w-auto max-w-[200px] sm:max-w-none"
-        />
-      </a>
-      <Astronav>
-        <div class="flex w-full lg:w-auto items-center justify-between">
-          <div class="block lg:hidden ml-auto">
-            <MenuIcon class="w-4 h-4 text-text" />
-          </div>
+    class="flex flex-col lg:flex-row justify-start items-center mt-5 mb-2">
+    <Astronav>
+      <div class="flex w-full lg:w-auto items-center justify-between">
+        <a href="/" class="text-lg">
+          <img
+            src="/images/logo.svg"
+            alt="Religious Freedom Indiana Logo"
+            class="h-16 w-auto max-w-[200px] sm:max-w-none"
+          />
+        </a>
+        <div class="block lg:hidden">
+          <MenuIcon class="w-4 h-4 text-text" />
         </div>
-        <MenuItems class="w-full lg:w-auto mt-2 lg:flex lg:mt-0">
-          <ul class="flex flex-col lg:flex-row lg:items-center lg:gap-3">
-            {
-              menuitems.map((item) => {
-                const isBasePath = item.path === "/";
-                const isActive = isBasePath
-                  ? Astro.url.pathname === "/"
-                  : Astro.url.pathname.startsWith(item.path);
+      </div>
+      <!-- Add specific left margin for large screens -->
+      <MenuItems class="hidden w-full lg:w-auto mt-2 lg:flex lg:mt-0 lg:ml-8">
+        <ul class="flex flex-col lg:flex-row lg:gap-3">
+          {
+            menuitems.map((item) => {
+              const isBasePath = item.path === "/";
+              const isActive = isBasePath
+                ? Astro.url.pathname === "/"
+                : Astro.url.pathname.startsWith(item.path);
 
-                // Define base classes
-                const baseClasses = "flex lg:px-3 py-2 items-center";
-                // Define active state classes
-                const activeStateClasses = isActive
-                  ? "font-bold text-primary"
-                  : "text-text hover:text-primary"; // Apply hover only if inactive
+              // Define base classes
+              const baseClasses = "flex lg:px-3 py-2 items-center";
+              // Define active state classes
+              const activeStateClasses = isActive
+                ? "font-bold text-primary"
+                : "text-text hover:text-primary"; // Apply hover only if inactive
 
-                if (item.submenu) {
-                  return (
-                    <li class="relative group">
-                      {/* Desktop version */}
-                      <div class="hidden lg:block">
-                        <button
-                          type="button"
-                          class={`${baseClasses} ${activeStateClasses} cursor-pointer w-full lg:w-auto text-left`}>
-                          <span>{item.title}</span>
-                          <svg
-                            class="w-4 h-4 ml-1 inline-block transform transition-transform duration-200 group-hover:rotate-180"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24">
-                            <path
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                              stroke-width="2"
-                              d="M19 9l-7 7-7-7"
-                            />
-                          </svg>
-                        </button>
-                        <div class="submenu-container lg:absolute lg:left-0 w-full lg:w-48 bg-white lg:rounded-md lg:shadow-lg py-1 z-50 hidden lg:group-hover:block">
-                          {item.submenu.map((subitem) => {
-                            const isSubActive =
-                              Astro.url.pathname === subitem.path;
-                            return (
-                              <a
-                                href={subitem.path}
-                                class={`block px-4 py-2 text-sm ${
-                                  isSubActive
-                                    ? "text-primary font-bold"
-                                    : "text-gray-700 hover:text-primary"
-                                }`}>
-                                {subitem.title}
-                              </a>
-                            );
-                          })}
-                        </div>
-                      </div>
-
-                      {/* Mobile version */}
-                      <div class="lg:hidden">
-                        <input
-                          type="checkbox"
-                          id={`menu-${item.title.toLowerCase()}`}
-                          class="menu-checkbox"
-                        />
-                        <label
-                          for={`menu-${item.title.toLowerCase()}`}
-                          class={`${baseClasses} ${activeStateClasses} menu-label`}>
-                          <span>{item.title}</span>
-                          <svg
-                            class="w-4 h-4 ml-1 inline-block transform transition-transform duration-200"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24">
-                            <path
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                              stroke-width="2"
-                              d="M19 9l-7 7-7-7"
-                            />
-                          </svg>
-                        </label>
-                        <div class="submenu-container">
-                          {item.submenu.map((subitem) => {
-                            const isSubActive =
-                              Astro.url.pathname === subitem.path;
-                            return (
-                              <a
-                                href={subitem.path}
-                                class={`block px-4 py-2 text-sm ${
-                                  isSubActive
-                                    ? "text-primary font-bold"
-                                    : "text-gray-700 hover:text-primary"
-                                }`}>
-                                {subitem.title}
-                              </a>
-                            );
-                          })}
-                        </div>
-                      </div>
-                    </li>
-                  );
-                }
-
-                return (
-                  <li>
-                    <a
-                      href={item.path}
-                      class={`${baseClasses} ${activeStateClasses}`}>
-                      <span> {item.title}</span>
-                    </a>
-                  </li>
-                );
-              })
-            }
-            <li class="mt-2 lg:mt-0 lg:ml-3">
-              <a
-                href="/joinus"
-                data-astro-reload
-                class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out block text-center lg:inline-block">
-                Join Us
-              </a>
-            </li>
-          </ul>
-        </MenuItems>
-      </Astronav>
-    </div>
+              return (
+                <li>
+                  <a
+                    href={item.path}
+                    class={`${baseClasses} ${activeStateClasses}`}>
+                    <span> {item.title}</span>
+                  </a>
+                </li>
+              );
+            })
+          }
+          <li class="mt-2 lg:mt-0 lg:ml-3">
+            <a
+              href="/joinus"
+              data-astro-reload
+              class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out block text-center lg:inline-block">
+              Join Us
+            </a>
+          </li>
+        </ul>
+      </MenuItems>
+    </Astronav>
   </header>
 </Container>
-
-<style>
-  /* Ensure dropdown menu is visible on hover for desktop */
-  .group:hover .lg\:group-hover\:block {
-    display: block;
-  }
-
-  /* Mobile menu styles */
-  @media (max-width: 1023px) {
-    /* Use 1023px to target below lg breakpoint */
-    .group:hover .lg\:group-hover\:block {
-      display: none; /* Disable hover effects on mobile */
-    }
-
-    .submenu-container {
-      display: none; /* Hide submenu by default */
-      position: static; /* Override absolute positioning */
-      width: 100%;
-      box-shadow: none; /* Remove desktop shadow */
-      border-top: 1px solid #eee; /* Optional separator */
-      background-color: #f9f9f9; /* Slightly different background for clarity */
-      padding-left: 1rem; /* Indent submenu container */
-    }
-
-    /* Hide the checkbox on mobile */
-    .menu-checkbox {
-      position: absolute;
-      opacity: 0;
-      width: 0;
-      height: 0;
-    }
-
-    /* Show submenu when checkbox is checked */
-    .menu-checkbox:checked ~ .submenu-container {
-      display: block;
-    }
-
-    /* Style the label to look like a button */
-    .menu-label {
-      display: flex;
-      align-items: center;
-      cursor: pointer;
-      width: 100%;
-      position: relative;
-    }
-
-    /* Style for submenu items on mobile */
-    .submenu-container a {
-      padding-left: 1rem; /* Further indent submenu links */
-    }
-
-    /* Rotate arrow when menu is open */
-    .menu-checkbox:checked ~ .menu-label svg {
-      transform: rotate(180deg);
-    }
-  }
-
-  /* Hide checkbox on desktop */
-  @media (min-width: 1024px) {
-    .menu-checkbox {
-      display: none;
-    }
-    .menu-label {
-      display: none;
-    }
-  }
-</style>
-
-<script>
-  // No JavaScript needed for mobile menu
-</script>
