@@ -21,7 +21,9 @@ export interface Props {
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
 
-const resolvedImageWithDomain = `${import.meta.env.SITE}/opengraph.jpg`;
+// Fix: Ensure the URL doesn't have line breaks by trimming
+const siteUrl = import.meta.env.SITE ? import.meta.env.SITE.trim() : "";
+const resolvedImageWithDomain = `${siteUrl}/opengraph.jpg`;
 
 const { title } = Astro.props;
 
@@ -54,6 +56,11 @@ const makeTitle =
     <link rel="manifest" href="/images/site.webmanifest" />
 
     <meta name="generator" content={Astro.generator} />
+
+    <!-- Explicit OpenGraph meta tags to ensure proper formatting -->
+    <meta property="og:image" content={resolvedImageWithDomain} />
+    <meta property="og:image:url" content={resolvedImageWithDomain} />
+    <meta property="og:image:alt" content={SITE.name} />
 
     <!-- <link rel="preload" as="image" href={src} alt="Hero" /> -->
     <SEO
