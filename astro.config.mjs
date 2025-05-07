@@ -6,6 +6,6 @@ import icon from "astro-icon";
 
 // https://astro.build/config
 export default defineConfig({
-  site: process.env.SITE_URL || "https://astroship.web3templates.com",
+  site: (process.env.SITE_URL || "https://www.rfindiana.org").trim(),
   integrations: [tailwind(), mdx(), sitemap(), icon()],
 });
