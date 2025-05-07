@@ -6,6 +6,6 @@ import icon from "astro-icon";
 
 // https://astro.build/config
 export default defineConfig({
-  site: (process.env.SITE_URL || "https://www.rfindiana.org").trim(),
+  site: (process.env.SITE || "https://www.rfindiana.org").trim(),
   integrations: [tailwind(), mdx(), sitemap(), icon()],
 });
