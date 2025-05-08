@@ -23,7 +23,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
 
 // Fix: Ensure the URL doesn't have line breaks by trimming
 const siteUrl = import.meta.env.SITE ? import.meta.env.SITE.trim() : "";
-const resolvedImageWithDomain = `${siteUrl}/logo-1200x630.png`;
+const resolvedImageWithDomain = `${siteUrl}/banner-1200x630.png`;
 
 const { title } = Astro.props;
 
