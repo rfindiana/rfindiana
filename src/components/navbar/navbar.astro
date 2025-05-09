@@ -12,18 +12,21 @@ const menuitems = [
   { title: "Network", path: "/network" },
   { title: "Contact Us", path: "/contactform" },
 ];
+
+// Check if we're on the homepage
+const isHomePage = Astro.url.pathname === "/";
 ---
 
-<Container class="sticky top-0 z-50 bg-white">
+<Container class={`fixed top-0 w-full z-50 ${isHomePage ? 'bg-white/40 backdrop-blur-sm shadow-sm' : 'bg-white sticky'}`}>
   <header
-    class="flex flex-col lg:flex-row justify-start items-center mt-5 mb-2">
+    class="flex flex-col lg:flex-row justify-start items-center my-2">
     <Astronav>
       <div class="flex w-full lg:w-auto items-center justify-between">
         <a href="/" class="text-lg">
           <img
             src="/images/logo.svg"
             alt="Religious Freedom Indiana Logo"
-            class="h-16 w-auto max-w-[200px] sm:max-w-none"
+            class={`h-16 w-auto max-w-[200px] sm:max-w-none ${isHomePage ? 'drop-shadow-md' : ''}`}
           />
         </a>
         <div class="block lg:hidden">
@@ -42,10 +45,14 @@ const menuitems = [
 
               // Define base classes
               const baseClasses = "flex lg:px-3 py-2 items-center";
-              // Define active state classes
-              const activeStateClasses = isActive
+              // Define active state classes for homepage vs other pages
+              const activeStateClasses = isHomePage
+                ? isActive
+                  ? "font-bold text-primary"
+                  : "text-text hover:text-primary"
+                : isActive
                 ? "font-bold text-primary"
-                : "text-text hover:text-primary"; // Apply hover only if inactive
+                : "text-text hover:text-primary";
 
               return (
                 <li>
@@ -62,7 +69,7 @@ const menuitems = [
             <a
               href="/joinus"
               data-astro-reload
-              class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out block text-center lg:inline-block">
+              class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded shadow-md transition duration-300 ease-in-out block text-center lg:inline-block">
               Join Us
             </a>
           </li>

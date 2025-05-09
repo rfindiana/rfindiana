@@ -1,15 +1,108 @@
+---
+// Import necessary components
+import PageTitle from "@/components/PageTitle.astro";
+---
+
+<script is:inline>
+  // Function to initialize or reload hero background image
+  function initHeroBackground() {
+    const heroBackground = document.querySelector('.hero-background');
+    if (heroBackground) {
+      // Skip if already loaded or loading
+      if (heroBackground.classList.contains('loaded') || heroBackground.dataset.loading === 'true') {
+        return;
+      }
+      
+      // Mark as loading to prevent duplicate loading
+      heroBackground.dataset.loading = 'true';
+      
+      const imgUrl = '/images/optimized/hero-background.jpg';
+      const img = new Image();
+      img.onload = function() {
+        heroBackground.style.backgroundImage = `url('${imgUrl}')`;
+        heroBackground.classList.add('loaded');
+        heroBackground.dataset.loading = 'false';
+      };
+      img.src = imgUrl;
+    }
+  }
+
+  // Initialize on first page load
+  document.addEventListener('DOMContentLoaded', initHeroBackground);
+  
+  // Handle Astro View Transitions
+  document.addEventListener('astro:page-load', initHeroBackground);
+  
+  // Re-initialize after a view transition completes
+  document.addEventListener('astro:after-swap', initHeroBackground);
+</script>
+
 <div
-  class="bg-gradient-to-r from-primary-light/20 to-primary/20 py-10 text-center mb-8">
-  <div class="header-content container mx-auto px-4">
-    <h1 class="text-4xl md:text-5xl font-bold mb-2 text-primary">
+  class="relative pt-24 pb-10 text-center mb-8 overflow-hidden min-h-screen flex flex-col justify-center">
+  <div 
+    class="absolute inset-0 z-0 bg-cover bg-center hero-background transition-opacity duration-500"
+    aria-hidden="true">
+  </div>
+  <div class="header-content container mx-auto px-4 relative z-10">
+    <h1 class="text-4xl md:text-5xl font-bold mb-4 text-primary">
       Religious Freedom Indiana
     </h1>
-    <p class="tagline text-xl md:text-2xl text-primary-dark">
+    <p class="tagline text-xl md:text-2xl text-primary-dark mb-2">
       Hoosiers Working for Religious Freedom
     </p>
     <p
-      class="micah-quote-hero italic text-lg md:text-xl text-primary-dark/90 mt-2">
+      class="micah-quote-hero italic text-lg md:text-xl text-primary-dark/90 mb-8">
       Act justly, love mercy, walk humbly (Micah 6:8)
     </p>
+    
+    <!-- Vision Section -->
+    <div class="mx-auto max-w-3xl bg-white/40 backdrop-blur-sm p-6 rounded-lg shadow-lg mb-6 border border-white/20">
+      <h2 class="text-2xl md:text-3xl font-bold text-primary mb-2">Vision</h2>
+      <p class="text-lg text-gray-900 font-semibold">
+        An Indiana in which there are no second-class faiths, and in which the
+        Hoosier Christian community speaks in one voice to condemn Christian
+        nationalism as a distortion of the gospel of Jesus and a threat to
+        democracy.
+      </p>
+    </div>
+    
+    <!-- Mission Section -->
+    <div class="mx-auto max-w-3xl bg-white/40 backdrop-blur-sm p-6 rounded-lg shadow-lg border border-white/20">
+      <h2 class="text-2xl md:text-3xl font-bold text-primary mb-2">Mission</h2>
+      <p class="text-lg text-gray-900 font-semibold mb-4">
+        To nurture the Hoosier community of Christians who oppose Christian
+        nationalism, Religious Freedom Indiana builds fellowship, scholarship,
+        and championship in our common, peaceful purpose to:
+      </p>
+      <ul class="list-disc pl-6 space-y-2 text-lg text-left text-gray-900 font-semibold">
+        <li>
+          Create a safe space for those who are concerned about Christian
+          Nationalism and want to learn more about its origins and impact
+        </li>
+        <li>Speak out against Christian Nationalism</li>
+        <li>
+          Reverse Christian Nationalism's t oxic influence in politics, policy,
+          church teaching, and the spiritual health of our brothers and sisters
+          in Christ
+        </li>
+      </ul>
+    </div>
   </div>
 </div>
+
+<style>
+  .hero-background {
+    opacity: 0;
+  }
+  .hero-background.loaded {
+    opacity: 0.35;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .header-content {
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    }
+  }
+</style>
