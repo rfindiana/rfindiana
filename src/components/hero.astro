@@ -6,40 +6,43 @@ import PageTitle from "@/components/PageTitle.astro";
 <script is:inline>
   // Function to initialize or reload hero background image
   function initHeroBackground() {
-    const heroBackground = document.querySelector('.hero-background');
+    const heroBackground = document.querySelector(".hero-background");
     if (heroBackground) {
       // Skip if already loaded or loading
-      if (heroBackground.classList.contains('loaded') || heroBackground.dataset.loading === 'true') {
+      if (
+        heroBackground.classList.contains("loaded") ||
+        heroBackground.dataset.loading === "true"
+      ) {
         return;
       }
-      
+
       // Mark as loading to prevent duplicate loading
-      heroBackground.dataset.loading = 'true';
-      
-      const imgUrl = '/images/optimized/hero-background.jpg';
+      heroBackground.dataset.loading = "true";
+
+      const imgUrl = "/images/optimized/hero-background.jpg";
       const img = new Image();
-      img.onload = function() {
+      img.onload = function () {
         heroBackground.style.backgroundImage = `url('${imgUrl}')`;
-        heroBackground.classList.add('loaded');
-        heroBackground.dataset.loading = 'false';
+        heroBackground.classList.add("loaded");
+        heroBackground.dataset.loading = "false";
       };
       img.src = imgUrl;
     }
   }
 
   // Initialize on first page load
-  document.addEventListener('DOMContentLoaded', initHeroBackground);
-  
+  document.addEventListener("DOMContentLoaded", initHeroBackground);
+
   // Handle Astro View Transitions
-  document.addEventListener('astro:page-load', initHeroBackground);
-  
+  document.addEventListener("astro:page-load", initHeroBackground);
+
   // Re-initialize after a view transition completes
-  document.addEventListener('astro:after-swap', initHeroBackground);
+  document.addEventListener("astro:after-swap", initHeroBackground);
 </script>
 
 <div
   class="relative pt-24 pb-10 text-center mb-8 overflow-hidden min-h-screen flex flex-col justify-center">
-  <div 
+  <div
     class="absolute inset-0 z-0 bg-cover bg-center hero-background transition-opacity duration-500"
     aria-hidden="true">
   </div>
@@ -54,9 +57,10 @@ import PageTitle from "@/components/PageTitle.astro";
       class="micah-quote-hero italic text-lg md:text-xl text-primary-dark/90 mb-8">
       Act justly, love mercy, walk humbly (Micah 6:8)
     </p>
-    
+
     <!-- Vision Section -->
-    <div class="mx-auto max-w-3xl bg-white/40 backdrop-blur-sm p-6 rounded-lg shadow-lg mb-6 border border-white/20">
+    <div
+      class="mx-auto max-w-3xl bg-white/40 backdrop-blur-sm p-6 rounded-lg shadow-lg mb-6 border border-white/20">
       <h2 class="text-2xl md:text-3xl font-bold text-primary mb-2">Vision</h2>
       <p class="text-lg text-gray-900 font-semibold">
         An Indiana in which there are no second-class faiths, and in which the
@@ -65,16 +69,18 @@ import PageTitle from "@/components/PageTitle.astro";
         democracy.
       </p>
     </div>
-    
+
     <!-- Mission Section -->
-    <div class="mx-auto max-w-3xl bg-white/40 backdrop-blur-sm p-6 rounded-lg shadow-lg border border-white/20">
+    <div
+      class="mx-auto max-w-3xl bg-white/40 backdrop-blur-sm p-6 rounded-lg shadow-lg border border-white/20">
       <h2 class="text-2xl md:text-3xl font-bold text-primary mb-2">Mission</h2>
       <p class="text-lg text-gray-900 font-semibold mb-4">
         To nurture the Hoosier community of Christians who oppose Christian
         nationalism, Religious Freedom Indiana builds fellowship, scholarship,
         and championship in our common, peaceful purpose to:
       </p>
-      <ul class="list-disc pl-6 space-y-2 text-lg text-left text-gray-900 font-semibold">
+      <ul
+        class="list-disc pl-6 space-y-2 text-lg text-left text-gray-900 font-semibold">
         <li>
           Create a safe space for those who are concerned about Christian
           Nationalism and want to learn more about its origins and impact
@@ -97,7 +103,7 @@ import PageTitle from "@/components/PageTitle.astro";
   .hero-background.loaded {
     opacity: 0.35;
   }
-  
+
   /* Responsive adjustments */
   @media (max-width: 768px) {
     .header-content {

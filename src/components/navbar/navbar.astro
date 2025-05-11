@@ -17,16 +17,16 @@ const menuitems = [
 const isHomePage = Astro.url.pathname === "/";
 ---
 
-<Container class={`fixed top-0 w-full z-50 ${isHomePage ? 'bg-white/40 backdrop-blur-sm shadow-sm' : 'bg-white sticky'}`}>
-  <header
-    class="flex flex-col lg:flex-row justify-start items-center my-2">
+<Container
+  class={`fixed top-0 w-full z-50 ${isHomePage ? "bg-white/40 backdrop-blur-sm shadow-sm" : "bg-white sticky"}`}>
+  <header class="flex flex-col lg:flex-row justify-start items-center my-2">
     <Astronav>
       <div class="flex w-full lg:w-auto items-center justify-between">
         <a href="/" class="text-lg">
           <img
             src="/images/logo.svg"
             alt="Religious Freedom Indiana Logo"
-            class={`h-16 w-auto max-w-[200px] sm:max-w-none ${isHomePage ? 'drop-shadow-md' : ''}`}
+            class={`h-16 w-auto max-w-[200px] sm:max-w-none ${isHomePage ? "drop-shadow-md" : ""}`}
           />
         </a>
         <div class="block lg:hidden">
@@ -51,8 +51,8 @@ const isHomePage = Astro.url.pathname === "/";
                   ? "font-bold text-primary"
                   : "text-text hover:text-primary"
                 : isActive
-                ? "font-bold text-primary"
-                : "text-text hover:text-primary";
+                  ? "font-bold text-primary"
+                  : "text-text hover:text-primary";
 
               return (
                 <li>
