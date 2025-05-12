@@ -5,7 +5,7 @@ import Layout from "@/layouts/Layout.astro";
 import PageTitle from "@/components/PageTitle.astro";
 
 // Membership Goal Constants
-const currentMembers = 69;
+const currentMembers = 89;
 const goal = 100000;
 const percentage = ((currentMembers / goal) * 100).toFixed(2);
 const lastUpdated = "April 10, 2025";
@@ -53,10 +53,13 @@ const lastUpdated = "April 10, 2025";
 
       <div>
         <h3 class="text-xl font-medium text-gray-800 mb-4">
-          Growth Milestones:
+          Growth History:
         </h3>
+        <div class="mb-8">
+          <canvas id="growthChart"></canvas>
+        </div>
         <div class="overflow-x-auto w-full">
-          <table class="min-w-full divide-y divide-gray-200 text-sm">
+          <table id="growthTable" class="min-w-full divide-y divide-gray-200 text-sm">
             <thead class="bg-gray-50">
               <tr>
                 <th
@@ -84,6 +87,12 @@ const lastUpdated = "April 10, 2025";
                 >
                 <td class="px-4 py-2 whitespace-nowrap text-gray-900">69</td>
               </tr>
+              <tr>
+                <td class="px-4 py-2 whitespace-nowrap text-gray-900"
+                  >May 10, 2025</td
+                >
+                <td class="px-4 py-2 whitespace-nowrap text-gray-900">89</td>
+              </tr>
             </tbody>
           </table>
         </div>
@@ -91,3 +100,45 @@ const lastUpdated = "April 10, 2025";
     </section>
   </Container>
 </Layout>
+
+<script>
+  import Chart from 'chart.js/auto';
+
+  const table = document.getElementById('growthTable') as HTMLTableElement;
+  const tbody = table.getElementsByTagName('tbody')[0];
+  const rows = tbody.getElementsByTagName('tr');
+
+  const labels: string[] = [];
+  const data: number[] = [];
+
+  for (let i = 0; i < rows.length; i++) {
+    const cells = rows[i].getElementsByTagName('td');
+    labels.push(cells[0].innerText);
+    data.push(parseInt(cells[1].innerText));
+  }
+
+  const ctx = (document.getElementById('growthChart') as HTMLCanvasElement).getContext('2d');
+  if (ctx) {
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: labels,
+        datasets: [{
+          label: 'Total Supporters',
+          data: data,
+          borderColor: 'rgb(79, 70, 229)', // primary color
+          tension: 0.1
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+  }
+</script>
