@@ -52,14 +52,14 @@ const lastUpdated = "April 10, 2025";
       </div>
 
       <div>
-        <h3 class="text-xl font-medium text-gray-800 mb-4">
-          Growth History:
-        </h3>
+        <h3 class="text-xl font-medium text-gray-800 mb-4">Growth History:</h3>
         <div class="mb-8">
           <canvas id="growthChart"></canvas>
         </div>
         <div class="overflow-x-auto w-full">
-          <table id="growthTable" class="min-w-full divide-y divide-gray-200 text-sm">
+          <table
+            id="growthTable"
+            class="min-w-full divide-y divide-gray-200 text-sm">
             <thead class="bg-gray-50">
               <tr>
                 <th
@@ -102,43 +102,72 @@ const lastUpdated = "April 10, 2025";
 </Layout>
 
 <script>
-  import Chart from 'chart.js/auto';
+  import Chart from "chart.js/auto";
 
-  const table = document.getElementById('growthTable') as HTMLTableElement;
-  const tbody = table.getElementsByTagName('tbody')[0];
-  const rows = tbody.getElementsByTagName('tr');
+  function initializeChart() {
+    const table = document.getElementById("growthTable") as HTMLTableElement;
+    if (!table) return; // Ensure table exists
 
-  const labels: string[] = [];
-  const data: number[] = [];
+    const tbody = table.getElementsByTagName("tbody")[0];
+    if (!tbody) return; // Ensure tbody exists
 
-  for (let i = 0; i < rows.length; i++) {
-    const cells = rows[i].getElementsByTagName('td');
-    labels.push(cells[0].innerText);
-    data.push(parseInt(cells[1].innerText));
-  }
+    const rows = tbody.getElementsByTagName("tr");
 
-  const ctx = (document.getElementById('growthChart') as HTMLCanvasElement).getContext('2d');
-  if (ctx) {
-    new Chart(ctx, {
-      type: 'line',
-      data: {
-        labels: labels,
-        datasets: [{
-          label: 'Total Supporters',
-          data: data,
-          borderColor: 'rgb(79, 70, 229)', // primary color
-          tension: 0.1
-        }]
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        scales: {
-          y: {
-            beginAtZero: true
-          }
-        }
+    const labels: string[] = [];
+    const data: number[] = [];
+
+    for (let i = 0; i < rows.length; i++) {
+      const cells = rows[i].getElementsByTagName("td");
+      if (cells.length >= 2) {
+        // Ensure cells exist
+        labels.push(cells[0].innerText);
+        data.push(parseInt(cells[1].innerText));
       }
-    });
+    }
+
+    const canvas = document.getElementById("growthChart") as HTMLCanvasElement;
+    if (!canvas) return; // Ensure canvas exists
+
+    const existingChart = Chart.getChart(canvas);
+    if (existingChart) {
+      existingChart.destroy(); // Destroy existing chart instance if it exists
+    }
+
+    const ctx = canvas.getContext("2d");
+    if (ctx) {
+      new Chart(ctx, {
+        type: "line",
+        data: {
+          labels: labels,
+          datasets: [
+            {
+              label: "Total Supporters",
+              data: data,
+              borderColor: "rgb(79, 70, 229)", // primary color
+              tension: 0.1,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            y: {
+              beginAtZero: true,
+            },
+          },
+        },
+      });
+    }
   }
+
+  // Run on initial page load
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initializeChart);
+  } else {
+    initializeChart();
+  }
+
+  // Run on subsequent Astro page loads
+  document.addEventListener("astro:page-load", initializeChart);
 </script>
