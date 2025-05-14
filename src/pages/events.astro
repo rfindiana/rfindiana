@@ -28,62 +28,166 @@ import PageTitle from "@/components/PageTitle.astro";
     <section class="mb-16">
       <h2 class="text-2xl font-semibold text-primary mb-4">Upcoming Events</h2>
 
-      <div class="grid grid-cols-1 gap-6">
-        <!-- Event Item -->
-        <div class="bg-white rounded-lg shadow-md p-4">
-          <div class="flex items-center gap-4">
+      <!-- Event Item -->
+      <div class="bg-white rounded-lg shadow-md p-4 mb-6">
+        <div class="flex items-center gap-4">
+          <div
+            class="bg-primary text-white p-3 rounded-lg text-center flex-shrink-0 min-w-28">
+            <div class="text-sm font-bold">Sunday</div>
+            <div class="text-xl font-bold">May 18</div>
+            <div class="text-xs">2025</div>
+          </div>
+          <div class="flex-grow">
+            <h3 class="text-xl font-semibold text-primary mb-1">
+              General Meeting (Virtual)
+            </h3>
+            <p class="text-sm text-gray-600 mb-2">
+              Join us for a virtual gathering to discuss religious freedom in
+              Indiana.
+            </p>
             <div
-              class="bg-primary text-white p-3 rounded-lg text-center flex-shrink-0 min-w-28">
-              <div class="text-sm font-bold">Sunday</div>
-              <div class="text-xl font-bold">May 18</div>
-              <div class="text-xs">2025</div>
-            </div>
-            <div class="flex-grow">
-              <h3 class="text-xl font-semibold text-primary mb-1">
-                Virtual Meeting
-              </h3>
-              <p class="text-sm text-gray-600 mb-2">
-                Join us for a virtual gathering to discuss religious freedom in
-                Indiana.
-              </p>
-              <div
-                class="flex flex-wrap items-center gap-x-4 text-sm text-gray-700">
-                <span class="flex items-center">
-                  <svg
-                    class="w-4 h-4 mr-1"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24">
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                  </svg>
-                  2:00 PM EST
-                </span>
-                <span class="flex items-center">
-                  <svg
-                    class="w-4 h-4 mr-1"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24">
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"
-                    ></path>
-                  </svg>
-                  Zoom Meeting
-                </span>
-                <span class="text-primary font-medium italic">
-                  Contact us for registration information.
-                </span>
-              </div>
+              class="flex flex-wrap items-center gap-x-4 text-sm text-gray-700">
+              <span class="flex items-center">
+                <svg
+                  class="w-4 h-4 mr-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                2:00 PM EST
+              </span>
+              <span class="flex items-center">
+                <svg
+                  class="w-4 h-4 mr-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"
+                  ></path>
+                </svg>
+                Zoom Meeting
+              </span>
+              <span class="text-primary font-medium italic">
+                Contact us for registration information.
+              </span>
             </div>
           </div>
         </div>
+      </div>
+
+      <h3 class="text-xl font-semibold text-primary mt-6 mb-3">
+        Recurring Virtual Meetings
+      </h3>
+      <div class="bg-white rounded-lg shadow-md mt-4">
+        <div class="overflow-x-auto w-full">
+          <table class="min-w-full divide-y divide-gray-200">
+            <thead class="bg-gray-50">
+              <tr>
+                <th
+                  scope="col"
+                  class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Title
+                </th>
+                <th
+                  scope="col"
+                  class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Host
+                </th>
+                <th
+                  scope="col"
+                  class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Description
+                </th>
+                <th
+                  scope="col"
+                  class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Time(s)
+                </th>
+              </tr>
+            </thead>
+            <tbody class="bg-white divide-y divide-gray-200">
+              <tr>
+                <td class="px-4 py-2 text-sm text-gray-900">Chat w/Dale</td>
+                <td class="px-4 py-2 text-sm text-gray-900">Dale Brubaker</td>
+                <td class="px-4 py-2 text-sm text-gray-900"
+                  >Get-acquainted and/or general discussion. I want to hear what
+                  you think.</td
+                >
+                <td class="px-4 py-2 text-sm text-gray-900"
+                  >Mondays starting May 12, 2025 6:00 P.M.</td
+                >
+              </tr>
+              <!-- More virtual meetings can be added here -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <h3 class="text-xl font-semibold text-primary mt-6 mb-3">
+        Recurring Physical Meetings
+      </h3>
+      <div class="bg-white rounded-lg shadow-md mt-4">
+        <div class="overflow-x-auto w-full">
+          <table class="min-w-full divide-y divide-gray-200">
+            <thead class="bg-gray-50">
+              <tr>
+                <th
+                  scope="col"
+                  class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Title
+                </th>
+                <th
+                  scope="col"
+                  class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Host / Location
+                </th>
+                <th
+                  scope="col"
+                  class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Description
+                </th>
+                <th
+                  scope="col"
+                  class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Time(s)
+                </th>
+              </tr>
+            </thead>
+            <tbody class="bg-white divide-y divide-gray-200">
+              <tr>
+                <td class="px-4 py-2 text-sm text-gray-900"
+                  >Book Study: American Idolatry</td
+                >
+                <td class="px-4 py-2 text-sm text-gray-900"
+                  >Cross of Grace Lutheran Church, New Palestine, IN</td
+                >
+                <td class="px-4 py-2 text-sm text-gray-900"
+                  >How Christian Nationalism Betrays the Gospel and Threatens
+                  the Church</td
+                >
+                <td class="px-4 py-2 text-sm text-gray-900"
+                  >Wednesdays, June 4-25, 11:30AM - 1PM & 7PM - 8:30PM</td
+                >
+              </tr>
+              <!-- More physical meetings can be added here -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <!-- Add physical meetings here -->
+
+      <div class="grid grid-cols-1 gap-6 mt-6">
+        <!-- Event Item -->
+        <!-- The existing May 18th event item that was here has been moved above -->
       </div>
     </section>
 
