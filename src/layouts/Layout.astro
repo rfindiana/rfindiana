@@ -89,6 +89,18 @@ const makeTitle =
     />
     <ViewTransitions />
 
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RJ6JXG6B6F"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-RJ6JXG6B6F");
+    </script>
+
     <!-- START - Brevo Form Styles -->
     <style is:global>
       @font-face {
