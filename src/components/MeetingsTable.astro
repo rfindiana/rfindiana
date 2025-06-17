@@ -49,7 +49,7 @@ const { meetings, hostColumnTitle = "Host" } = Astro.props;
                   <a
                     href={meeting.registrationLink}
                     class="text-primary underline hover:opacity-80"
-                    target="_blank">Register here</a>
+                    target="_blank">Register for {meeting.title}</a>
                 </>
               )}
             </td>
