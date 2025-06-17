@@ -2,6 +2,7 @@
 import Layout from "@/layouts/Layout.astro";
 import Container from "@/components/container.astro";
 import PageTitle from "@/components/PageTitle.astro";
+import MeetingsTable from "@/components/MeetingsTable.astro";
 import { upcomingEvents, virtualMeetings, physicalMeetings, pastEvents } from "@/data/events";
 
 // Helper function to format date
@@ -121,103 +122,12 @@ function formatEventDate(dateString: string) {
       <h3 class="text-xl font-semibold text-primary mt-6 mb-3">
         Recurring Virtual Meetings
       </h3>
-      <div class="bg-white rounded-lg shadow-md mt-4">
-        <div class="overflow-x-auto w-full">
-          <table class="min-w-full divide-y divide-gray-200">
-            <thead class="bg-gray-50">
-              <tr>
-                <th
-                  scope="col"
-                  class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Title
-                </th>
-                <th
-                  scope="col"
-                  class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Host
-                </th>
-                <th
-                  scope="col"
-                  class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Description
-                </th>
-                <th
-                  scope="col"
-                  class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Time(s)
-                </th>
-              </tr>
-            </thead>
-            <tbody class="bg-white divide-y divide-gray-200">
-              {virtualMeetings.map(meeting => (
-                <tr>
-                  <td class="px-4 py-2 text-sm text-gray-900">{meeting.title}</td>
-                  <td class="px-4 py-2 text-sm text-gray-900">{meeting.host}</td>
-                  <td class="px-4 py-2 text-sm text-gray-900">
-                    {meeting.description}
-                    {meeting.registrationLink && (
-                      <>
-                        <br />
-                        <a
-                          href={meeting.registrationLink}
-                          class="text-primary underline hover:opacity-80"
-                          target="_blank">Register here</a>
-                      </>
-                    )}
-                  </td>
-                  <td class="px-4 py-2 text-sm text-gray-900">
-                    {meeting.times}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </div>
+      <MeetingsTable meetings={virtualMeetings} />
 
       <h3 class="text-xl font-semibold text-primary mt-6 mb-3">
         Recurring Physical Meetings
       </h3>
-      <div class="bg-white rounded-lg shadow-md mt-4">
-        <div class="overflow-x-auto w-full">
-          <table class="min-w-full divide-y divide-gray-200">
-            <thead class="bg-gray-50">
-              <tr>
-                <th
-                  scope="col"
-                  class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Title
-                </th>
-                <th
-                  scope="col"
-                  class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Host / Location
-                </th>
-                <th
-                  scope="col"
-                  class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Description
-                </th>
-                <th
-                  scope="col"
-                  class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Time(s)
-                </th>
-              </tr>
-            </thead>
-            <tbody class="bg-white divide-y divide-gray-200">
-              {physicalMeetings.map(meeting => (
-                <tr>
-                  <td class="px-4 py-2 text-sm text-gray-900">{meeting.title}</td>
-                  <td class="px-4 py-2 text-sm text-gray-900">{meeting.host}</td>
-                  <td class="px-4 py-2 text-sm text-gray-900">{meeting.description}</td>
-                  <td class="px-4 py-2 text-sm text-gray-900">{meeting.times}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </div>
+      <MeetingsTable meetings={physicalMeetings} hostColumnTitle="Host / Location" />
       <!-- Add physical meetings here -->
 
       <div class="grid grid-cols-1 gap-6 mt-6">
