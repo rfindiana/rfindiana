@@ -8,7 +8,9 @@ import { upcomingEvents, virtualMeetings, physicalMeetings, pastEvents } from "@
 
 // Helper function to format date
 function formatEventDate(dateString: string) {
-  const date = new Date(dateString);
+  // Parse date in local timezone to avoid UTC conversion issues
+  const [year, month, day] = dateString.split('-').map(Number);
+  const date = new Date(year, month - 1, day); // month is 0-indexed
   const dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
   

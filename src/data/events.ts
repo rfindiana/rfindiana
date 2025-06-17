@@ -36,7 +36,13 @@ export const exampleEvents: Event[] = [
 ];
 
 export const upcomingEvents: Event[] = [
-  // Add future events here - use exampleEvents above as template
+  {
+    title: "The Threat of Christian Nationalism",
+    date: "2025-07-01",
+    time: "7:00 PM ET",
+    description: "Speaker: Andrew Whitehead. Free admission.",
+    location: "Zionsville Christian Church, Zionsville, IN"
+  }
 ];
 
 export const virtualMeetings: Meeting[] = [
