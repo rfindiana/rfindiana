@@ -59,9 +59,11 @@ function formatEventDate(dateString: string) {
           <div class="bg-white rounded-lg shadow-md p-4 mb-6">
             <div class="flex items-center gap-4">
               <div class="bg-primary text-white p-3 rounded-lg text-center flex-shrink-0 min-w-28">
-                <div class="text-sm font-bold">{eventDate.dayName}</div>
-                <div class="text-xl font-bold">{eventDate.month} {eventDate.dayNumber}</div>
-                <div class="text-xs">{eventDate.year}</div>
+                <time datetime={event.date}>
+                  <div class="text-sm font-bold">{eventDate.dayName}</div>
+                  <div class="text-xl font-bold">{eventDate.month} {eventDate.dayNumber}</div>
+                  <div class="text-xs">{eventDate.year}</div>
+                </time>
               </div>
               <div class="flex-grow">
                 <h3 class="text-xl font-semibold text-primary mb-1">
@@ -92,7 +94,7 @@ function formatEventDate(dateString: string) {
                         stroke-width="2"
                         d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                     </svg>
-                    {event.time}
+                    <time>{event.time}</time>
                   </span>
                   <span class="flex items-center">
                     <svg
@@ -234,13 +236,13 @@ function formatEventDate(dateString: string) {
             <div class="bg-white rounded-lg shadow-md p-2">
               <div class="flex flex-col sm:flex-row items-start sm:items-center">
                 <div class="flex-shrink-0 text-gray-700 mr-3 mb-1 sm:mb-0">
-                  <span class="whitespace-normal">{eventDate.dayName}, {eventDate.month} {eventDate.dayNumber}, {eventDate.year}</span>
+                  <time datetime={event.date} class="whitespace-normal">{eventDate.dayName}, {eventDate.month} {eventDate.dayNumber}, {eventDate.year}</time>
                 </div>
                 <div class="flex flex-col sm:flex-row sm:items-center">
                   <h3 class="text-gray-700 mr-3 mb-1 sm:mb-0">
                     {event.title}
                   </h3>
-                  <p class="text-sm text-gray-600">{event.time}</p>
+                  <p class="text-sm text-gray-600"><time>{event.time}</time></p>
                 </div>
               </div>
             </div>
