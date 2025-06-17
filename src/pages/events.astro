@@ -3,6 +3,7 @@ import Layout from "@/layouts/Layout.astro";
 import Container from "@/components/container.astro";
 import PageTitle from "@/components/PageTitle.astro";
 import MeetingsTable from "@/components/MeetingsTable.astro";
+import PastEventsTable from "@/components/PastEventsTable.astro";
 import { upcomingEvents, virtualMeetings, physicalMeetings, pastEvents } from "@/data/events";
 
 // Helper function to format date
@@ -138,26 +139,7 @@ function formatEventDate(dateString: string) {
     <!-- Past Events Section -->
     <section>
       <h2 class="text-2xl font-semibold text-primary mb-4">Past Events</h2>
-      <div class="grid grid-cols-1 gap-2">
-        {pastEvents.map(event => {
-          const eventDate = formatEventDate(event.date);
-          return (
-            <div class="bg-white rounded-lg shadow-md p-2">
-              <div class="flex flex-col sm:flex-row items-start sm:items-center">
-                <div class="flex-shrink-0 text-gray-700 mr-3 mb-1 sm:mb-0">
-                  <time datetime={event.date} class="whitespace-normal">{eventDate.dayName}, {eventDate.month} {eventDate.dayNumber}, {eventDate.year}</time>
-                </div>
-                <div class="flex flex-col sm:flex-row sm:items-center">
-                  <h3 class="text-gray-700 mr-3 mb-1 sm:mb-0">
-                    {event.title}
-                  </h3>
-                  <p class="text-sm text-gray-600"><time>{event.time}</time></p>
-                </div>
-              </div>
-            </div>
-          );
-        })}
-      </div>
+      <PastEventsTable pastEvents={pastEvents} />
     </section>
   </Container>
 </Layout>

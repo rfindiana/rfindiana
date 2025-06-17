@@ -1,0 +1,86 @@
+---
+import type { PastEvent } from "@/data/events";
+
+interface Props {
+  pastEvents: PastEvent[];
+}
+
+const { pastEvents } = Astro.props;
+
+// Helper function to format date
+function formatEventDate(dateString: string) {
+  const date = new Date(dateString);
+  const dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  
+  return {
+    dayName: dayNames[date.getDay()],
+    dayNumber: date.getDate(),
+    month: monthNames[date.getMonth()],
+    year: date.getFullYear()
+  };
+}
+---
+
+<div class="bg-white rounded-lg shadow-md mt-4">
+  <div class="overflow-x-auto w-full">
+    <table class="min-w-full divide-y divide-gray-200">
+      <thead class="bg-gray-50">
+        <tr>
+          <th
+            scope="col"
+            class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+            Date
+          </th>
+          <th
+            scope="col"
+            class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+            Title
+          </th>
+          <th
+            scope="col"
+            class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+            Description
+          </th>
+          <th
+            scope="col"
+            class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+            Time / Location
+          </th>
+        </tr>
+      </thead>
+      <tbody class="bg-white divide-y divide-gray-200">
+        {pastEvents.map(event => {
+          // Check if date is in ISO format or a custom range
+          const isISODate = /^\d{4}-\d{2}-\d{2}$/.test(event.date);
+          const eventDate = isISODate ? formatEventDate(event.date) : null;
+          
+          return (
+            <tr>
+              <td class="px-4 py-2 text-sm text-gray-900">
+                {isISODate && eventDate ? (
+                  <time datetime={event.date}>
+                    {eventDate.dayName}, {eventDate.month} {eventDate.dayNumber}, {eventDate.year}
+                  </time>
+                ) : (
+                  <span>{event.date}</span>
+                )}
+              </td>
+              <td class="px-4 py-2 text-sm text-gray-900">{event.title}</td>
+              <td class="px-4 py-2 text-sm text-gray-900">{event.description}</td>
+              <td class="px-4 py-2 text-sm text-gray-900">
+                <time>{event.time}</time>
+                {event.location && (
+                  <>
+                    <br />
+                    <span class="text-gray-600">{event.location}</span>
+                  </>
+                )}
+              </td>
+            </tr>
+          );
+        })}
+      </tbody>
+    </table>
+  </div>
+</div>
