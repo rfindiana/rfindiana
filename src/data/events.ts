@@ -37,11 +37,26 @@ export const exampleEvents: Event[] = [
 
 export const upcomingEvents: Event[] = [
   {
-    title: "The Threat of Christian Nationalism",
+    title: "The Threat of Christian Nationalism and What We Can Do About It",
     date: "2025-07-01",
     time: "7:00 PM ET",
-    description: "Speaker: Andrew Whitehead. Free admission.",
-    location: "Zionsville Christian Church, Zionsville, IN"
+    description: "Speaker: Andrew Whitehead, author of American Idolatry: How Christian Nationalism Betrays the Gospel and Threatens the Church",
+    location: "Zionsville Christian Church, 120 N. 9th St., Zionsville, IN 46077"
+  },
+  {
+    title: "General Meeting",
+    date: "2025-07-08",
+    time: "7:00 PM ET",
+    description: "Monthly organizational meeting",
+    location: "Zoom Meeting",
+    registrationLink: "https://us06web.zoom.us/meeting/register/_b8izs5vSEyNRZENwmBeoQ"
+  },
+  {
+    title: "Andrew Whitehead: Christian Nationalism",
+    date: "2025-07-09",
+    time: "5:30 PM ET",
+    description: "Dinner at 5:30 PM, program begins at 6:00 PM. Speaker: Andrew Whitehead, author of American Idolatry. The public is welcome! Please call (317) 861-0977 to RSVP.",
+    location: "Cross of Grace Lutheran Church, 3519 S. 600 W., New Palestine, IN 46163"
   }
 ];
 
@@ -50,15 +65,17 @@ export const virtualMeetings: Meeting[] = [
 ];
 
 export const physicalMeetings: Meeting[] = [
-  {
-    title: "Book Study: American Idolatry",
-    host: "Cross of Grace Lutheran Church, New Palestine, IN",
-    description: "How Christian Nationalism Betrays the Gospel and Threatens the Church",
-    times: "Wednesdays, June 4-25, 11:30 AM - 1:00 PM & 7:0 PM - 8:30 PM"
-  }
+  // Add future physical meetings here
 ];
 
 export const pastEvents: PastEvent[] = [
+  {
+    title: "Book Study: American Idolatry",
+    date: "2025-06-25",
+    time: "11:30 AM - 1:00 PM & 7:00 PM - 8:30 PM",
+    description: "How Christian Nationalism Betrays the Gospel and Threatens the Church",
+    location: "Cross of Grace Lutheran Church, New Palestine, IN"
+  },
   {
     title: "Chat w/Dale",
     date: "May 12 - June 2, 2025",
