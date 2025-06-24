@@ -44,10 +44,10 @@ export const upcomingEvents: Event[] = [
     location: "Zionsville Christian Church, 120 N. 9th St., Zionsville, IN 46077"
   },
   {
-    title: "General Meeting",
+    title: "Brainstorming session",
     date: "2025-07-08",
     time: "7:00 PM ET",
-    description: "Monthly organizational meeting",
+    description: "As a new state-wide organization, we are still forming action plans to confront Christian nationalism. Join us on July 8th as we discuss next steps to achieve each of our goals:\n\n-   Educate the public\n-   Counter harmful disinformation\n-   Defend individuals and communities\n-   Foster dialogue across beliefs\n-   Inspire action and advocacy\n\nBring your ideas and show up on Zoom!",
     location: "Zoom Meeting",
     registrationLink: "https://us06web.zoom.us/meeting/register/_b8izs5vSEyNRZENwmBeoQ"
   },
