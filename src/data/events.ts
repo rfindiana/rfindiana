@@ -54,7 +54,13 @@ export const upcomingEvents: Event[] = [
 ];
 
 export const virtualMeetings: Meeting[] = [
-  // Add future virtual meetings here
+  {
+    title: "How to End Christian Nationalism",
+    host: "Dr. Steve Ivy",
+    description: "Dr. Steve Ivy facilitates this book  study. Steve is Baptist clergy, a retired hospital chaplain, and seminary professor. For further information regarding the study, contact him at Steven.ivy@rfindiana.org.",
+    times: "Monthly on fourth Tuesday, 7:00 PM ET",
+    registrationLink: "https://us06web.zoom.us/meeting/register/7D4LXKJVTgy0kAfyzrbNbg"
+  }
 ];
 
 export const physicalMeetings: Meeting[] = [
