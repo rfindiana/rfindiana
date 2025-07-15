@@ -35,23 +35,7 @@ export const exampleEvents: Event[] = [
   }
 ];
 
-export const upcomingEvents: Event[] = [
-  {
-    title: "Brainstorming session",
-    date: "2025-07-07",
-    time: "7:00 PM ET",
-    description: "As a new state-wide organization, we are still forming action plans to confront Christian nationalism. Join us on July 7th as we discuss next steps to achieve each of our goals:\n\n-   Educate the public\n-   Counter harmful disinformation\n-   Defend individuals and communities\n-   Foster dialogue across beliefs\n-   Inspire action and advocacy\n\nBring your ideas and show up on Zoom!",
-    location: "Zoom Meeting",
-    registrationLink: "https://us06web.zoom.us/meeting/register/_b8izs5vSEyNRZENwmBeoQ"
-  },
-  {
-    title: "Andrew Whitehead: Christian Nationalism",
-    date: "2025-07-09",
-    time: "5:30 PM ET",
-    description: "Dinner at 5:30 PM, program begins at 6:00 PM. Speaker: Andrew Whitehead, author of American Idolatry. The public is welcome! Please call (317) 861-0977 to RSVP.",
-    location: "Cross of Grace Lutheran Church, 3519 S. 600 W., New Palestine, IN 46163"
-  }
-];
+export const upcomingEvents: Event[] = [];
 
 export const virtualMeetings: Meeting[] = [
   {
@@ -74,6 +58,20 @@ export const physicalMeetings: Meeting[] = [
 ];
 
 export const pastEvents: PastEvent[] = [
+  {
+    title: "Andrew Whitehead: Christian Nationalism",
+    date: "2025-07-09",
+    time: "5:30 PM ET",
+    description: "Dinner at 5:30 PM, program begins at 6:00 PM. Speaker: Andrew Whitehead, author of American Idolatry. The public is welcome! Please call (317) 861-0977 to RSVP.",
+    location: "Cross of Grace Lutheran Church, 3519 S. 600 W., New Palestine, IN 46163"
+  },
+  {
+    title: "Brainstorming session",
+    date: "2025-07-07",
+    time: "7:00 PM ET",
+    description: "As a new state-wide organization, we are still forming action plans to confront Christian nationalism. Join us on July 7th as we discuss next steps to achieve each of our goals:\n\n-   Educate the public\n-   Counter harmful disinformation\n-   Defend individuals and communities\n-   Foster dialogue across beliefs\n-   Inspire action and advocacy\n\nBring your ideas and show up on Zoom!",
+    location: "Zoom Meeting"
+  },
   {
     title: "The Threat of Christian Nationalism and What We Can Do About It",
     date: "2025-07-01",
