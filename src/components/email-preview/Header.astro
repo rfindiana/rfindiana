@@ -1,0 +1,29 @@
+---
+export interface HeaderImage {
+  imagePath: string;
+  imageAlt: string;
+}
+
+export interface Props {
+  header?: HeaderImage;
+}
+
+const { header } = Astro.props;
+
+const defaultHeader: HeaderImage = {
+  imagePath: import.meta.env.DEV ? "/email-preview/images/header.jpg" : "https://rfindiana.org/email-preview/images/header.jpg",
+  imageAlt: "Newsletter Header"
+};
+
+const displayHeader = header || defaultHeader;
+---
+
+<div>
+  <img 
+    src={displayHeader.imagePath} 
+    alt={displayHeader.imageAlt} 
+    style="width: 600px; height: auto; border: none; display: block; margin: 0; padding: 0;"
+  />
+  
+  <hr style="border: none; border-top: 1px solid #000; margin: 20px 0;" />
+</div>

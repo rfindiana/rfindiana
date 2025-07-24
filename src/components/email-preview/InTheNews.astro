@@ -1,0 +1,44 @@
+---
+export interface NewsItem {
+  title: string;
+  content: string;
+  articleTitle: string;
+  articleLink?: string;
+}
+
+export interface Props {
+  news?: NewsItem;
+}
+
+const { news } = Astro.props;
+
+const defaultNews: NewsItem = {
+  title: "In the news this week",
+  content: "<strong>The movement is growing.</strong> More and more denominations are discussing Christian nationalism, educating themselves about the harms to both religion and state when the two are commingled in Christian nationalist ideology. In this week's news, United Church of Christ members heard about Christian nationalism in their general synod gathering:",
+  articleTitle: "United Church of Christ Brings a Still-Speaking God Into the Christian Nationalist Era",
+  articleLink: "#" // User will need to provide the actual link
+};
+
+const displayNews = news || defaultNews;
+---
+
+<div>
+  <h2 style="font-family: Arial, sans-serif; font-size: 30px; margin-top: 24px; margin-bottom: 10px;">
+    {displayNews.title}
+  </h2>
+
+  <p style="font-family: Arial, sans-serif; font-size: 18px; line-height: 1.6; margin-bottom: 12px;" set:html={displayNews.content}>
+  </p>
+  
+  {displayNews.articleLink ? (
+    <p style="font-family: Arial, sans-serif; font-size: 18px; line-height: 1.6; margin-bottom: 16px;">
+      <a href={displayNews.articleLink} style="color: #0066cc;">{displayNews.articleTitle}</a>
+    </p>
+  ) : (
+    <p style="font-family: Arial, sans-serif; font-size: 18px; line-height: 1.6; margin-bottom: 16px;">
+      {displayNews.articleTitle}
+    </p>
+  )}
+  
+  <hr style="border: none; border-top: 1px solid #000; margin: 20px 0;" />
+</div>

@@ -1,0 +1,37 @@
+---
+export interface EducationNews {
+  title: string;
+  content: string;
+  videoLink: string;
+}
+
+export interface Props {
+  news?: EducationNews;
+}
+
+const { news } = Astro.props;
+
+const defaultNews: EducationNews = {
+  title: "Education Team News",
+  content: "A conversation between Kristin Du Mez and Bruce Beglund on the very important, and disturbing, book On Tyranny.",
+  videoLink: "https://www.youtube.com/watch?v=mbbtjCg01Ow&pp=4gcKEghzdWJzdGFjaw%3D%3D"
+};
+
+const displayNews = news || defaultNews;
+---
+
+<div>
+  <h2 style="font-family: Arial, sans-serif; font-size: 30px; margin-top: 24px; margin-bottom: 10px;">
+    {displayNews.title}
+  </h2>
+
+  <p style="font-family: Arial, sans-serif; font-size: 18px; line-height: 1.6; margin-bottom: 8px;">
+    {displayNews.content}
+  </p>
+  
+  <p style="font-family: Arial, sans-serif; font-size: 18px; line-height: 1.6; margin-bottom: 16px;">
+    <a href={displayNews.videoLink} style="color: #0066cc;">{displayNews.videoLink}</a>
+  </p>
+  
+  <hr style="border: none; border-top: 1px solid #000; margin: 20px 0;" />
+</div>

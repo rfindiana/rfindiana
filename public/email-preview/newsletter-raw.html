@@ -1,0 +1,289 @@
+---
+// Raw HTML page - no component imports needed
+---
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Newsletter HTML - Ready for Brevo</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            background-color: #f5f5f5; 
+            margin: 0; 
+            padding: 20px; 
+        }
+        .copy-instructions {
+            background: #e8f4f8;
+            border: 1px solid #b3d9e6;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        .newsletter-content {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .select-button {
+            background: #0066cc;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+    </style>
+    <script>
+        function selectAll() {
+            const content = document.getElementById('newsletter-content');
+            const range = document.createRange();
+            range.selectNodeContents(content);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+        }
+    </script>
+</head>
+<body>
+    <div class="copy-instructions">
+        <h3>📋 Ready to Copy for Brevo</h3>
+        <p><strong>Instructions:</strong></p>
+        <ol>
+            <li>Click the "Select All Newsletter Content" button below</li>
+            <li>Copy (Ctrl+C or Cmd+C)</li>
+            <li>Paste into your Brevo email campaign</li>
+        </ol>
+        <button class="select-button" onclick="selectAll()">Select All Newsletter Content</button>
+    </div>
+    
+    <div class="newsletter-content">
+        <div id="newsletter-content">
+            <!-- Raw HTML content from all components combined -->
+            <div>
+              <h2 style="font-family: Arial, sans-serif; font-size: 30px; margin-bottom: 0px;">On our calendar</h2>
+              
+              <table width="600" cellpadding="10" cellspacing="0" border="0" style="font-family: Arial, sans-serif; color: #000000; border-collapse: collapse; width: 600px;">
+                <tr>
+                  <th align="left" style="border-bottom: 2px solid #cccccc; font-size: 16px; width: 160px;">Title</th>
+                  <th align="left" style="border-bottom: 2px solid #cccccc; font-size: 16px; width: 100px;">Host</th>
+                  <th align="left" style="border-bottom: 2px solid #cccccc; font-size: 16px; width: 240px;">Description</th>
+                  <th align="left" style="border-bottom: 2px solid #cccccc; font-size: 16px; width: 100px;">Time(s)</th>
+                </tr>
+                <tr>
+                  <td valign="top" style="font-size: 18px;">
+                    <strong>How to End Christian Nationalism</strong><br>
+                    <em>(Zoom version)</em>
+                  </td>
+                  <td valign="top" style="font-size: 18px; white-space: nowrap;">Dr. Steve Ivy</td>
+                  <td valign="top" style="font-size: 18px;">
+                    Dr. Steve Ivy facilitates this book study, covering two chapters per month. Steve is Baptist clergy, a retired hospital chaplain, and seminary professor. Meets every second Tuesday, for four total sessions.<br><br>
+                    For more info: 
+                    <a href="mailto:Steven.ivy@rfindiana.org" style="color: #0066cc;">Steven.ivy@rfindiana.org</a><br>
+                    <strong><a href="https://us06web.zoom.us/meeting/register/7D4LXKJVTgy0kAfyzrbNbg#/registration" style="color: #990000;">Register for How to End Christian Nationalism</a></strong>
+                  </td>
+                  <td valign="top" style="font-size: 18px; white-space: nowrap;">Next session<br>Tuesday, August 26<br>7:00 PM ET</td>
+                </tr>
+                <tr>
+                  <td valign="top" style="font-size: 18px;">
+                    <strong>How to End Christian Nationalism</strong><br>
+                    <em>(Face-to-Face version)</em>
+                  </td>
+                  <td valign="top" style="font-size: 18px; white-space: nowrap;">Dr. Steve Ivy</td>
+                  <td valign="top" style="font-size: 18px;">
+                    Once-monthly book study at First Baptist Church of Indianapolis, 8600 N. College Ave. Also led by Dr. Ivy.<br><br>
+                    Email: 
+                    <a href="mailto:Steven.ivy@rfindiana.org" style="color: #0066cc;">Steven.ivy@rfindiana.org</a>
+                  </td>
+                  <td valign="top" style="font-size: 14px; white-space: nowrap;">Next session<br>Tuesday, August 12<br>7:00 PM ET</td>
+                </tr>
+              </table>
+
+              <p style="font-family: Arial, sans-serif; font-size: 14px; padding-top: 16px;">
+                Check out our Events page at 
+                <a href="https://www.rfindiana.org/events/" style="color: #0066cc;">https://www.rfindiana.org/events/</a>
+              </p>
+              
+              <hr style="border: none; border-top: 1px solid #000; margin: 20px 0;" />
+            </div>
+
+            <div>
+              <h2 style="font-family: Arial, sans-serif; font-size: 30px; margin-top: 24px; margin-bottom: 10px;">
+                What We're Reading (and Discussing)
+              </h2>
+
+              <div style="text-align: center; margin-bottom: 16px;">
+                <img 
+                  src="https://rfindiana.org/email-preview/images/How to End.jpg" 
+                  alt="Book cover: How to End Christian Nationalism" 
+                  style="max-width: 30%; height: auto; border: none; display: block; margin: 0 auto;"
+                />
+              </div>
+
+              <p style="font-family: Arial, sans-serif; font-size: 18px; line-height: 1.6; margin-bottom: 16px;">If you have time to read only one book about Christian nationalism, <strong><em>Amanda Tyler's book <u>How to End Christian Nationalism</u></em></strong> would be a great choice. Tyler lays out an 8-step program for learning about Christian nationalism and calling it to account in a loving but firm way, both in private conversations and in the public sphere.</p>
+              <p style="font-family: Arial, sans-serif; font-size: 18px; line-height: 1.6; margin-bottom: 16px;">Tyler, the founder of Christians Against Christian Nationalism, encourages folks to not only read books, but to band together to stand against violence, to advocate for the separation of church and state, and to get active. If you'd love to discuss this book with others, see the calendar for two opportunities, one held on Zoom and one in person. Both are led by Steve Ivy.</p>
+              
+              <hr style="border: none; border-top: 1px solid #000; margin: 20px 0;" />
+            </div>
+
+            <div>
+              <h2 style="font-family: Arial, sans-serif; font-size: 30px; margin-top: 24px; margin-bottom: 10px;">
+                August Prayer Watch
+              </h2>
+
+              <div style="text-align: center; margin-bottom: 16px;">
+                <img 
+                  src="https://rfindiana.org/email-preview/images/AugustPrayerWatch.jpg" 
+                  alt="August Prayer Watch" 
+                  style="max-width: 80%; height: auto; border: none; display: block; margin: 0 auto;"
+                />
+              </div>
+
+              <p style="font-family: Arial, sans-serif; font-size: 18px; line-height: 1.6; margin-bottom: 16px;">Inspired by the deep spiritual roots of the civil rights movement, Religious Freedom Indiana invites you to participate in a Prayer Watch on Friday, August 1, from 8:00 AM to 12:00 PM.</p>
+              <p style="font-family: Arial, sans-serif; font-size: 18px; line-height: 1.6; margin-bottom: 16px;">During the 1960s, many civil rights leaders and participants—across faith traditions—relied on prayer not just for strength, but for guidance, courage, and unity. Their testimonies remind us that prayer was not an afterthought; it was a foundation.</p>
+              <p style="font-family: Arial, sans-serif; font-size: 18px; line-height: 1.6; margin-bottom: 16px;">In that same spirit, we are organizing a time of intentional, shared prayer for religious freedom for all persons of faith and no faith, of compassion for "the least of these," and for mutual respect and kindness for all Hoosiers.  People of all faith traditions are warmly welcomed to sign up for a 10-minute prayer slot.  Please share the link with anyone you feel would like to participate.</p>
+
+              <p style="font-family: Arial, sans-serif; font-size: 18px; line-height: 1.6;">
+                📅 <strong>Date:</strong> Friday, August 1<br />
+                🕗 <strong>Time:</strong> 8:00 AM – 12:00 PM<br />
+                🔗 <strong>Sign-Up Link:</strong> <a href="https://www.signupgenius.com/go/10C0548ADAB23ABF9C70-57599417-august#/" style="color: #0066cc;">https://www.signupgenius.com/go/10C0548ADAB23ABF9C70-57599417-august#/</a><br />
+                📖 <strong>Optional prayer themes and scripture reflections will be emailed the day before to help you prepare.</strong>
+              </p>
+
+              <p style="font-family: Arial, sans-serif; font-size: 18px; line-height: 1.6;">
+                <strong>Let's come together in prayer—each in our own way, but united in hope.</strong>
+              </p>
+              
+              <hr style="border: none; border-top: 1px solid #000; margin: 20px 0;" />
+            </div>
+
+            <div>
+              <h2 style="font-family: Arial, sans-serif; font-size: 30px; margin-top: 24px; margin-bottom: 10px;">
+                You haven't missed your chance!
+              </h2>
+
+              <div style="text-align: center; margin-bottom: 16px;">
+                <table style="margin: 0 auto; border-collapse: collapse;">
+                  <tr>
+                    <td style="padding: 0 10px;">
+                      <img 
+                        src="https://rfindiana.org/email-preview/images/How To End.jpg" 
+                        alt="Book cover: How to End Christian Nationalism" 
+                        style="max-width: 150px; height: auto; border: none; display: block;"
+                      />
+                    </td>
+                    <td style="padding: 0 10px;">
+                      <img 
+                        src="https://rfindiana.org/email-preview/images/AmandaTyler.jpg" 
+                        alt="Amanda Tyler" 
+                        style="max-width: 150px; height: auto; border: none; display: block;"
+                      />
+                    </td>
+                  </tr>
+                </table>
+              </div>
+
+              <p style="font-family: Arial, sans-serif; font-size: 18px; line-height: 1.6; margin-bottom: 16px;">The book discussion over Amanda Tyler's How to End Christian Nationalism started last week, but participants made it through only the introduction and Chapter 1. There's still time to catch up before the next discussion, which is August 26th.</p>
+              <p style="font-family: Arial, sans-serif; font-size: 18px; line-height: 1.6; margin-bottom: 16px;">Steve Ivy, retired clergy and hospital chaplain, leads the discussions, which are scheduled for 7 - 8 pm on the 4th Thursday of each month. They occur over Zoom and each lasts an hour.</p>
+              <p style="font-family: Arial, sans-serif; font-size: 18px; line-height: 1.6; margin-bottom: 16px;">Tyler's book is an easy introduction to Christian nationalism. Chapters are short and well-supported by both research and references to scripture. Tyler lays out an 8-step program for learning about Christian nationalism and calling it to account in a loving but firm way.</p>
+              
+              <hr style="border: none; border-top: 1px solid #000; margin: 20px 0;" />
+            </div>
+
+            <div>
+              <h2 style="font-family: Arial, sans-serif; font-size: 30px; margin-top: 24px; margin-bottom: 10px;">
+                Advocacy Team News
+              </h2>
+
+              <h3 style="font-family: Arial, sans-serif; font-size: 24px; margin-top: 20px; margin-bottom: 8px;">
+                Get Involved around Indiana
+              </h3>
+              
+              <p style="font-family: Arial, sans-serif; font-size: 18px; line-height: 1.6; margin-bottom: 16px;">
+                There are many groups around the state that are in the fight for freedom and justice. Here are a few ways you can take part:
+              </p>
+
+              <h3 style="font-family: Arial, sans-serif; font-size: 24px; margin-top: 20px; margin-bottom: 8px;">
+                Call Your Legislator
+              </h3>
+              
+              <p style="font-family: Arial, sans-serif; font-size: 18px; line-height: 1.6; margin-bottom: 8px;">
+                Last week we learned that the federal government is planning to use Camp Atterbury as an ICE detention site. Given what we already know about the deplorable conditions at "Alligator Alcatraz," this raises deep humanitarian concerns. Alarmingly, both the number of detainees and deaths in ICE custody have both risen since Trump took office in January. Contact your legislators and tell them to keep Camp Atterbury solely dedicated to our service members, not ICE.
+              </p>
+              
+              <p style="font-family: Arial, sans-serif; font-size: 18px; line-height: 1.6; margin-bottom: 16px;">
+                <a href="https://iga.in.gov/information/find-legislators" style="color: #0066cc;">https://iga.in.gov/information/find-legislators</a>
+              </p>
+
+              <h3 style="font-family: Arial, sans-serif; font-size: 24px; margin-top: 20px; margin-bottom: 8px;">
+                Rage against the Regime - August 2
+              </h3>
+              
+              <p style="font-family: Arial, sans-serif; font-size: 18px; line-height: 1.6; margin-bottom: 12px;">
+                Mark your calendars! The next nationwide day of protest is Saturday, August 2. There are already events planned in these locations:
+              </p>
+              
+              <ul style="font-family: Arial, sans-serif; font-size: 18px; line-height: 1.2; margin-bottom: 16px; padding-left: 20px; list-style-type: disc;">
+                <li style="margin-bottom: 2px; margin-top: 0; display: list-item;">
+                  <strong>Fort Wayne:</strong> 2-5, Allen County Courthouse
+                </li>
+                <li style="margin-bottom: 2px; margin-top: 0; display: list-item;">
+                  <strong>Greensburg:</strong> 12-2, Decatur County Courthouse
+                </li>
+                <li style="margin-bottom: 2px; margin-top: 0; display: list-item;">
+                  <strong>Indianapolis:</strong> 12-3, Indiana Statehouse
+                </li>
+                <li style="margin-bottom: 2px; margin-top: 0; display: list-item;">
+                  <strong>Pendleton:</strong> 12-3, downtown Pendleton
+                </li>
+              </ul>
+
+              <h3 style="font-family: Arial, sans-serif; font-size: 24px; margin-top: 20px; margin-bottom: 8px;">
+                Weekly Friday Protests - August 1 & August 8
+              </h3>
+              
+              <p style="font-family: Arial, sans-serif; font-size: 18px; line-height: 1.6; margin-bottom: 16px;">
+                Indiana 50501 is launching a program of weekly peaceful protests at the Statehouse every Friday evening from 4:00-6:00 pm. No stage, no speakers, no PA, just signs and marching. See more at Indivisible's website.
+              </p>
+              
+              <hr style="border: none; border-top: 1px solid #000; margin: 20px 0;" />
+            </div>
+
+            <div>
+              <h2 style="font-family: Arial, sans-serif; font-size: 30px; margin-top: 24px; margin-bottom: 10px;">
+                Education Team News
+              </h2>
+
+              <p style="font-family: Arial, sans-serif; font-size: 18px; line-height: 1.6; margin-bottom: 8px;">
+                A conversation between Kristin Du Mez and Bruce Beglund on the very important, and disturbing, book On Tyranny.
+              </p>
+              
+              <p style="font-family: Arial, sans-serif; font-size: 18px; line-height: 1.6; margin-bottom: 16px;">
+                <a href="https://www.youtube.com/watch?v=mbbtjCg01Ow&pp=4gcKEghzdWJzdGFjaw%3D%3D" style="color: #0066cc;">https://www.youtube.com/watch?v=mbbtjCg01Ow&pp=4gcKEghzdWJzdGFjaw%3D%3D</a>
+              </p>
+              
+              <hr style="border: none; border-top: 1px solid #000; margin: 20px 0;" />
+            </div>
+
+            <div>
+              <h2 style="font-family: Arial, sans-serif; font-size: 30px; margin-top: 24px; margin-bottom: 10px;">
+                In the news this week
+              </h2>
+
+              <p style="font-family: Arial, sans-serif; font-size: 18px; line-height: 1.6; margin-bottom: 12px;"><strong>The movement is growing.</strong> More and more denominations are discussing Christian nationalism, educating themselves about the harms to both religion and state when the two are commingled in Christian nationalist ideology. In this week's news, United Church of Christ members heard about Christian nationalism in their general synod gathering:</p>
+              
+              <p style="font-family: Arial, sans-serif; font-size: 18px; line-height: 1.6; margin-bottom: 16px;">
+                United Church of Christ Brings a Still-Speaking God Into the Christian Nationalist Era
+              </p>
+              
+              <hr style="border: none; border-top: 1px solid #000; margin: 20px 0;" />
+            </div>
+        </div>
+    </div>
+</body>
+</html>
