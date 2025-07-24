@@ -2,10 +2,11 @@
 
 ## Overview
 
-The RFIndiana Weekly Newsletter System streamlines collaborative newsletter creation by converting Google Docs content into email-ready HTML. This system enables team members to write and edit content in familiar tools while maintaining consistent formatting and branding for email campaigns.
+The RFIndiana Weekly Newsletter System streamlines newsletter creation by converting Astro components into email-ready HTML. This system enables team members to write and edit content in reusable components while maintaining consistent formatting and branding for email campaigns.
 
 ### Strategic Goals
-- **Collaborative Content Creation**: Enable multiple team members to contribute using Google Docs
+- **Component-Based Content**: Reusable Astro components for consistent newsletter sections
+- **Automated Generation**: Python script automatically builds and formats HTML
 - **Consistent Branding**: Maintain visual consistency across all newsletters
 - **Efficient Workflow**: Reduce time from content creation to email delivery
 - **Quality Control**: Preview newsletters before sending to subscribers
@@ -16,166 +17,139 @@ The RFIndiana Weekly Newsletter System streamlines collaborative newsletter crea
 
 ### Project Structure
 ```
-astroship-rfindiana/
+rfindiana-astroship/
 ├── email-preview/
-│   ├── preview.py               # Python script for content processing
-│   ├── template.html            # HTML template for newsletters
-│   ├── images/                  # Local image assets
-│   │   ├── book-cover.jpg
-│   │   └── whitehead-diagram.png
-│   └── output/
-│       └── 20250725-newsletter.html # Generated newsletter
-├── site/
-│   └── public/
-│       └── email-previews/      # Published previews
+│   ├── generate_newsletter.py   # Python script for automated generation
+│   ├── requirements.txt         # Python dependencies
+│   ├── venv/                    # Python virtual environment
+│   ├── README.md               # Generation instructions
+│   └── output/                 # Generated newsletters
+│       ├── YYYYMMDD-newsletter-raw.html     # Raw HTML for Brevo
+│       └── YYYYMMDD-newsletter-preview.html # Team preview
+├── src/components/email-preview/    # Astro newsletter components
+│   ├── OnOurCalendar.astro
+│   ├── AugustPrayerWatch.astro
+│   ├── YouHaventMissedYourChance.astro
+│   ├── VolunteersNeeded.astro
+│   ├── OngoingAdvocacy.astro
+│   ├── AdvocacyTeamNews.astro
+│   ├── EducationTeamNews.astro
+│   └── InTheNews.astro
+├── src/pages/email-preview.astro    # Preview page for team
+└── public/email-preview/
+    ├── newsletter-raw.html          # Always current raw HTML
+    ├── newsletter-preview-YYYYMMDD.html # Timestamped previews
+    └── images/                      # Newsletter images
 ```
 
 ### How It Works
-1. **Content Creation**: Team members write content in shared Google Docs
-2. **Content Processing**: Python script pulls content via Google Docs API
-3. **HTML Generation**: Content is converted to email-safe HTML with inline styles
-4. **Image Integration**: Local images are embedded with proper paths
-5. **Preview Generation**: Complete newsletter is rendered as standalone HTML
-6. **Email Deployment**: HTML is copied to Brevo for distribution
+1. **Content Creation**: Team members edit Astro components with TypeScript interfaces
+2. **Automated Build**: Python script runs `npm run build` to generate latest HTML
+3. **Content Extraction**: Script extracts newsletter content from built preview page
+4. **HTML Cleaning**: Removes Astro-specific attributes and formats nicely
+5. **File Generation**: Creates both raw HTML (for Brevo) and preview (for team)
+6. **Public Deployment**: Copies files to public directory for web access
 
 ---
 
 ## 🚀 Setup Guide
 
-### 1. Google API Configuration
+### 1. Development Environment
+1. **Node.js and npm**: Required for Astro build process
+2. **Python 3.7+**: Required for newsletter generation script
+3. **Text editor**: For editing Astro components (VS Code recommended)
 
-#### Create Service Account
-1. Go to [Google Cloud Console](https://console.cloud.google.com/)
-2. Create a new project or select existing one
-3. Enable the **Google Docs API**
-4. Create a **Service Account**
-5. Download the `service_account.json` credentials file
-
-#### Set Environment Variable
+### 2. Python Environment Setup
 ```bash
-export GOOGLE_APPLICATION_CREDENTIALS=/path/to/service_account.json
+cd email-preview
+python3 -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+pip install -r requirements.txt
 ```
 
-#### Share Documents
-Share each Google Doc (view-only access) with the service account email address found in your credentials file.
-
-### 2. Configure Content Sources
-
-Edit `preview.py` to define your newsletter sections:
-
-```python
-sections = [
-    {
-        "title": "On Our Calendar",
-        "doc_id": "1XG46j_Wlbv7DqaXBwSYjZltCtCVaSygz2uhzGc5AFiY"
-    },
-    {
-        "title": "What We're Reading",
-        "doc_id": "1abcDEFghiJklMnOpQRsTuVwXyz12345678"
-    },
-    {
-        "title": "Community Updates",
-        "doc_id": "1zyxWVuTsRqPoNmLkJiHgFeDcBa9876543210"
-    }
-]
-```
-
-### 3. Image Management
-
-#### How Images Work
-
-Contributors insert actual images directly into Google Docs using the standard Insert → Image feature. The Python script extracts these images during processing and saves them locally for the newsletter.
-
-#### For Content Contributors:
-1. **Insert images normally** in Google Docs:
-   - Click **Insert** → **Image**
-   - Choose from **Upload from computer**, **Drive**, or **Photos**
-   - Position the image where you want it to appear
-2. **Use descriptive images** that are relevant to your content
-3. **Keep images reasonably sized** - very large images will be automatically optimized
-
-#### What Happens During Processing:
-1. **Python script** scans the Google Doc for embedded images
-2. **Downloads each image** from Google's servers to the local `images/` directory
-3. **Generates unique filenames** (e.g., `july-2024-book-cover.jpg`)
-4. **Converts to HTML** with proper email-safe styling:
-   ```html
-   <img src="/email-previews/images/july-2024-book-cover.jpg" style="max-width: 100%;" alt="Book cover">
-   ```
-
-#### Image Workflow:
-1. **Content contributor**: Inserts image directly in Google Doc (normal Insert → Image)
-2. **Python script**: Extracts image from Google Doc and saves locally
-3. **Final newsletter**: Shows the image with proper email formatting
+### 3. Component Development
+- **Edit components** in `src/components/email-preview/`
+- **Use TypeScript interfaces** for type safety and IntelliSense
+- **Test locally** with `npm run dev` at `/email-preview`
+- **Add images** to `public/email-preview/images/`
 
 ---
 
 ## 📝 Content Guidelines
 
-### Google Docs Structure
-- **Use Heading 2** for section titles
-- **Use Normal text** for body content
-- **Create bulleted/numbered lists** as needed
-- **Include image placeholders** where visuals are needed
-- **Keep paragraphs concise** for email readability
+### Astro Component Structure
+- **Use TypeScript interfaces** for props and data structures
+- **Inline CSS styles** for email compatibility
+- **Email-safe HTML** (tables for layout, web-safe fonts)
+- **Production image paths** (https://rfindiana.org/email-preview/images/)
 
-### Writing Best Practices
-- **Lead with value**: Start each section with the most important information
-- **Use active voice**: Makes content more engaging
-- **Include clear calls-to-action**: Guide readers to next steps
-- **Optimize for mobile**: Keep sentences and paragraphs short
-- **Test links**: Ensure all URLs work before publishing
+### Component Development Best Practices
+- **Consistent styling**: Use Arial font family and established color schemes
+- **Mobile-first**: Ensure components work on small screens
+- **Email client compatibility**: Test with various email clients
+- **Accessible markup**: Include alt text for images, proper heading hierarchy
+- **TypeScript typing**: Define interfaces for all component props
 
 ### Image Guidelines
-- **Use relevant images**: Choose images that support your content
-- **Reasonable file sizes**: Very large images will be automatically optimized
-- **Use web-safe formats**: JPG, PNG, GIF work best
-- **Consider mobile readers**: Images should be clear when viewed on small screens
+- **Optimize file sizes**: Keep images under 500KB when possible
+- **Use web-safe formats**: JPG, PNG work best for email
+- **Descriptive filenames**: Use clear, descriptive names
+- **Alt text**: Always include meaningful alt attributes
 
 ---
 
 ## 🔄 Workflow
 
 ### For Content Contributors
-1. **Write content** in your assigned Google Doc
-2. **Insert images** using Google Docs' Insert → Image feature
-3. **Review and edit** content with team members
-4. **Notify content maintainer** when ready for processing
+1. **Edit Astro components** in `src/components/email-preview/`
+2. **Update component content** using TypeScript interfaces for type safety
+3. **Add images** to `public/email-preview/images/` directory
+4. **Test locally** by running `npm run dev` and visiting `/email-preview`
+5. **Notify content maintainer** when ready for generation
 
 ### For Content Maintainer
-1. **Run the generator**:
+
+#### First-Time Setup
+1. **Set up Python environment**:
    ```bash
    cd email-preview
-   python preview.py
-   ```
-   *Note: The script will automatically extract images from Google Docs and save them to the `images/` directory*
-
-2. **Review output** at:
-   ```
-   output/july-newsletter.html
+   python3 -m venv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   pip install -r requirements.txt
    ```
 
-3. **Check extracted images** in:
-   ```
-   images/
-   ```
-
-4. **Copy to public directory**:
+#### Generate Newsletter
+1. **Run the automated generator**:
    ```bash
-   cp output/july-newsletter.html ../site/public/email-previews/
-   cp images/* ../site/public/email-previews/images/
+   cd email-preview
+   source venv/bin/activate  # Activate virtual environment
+   python generate_newsletter.py
    ```
 
-5. **Preview online** at:
-   ```
-   https://rfindiana.org/email-previews/july-newsletter.html
-   ```
+2. **The script automatically**:
+   - Builds the Astro site (`npm run build`)
+   - Extracts newsletter content from `/email-preview` page
+   - Cleans and formats the HTML
+   - Generates two files:
+     - `output/YYYYMMDD-newsletter-raw.html` (for Brevo)
+     - `output/YYYYMMDD-newsletter-preview.html` (for team review)
+   - Copies files to `public/email-preview/` for web access
 
-6. **Deploy to Brevo**:
-   - Open the preview page in browser
-   - Copy the full HTML body
-   - Paste into Brevo campaign template
+3. **Review the generated content**:
+   - **Team preview**: `output/YYYYMMDD-newsletter-preview.html`
+   - **Web preview**: `https://rfindiana.org/email-preview/newsletter-raw.html`
+   - **Brevo-ready HTML**: `output/YYYYMMDD-newsletter-raw.html`
+
+4. **Deploy to Brevo**:
+   - Open `output/YYYYMMDD-newsletter-raw.html` in a text editor
+   - Copy all HTML content
+   - Paste into Brevo campaign editor
    - Send test emails before final deployment
+
+#### Troubleshooting
+- **"npm not found"**: Ensure Node.js is installed
+- **"Built preview file not found"**: Check that Astro build succeeded
+- **Virtual environment issues**: Recreate with `python3 -m venv venv`
 
 ---
 
@@ -202,27 +176,36 @@ Contributors insert actual images directly into Google Docs using the standard I
 
 ### Common Issues
 
-**"Google API credentials not found"**
-- Verify `GOOGLE_APPLICATION_CREDENTIALS` environment variable is set
-- Ensure the credentials file path is correct and accessible
+**"npm not found"**
+- Install Node.js from https://nodejs.org/
+- Verify installation with `node --version` and `npm --version`
 
-**"Permission denied accessing Google Doc"**
-- Check that the Google Doc is shared with the service account email
-- Verify the document ID is correct in the sections configuration
+**"Built preview file not found"**
+- Check that `npm run build` completed successfully
+- Verify `/email-preview` page exists in Astro project
+- Ensure Astro components are properly imported
 
-**"Images not displaying"**
-- Check that images are properly inserted in the Google Doc (not just pasted as text)
-- Verify the Google Doc is shared with the service account
-- Confirm the Python script has write access to the `images/` directory
-- Check that extracted images were saved correctly in `images/` directory
+**"Python virtual environment issues"**
+- Recreate virtual environment: `rm -rf venv && python3 -m venv venv`
+- Activate virtual environment before running script
+- Install dependencies: `pip install -r requirements.txt`
+
+**"BeautifulSoup/lxml not found"**
+- Ensure virtual environment is activated
+- Reinstall dependencies: `pip install -r requirements.txt`
 
 **"HTML formatting issues"**
-- Test the generated HTML in multiple email clients
+- Test generated HTML in multiple email clients
 - Validate HTML structure using online validators
-- Check for unsupported CSS properties
+- Check that inline CSS styles are preserved
+
+**"Images not displaying in email"**
+- Verify images are in `public/email-preview/images/`
+- Check that image paths use production URLs (https://rfindiana.org/...)
+- Ensure image files are web-optimized (under 500KB)
 
 ### Debug Mode
-Add this to `preview.py` for detailed logging:
+Add this to `generate_newsletter.py` for detailed logging:
 ```python
 import logging
 logging.basicConfig(level=logging.DEBUG)
@@ -249,25 +232,27 @@ logging.basicConfig(level=logging.DEBUG)
 ## 🚀 Future Enhancements
 
 ### Planned Features
-- **Web-based content editor**: Reduce Google Docs dependency
-- **Automated image optimization**: Compress images during processing
+- **Google Docs Integration**: Pull content from Google Docs API (as originally planned)
+- **Automated image optimization**: Compress and resize images during processing
 - **Content scheduling**: Queue newsletters for future sending
 - **Analytics integration**: Direct connection to email metrics
 - **Template variations**: Support for different newsletter formats
 
 ### Development Ideas
-- **Enhanced image processing**: Automatic resizing and optimization
-- **Live preview mode**: Real-time updates during editing
+- **Enhanced image processing**: Automatic resizing and optimization in Python script
+- **Live preview mode**: Real-time updates during Astro development
 - **Content approval workflow**: Review process before publishing
 - **Automated link checking**: Verify all URLs before sending
 - **Multi-language support**: Localization for different audiences
+- **Component library**: Expand newsletter component options
 
 ### Technical Implementation Notes
-The Python script needs to be updated to:
-- Extract images from Google Docs using the Google Docs API
-- Download and save images locally with unique filenames
-- Convert image references to proper HTML tags
-- Handle different image formats and sizes appropriately
+The current system could be extended to:
+- **Google Docs API integration**: Pull content dynamically from shared docs
+- **Image processing pipeline**: Automatic optimization and format conversion
+- **Brevo API integration**: Direct publishing without manual copy/paste
+- **Content versioning**: Track changes and maintain newsletter history
+- **A/B testing support**: Generate multiple newsletter variations
 
 ---
 
