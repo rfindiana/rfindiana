@@ -48,12 +48,11 @@ const displayEvents = events.length > 0 ? events : defaultEvents;
 <div>
   <h2 style="font-family: Arial, sans-serif; font-size: 30px; margin-bottom: 0px;">On our calendar</h2>
   
-  <table width="700" cellpadding="10" cellspacing="0" border="0" style="font-family: Arial, sans-serif; color: #000000; border-collapse: collapse; width: 700px;">
+  <table width="600" cellpadding="10" cellspacing="0" border="0" style="font-family: Arial, sans-serif; color: #000000; border-collapse: collapse; width: 600px;">
     <tr>
       <th align="left" style="border-bottom: 2px solid #cccccc; font-size: 16px; width: 160px;">Title</th>
-      <th align="left" style="border-bottom: 2px solid #cccccc; font-size: 16px; width: 100px;">Host</th>
-      <th align="left" style="border-bottom: 2px solid #cccccc; font-size: 16px; width: 320px;">Description</th>
-      <th align="left" style="border-bottom: 2px solid #cccccc; font-size: 16px; width: 120px;">Time(s)</th>
+      <th align="left" style="border-bottom: 2px solid #cccccc; font-size: 16px; width: 300px;">Description</th>
+      <th align="left" style="border-bottom: 2px solid #cccccc; font-size: 16px; width: 140px;">Host & Times</th>
     </tr>
     
     {displayEvents.map((event) => (
@@ -67,7 +66,6 @@ const displayEvents = events.length > 0 ? events : defaultEvents;
             </Fragment>
           )}
         </td>
-        <td valign="top" style="font-size: 18px; white-space: nowrap;">{event.host}</td>
         <td valign="top" style="font-size: 18px;">
           {event.description}
           {event.email && (
@@ -85,8 +83,9 @@ const displayEvents = events.length > 0 ? events : defaultEvents;
             </strong>
           )}
         </td>
-        <td valign="top" style="font-size: 18px; white-space: nowrap;">
-          Next session<br />
+        <td valign="top" style="font-size: 18px;">
+          <strong>Host:</strong> {event.host}<br />
+          <strong>Next session:</strong><br />
           {event.nextSession}<br />
           {event.time}
         </td>
