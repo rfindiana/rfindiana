@@ -1,0 +1,98 @@
+---
+export interface ProtestEvent {
+  city: string;
+  time: string;
+  location: string;
+}
+
+export interface AdvocacyNews {
+  title: string;
+  getInvolvedTitle: string;
+  getInvolvedText: string;
+  callLegislatorTitle: string;
+  callLegislatorText: string;
+  legislatorLink: string;
+  rageTitle: string;
+  rageText: string;
+  rageEvents: ProtestEvent[];
+  fridayTitle: string;
+  fridayText: string;
+}
+
+export interface Props {
+  news?: AdvocacyNews;
+}
+
+const { news } = Astro.props;
+
+const defaultNews: AdvocacyNews = {
+  title: "Advocacy Team News",
+  getInvolvedTitle: "Get Involved around Indiana",
+  getInvolvedText: "There are many groups around the state that are in the fight for freedom and justice. Here are a few ways you can take part:",
+  callLegislatorTitle: "Call Your Legislator",
+  callLegislatorText: "Last week we learned that the federal government is planning to use Camp Atterbury as an ICE detention site. Given what we already know about the deplorable conditions at \"Alligator Alcatraz,\" this raises deep humanitarian concerns. Alarmingly, both the number of detainees and deaths in ICE custody have both risen since Trump took office in January. Contact your legislators and tell them to keep Camp Atterbury solely dedicated to our service members, not ICE.",
+  legislatorLink: "https://iga.in.gov/information/find-legislators",
+  rageTitle: "Rage against the Regime - August 2",
+  rageText: "Mark your calendars! The next nationwide day of protest is Saturday, August 2. There are already events planned in these locations:",
+  rageEvents: [
+    { city: "Fort Wayne", time: "2-5", location: "Allen County Courthouse" },
+    { city: "Greensburg", time: "12-2", location: "Decatur County Courthouse" },
+    { city: "Indianapolis", time: "12-3", location: "Indiana Statehouse" },
+    { city: "Pendleton", time: "12-3", location: "downtown Pendleton" }
+  ],
+  fridayTitle: "Weekly Friday Protests - August 1 & August 8",
+  fridayText: "Indiana 50501 is launching a program of weekly peaceful protests at the Statehouse every Friday evening from 4:00-6:00 pm. No stage, no speakers, no PA, just signs and marching. See more at Indivisible's website."
+};
+
+const displayNews = news || defaultNews;
+---
+
+<div>
+  <h2 style="font-family: Arial, sans-serif; font-size: 30px; margin-top: 24px; margin-bottom: 10px;">
+    {displayNews.title}
+  </h2>
+
+  <h3 style="font-family: Arial, sans-serif; font-size: 24px; margin-top: 20px; margin-bottom: 8px;">
+    {displayNews.getInvolvedTitle}
+  </h3>
+  
+  <p style="font-family: Arial, sans-serif; font-size: 18px; line-height: 1.6; margin-bottom: 16px;">
+    {displayNews.getInvolvedText}
+  </p>
+
+  <h3 style="font-family: Arial, sans-serif; font-size: 24px; margin-top: 20px; margin-bottom: 8px;">
+    {displayNews.callLegislatorTitle}
+  </h3>
+  
+  <p style="font-family: Arial, sans-serif; font-size: 18px; line-height: 1.6; margin-bottom: 8px;">
+    {displayNews.callLegislatorText}
+  </p>
+  
+  <p style="font-family: Arial, sans-serif; font-size: 18px; line-height: 1.6; margin-bottom: 16px;">
+    <a href={displayNews.legislatorLink} style="color: #0066cc;">{displayNews.legislatorLink}</a>
+  </p>
+
+  <h3 style="font-family: Arial, sans-serif; font-size: 24px; margin-top: 20px; margin-bottom: 8px;">
+    {displayNews.rageTitle}
+  </h3>
+  
+  <p style="font-family: Arial, sans-serif; font-size: 18px; line-height: 1.6; margin-bottom: 12px;">
+    {displayNews.rageText}
+  </p>
+  
+  <ul style="font-family: Arial, sans-serif; font-size: 18px; line-height: 1.2; margin-bottom: 16px; padding-left: 20px; list-style-type: disc;">
+    {displayNews.rageEvents.map((event) => (
+      <li style="margin-bottom: 2px; margin-top: 0; display: list-item;">
+        <strong>{event.city}:</strong> {event.time}, {event.location}
+      </li>
+    ))}
+  </ul>
+
+  <h3 style="font-family: Arial, sans-serif; font-size: 24px; margin-top: 20px; margin-bottom: 8px;">
+    {displayNews.fridayTitle}
+  </h3>
+  
+  <p style="font-family: Arial, sans-serif; font-size: 18px; line-height: 1.6; margin-bottom: 16px;">
+    {displayNews.fridayText}
+  </p>
+</div>

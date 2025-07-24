@@ -1,0 +1,66 @@
+---
+export interface BookDiscussion {
+  title: string;
+  bookImagePath: string;
+  authorImagePath: string;
+  bookImageAlt: string;
+  authorImageAlt: string;
+  description: string[];
+}
+
+export interface Props {
+  discussion?: BookDiscussion;
+  sectionTitle?: string;
+}
+
+const { 
+  sectionTitle = "You haven't missed your chance!",
+  discussion
+} = Astro.props;
+
+const defaultDiscussion: BookDiscussion = {
+  title: "How to End Christian Nationalism",
+  bookImagePath: import.meta.env.DEV ? "/email-preview/images/How To End.jpg" : "https://rfindiana.org/email-preview/images/How To End.jpg",
+  authorImagePath: import.meta.env.DEV ? "/email-preview/images/AmandaTyler.jpg" : "https://rfindiana.org/email-preview/images/AmandaTyler.jpg",
+  bookImageAlt: "Book cover: How to End Christian Nationalism",
+  authorImageAlt: "Amanda Tyler",
+  description: [
+    "The book discussion over Amanda Tyler's How to End Christian Nationalism started last week, but participants made it through only the introduction and Chapter 1. There's still time to catch up before the next discussion, which is August 26th.",
+    "Steve Ivy, retired clergy and hospital chaplain, leads the discussions, which are scheduled for 7 - 8 pm on the 4th Thursday of each month. They occur over Zoom and each lasts an hour.",
+    "Tyler's book is an easy introduction to Christian nationalism. Chapters are short and well-supported by both research and references to scripture. Tyler lays out an 8-step program for learning about Christian nationalism and calling it to account in a loving but firm way."
+  ]
+};
+
+const displayDiscussion = discussion || defaultDiscussion;
+---
+
+<div>
+  <h2 style="font-family: Arial, sans-serif; font-size: 30px; margin-top: 24px; margin-bottom: 10px;">
+    {sectionTitle}
+  </h2>
+
+  <div style="text-align: center; margin-bottom: 16px;">
+    <table style="margin: 0 auto; border-collapse: collapse;">
+      <tr>
+        <td style="padding: 0 10px;">
+          <img 
+            src={displayDiscussion.bookImagePath} 
+            alt={displayDiscussion.bookImageAlt} 
+            style="max-width: 150px; height: auto; border: none; display: block;"
+          />
+        </td>
+        <td style="padding: 0 10px;">
+          <img 
+            src={displayDiscussion.authorImagePath} 
+            alt={displayDiscussion.authorImageAlt} 
+            style="max-width: 150px; height: auto; border: none; display: block;"
+          />
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  {displayDiscussion.description.map((paragraph) => (
+    <p style="font-family: Arial, sans-serif; font-size: 18px; line-height: 1.6; margin-bottom: 16px;">{paragraph}</p>
+  ))}
+</div>
