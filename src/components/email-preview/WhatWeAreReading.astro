@@ -1,0 +1,50 @@
+---
+export interface Book {
+  title: string;
+  author: string;
+  imagePath: string;
+  imageAlt: string;
+  description: string[];
+}
+
+export interface Props {
+  book?: Book;
+  sectionTitle?: string;
+}
+
+const { 
+  sectionTitle = "What We're Reading (and Discussing)",
+  book
+} = Astro.props;
+
+const defaultBook: Book = {
+  title: "How to End Christian Nationalism",
+  author: "Amanda Tyler",
+  imagePath: import.meta.env.DEV ? "/email-preview/images/How to End.jpg" : "https://rfindiana.org/email-preview/images/How to End.jpg",
+  imageAlt: "Book cover: How to End Christian Nationalism",
+  description: [
+    "If you have time to read only one book about Christian nationalism, <strong><em>Amanda Tyler's book <u>How to End Christian Nationalism</u></em></strong> would be a great choice. Tyler lays out an 8-step program for learning about Christian nationalism and calling it to account in a loving but firm way, both in private conversations and in the public sphere.",
+    "Tyler, the founder of Christians Against Christian Nationalism, encourages folks to not only read books, but to band together to stand against violence, to advocate for the separation of church and state, and to get active. If you'd love to discuss this book with others, see the calendar for two opportunities, one held on Zoom and one in person. Both are led by Steve Ivy."
+  ]
+};
+
+const displayBook = book || defaultBook;
+---
+
+<div>
+  <h2 style="font-family: Arial, sans-serif; font-size: 30px; margin-top: 24px; margin-bottom: 10px;">
+    {sectionTitle}
+  </h2>
+
+  <div style="text-align: center; margin-bottom: 16px;">
+    <img 
+      src={displayBook.imagePath} 
+      alt={displayBook.imageAlt} 
+      style="max-width: 30%; height: auto; border: none; display: block; margin: 0 auto;"
+    />
+  </div>
+
+  {displayBook.description.map((paragraph) => (
+    <p style="font-family: Arial, sans-serif; font-size: 18px; line-height: 1.6; margin-bottom: 16px;" set:html={paragraph} />
+  ))}
+</div>

@@ -1,0 +1,43 @@
+---
+import OnOurCalendar from '../components/email-preview/OnOurCalendar.astro';
+import WhatWeAreReading from '../components/email-preview/WhatWeAreReading.astro';
+import AugustPrayerWatch from '../components/email-preview/AugustPrayerWatch.astro';
+---
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Preview - OnOurCalendar Component</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            background-color: #f5f5f5; 
+            margin: 0; 
+            padding: 20px; 
+        }
+        .preview-container { 
+            max-width: 800px; 
+            margin: 0 auto; 
+            background: white; 
+            padding: 20px; 
+            border-radius: 8px; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1); 
+        }
+        .preview-title { 
+            margin-bottom: 20px; 
+            padding-bottom: 10px; 
+            border-bottom: 2px solid #eee; 
+        }
+    </style>
+</head>
+<body>
+    <div class="preview-container">
+        <h1 class="preview-title">Email Preview Components</h1>
+        <OnOurCalendar />
+        <WhatWeAreReading />
+        <AugustPrayerWatch />
+    </div>
+</body>
+</html>

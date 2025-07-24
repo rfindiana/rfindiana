@@ -1,0 +1,102 @@
+---
+export interface Event {
+  title: string;
+  subtitle?: string;
+  host: string;
+  description: string;
+  email?: string;
+  registrationUrl?: string;
+  nextSession: string;
+  time: string;
+}
+
+export interface Props {
+  events?: Event[];
+  eventsPageUrl?: string;
+}
+
+const { 
+  events = [],
+  eventsPageUrl = "https://www.rfindiana.org/events/"
+} = Astro.props;
+
+const defaultEvents: Event[] = [
+  {
+    title: "How to End Christian Nationalism",
+    subtitle: "(Zoom version)",
+    host: "Dr. Steve Ivy",
+    description: "Dr. Steve Ivy facilitates this book study, covering two chapters per month. Steve is Baptist clergy, a retired hospital chaplain, and seminary professor. Meets every second Tuesday, for four total sessions.",
+    email: "Steven.ivy@rfindiana.org",
+    registrationUrl: "https://us06web.zoom.us/meeting/register/7D4LXKJVTgy0kAfyzrbNbg#/registration",
+    nextSession: "Tuesday, July 29",
+    time: "7:00 PM ET"
+  },
+  {
+    title: "How to End Christian Nationalism",
+    subtitle: "(Face-to-Face version)",
+    host: "Dr. Steve Ivy",
+    description: "Once-monthly book study at First Baptist Church of Indianapolis, 8600 N. College Ave. Also led by Dr. Ivy.",
+    email: "Steven.ivy@rfindiana.org",
+    nextSession: "Tuesday, August 12",
+    time: "7:00 PM ET"
+  }
+];
+
+const displayEvents = events.length > 0 ? events : defaultEvents;
+---
+
+<div>
+  <h2 style="font-family: Arial, sans-serif; font-size: 30px; margin-bottom: 0px;">On our calendar</h2>
+  
+  <table width="600" cellpadding="10" cellspacing="0" border="0" style="font-family: Arial, sans-serif; color: #000000; border-collapse: collapse; width: 600px;">
+    <tr>
+      <th align="left" style="border-bottom: 2px solid #cccccc; font-size: 16px; width: 160px;">Title</th>
+      <th align="left" style="border-bottom: 2px solid #cccccc; font-size: 16px; width: 100px;">Host</th>
+      <th align="left" style="border-bottom: 2px solid #cccccc; font-size: 16px; width: 240px;">Description</th>
+      <th align="left" style="border-bottom: 2px solid #cccccc; font-size: 16px; width: 100px;">Time(s)</th>
+    </tr>
+    
+    {displayEvents.map((event) => (
+      <tr>
+        <td valign="top" style="font-size: 18px;">
+          <strong>{event.title}</strong>
+          {event.subtitle && (
+            <Fragment>
+              <br />
+              <em>{event.subtitle}</em>
+            </Fragment>
+          )}
+        </td>
+        <td valign="top" style="font-size: 18px; white-space: nowrap;">{event.host}</td>
+        <td valign="top" style="font-size: 18px;">
+          {event.description}
+          <br /><br />
+          {event.email && (
+            <Fragment>
+              For more info: 
+              <a href={`mailto:${event.email}`} style="color: #0066cc;">{event.email}</a>
+              <br />
+            </Fragment>
+          )}
+          {event.registrationUrl && (
+            <strong>
+              <a href={event.registrationUrl} style="color: #990000;">
+                Register for {event.title}
+              </a>
+            </strong>
+          )}
+        </td>
+        <td valign="top" style="font-size: 18px; white-space: nowrap;">
+          Next session<br />
+          {event.nextSession}<br />
+          {event.time}
+        </td>
+      </tr>
+    ))}
+  </table>
+
+  <p style="font-family: Arial, sans-serif; font-size: 14px; padding-top: 16px;">
+    Check out our Events page at 
+    <a href={eventsPageUrl} style="color: #0066cc;">{eventsPageUrl}</a>
+  </p>
+</div>

@@ -24,7 +24,7 @@ astroship-rfindiana/
 │   │   ├── book-cover.jpg
 │   │   └── whitehead-diagram.png
 │   └── output/
-│       └── july-newsletter.html # Generated newsletter
+│       └── 20250725-newsletter.html # Generated newsletter
 ├── site/
 │   └── public/
 │       └── email-previews/      # Published previews
