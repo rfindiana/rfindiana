@@ -109,7 +109,7 @@ pip install -r requirements.txt
 
 ### For Content Maintainer
 
-#### First-Time Setup
+#### First-Time Setup (One Time Only)
 1. **Set up Python environment**:
    ```bash
    cd email-preview
@@ -118,7 +118,7 @@ pip install -r requirements.txt
    pip install -r requirements.txt
    ```
 
-#### Generate Newsletter
+#### Generate Newsletter (Every Time)
 1. **Run the automated generator**:
    ```bash
    cd email-preview
@@ -127,22 +127,22 @@ pip install -r requirements.txt
    ```
 
 2. **The script automatically**:
-   - Builds the Astro site (`npm run build`)
+   - Builds the Astro site (`npm run build`) - you don't run this manually
    - Extracts newsletter content from `/email-preview` page
    - Cleans and formats the HTML
-   - Generates two files:
-     - `output/YYYYMMDD-newsletter-raw.html` (for Brevo)
-     - `output/YYYYMMDD-newsletter-preview.html` (for team review)
+   - Generates two files in `email-preview/output/`:
+     - `YYYYMMDD-newsletter-raw.html` (for Brevo)
+     - `YYYYMMDD-newsletter-preview.html` (for team review)
    - Copies files to `public/email-preview/` for web access
 
-3. **Review the generated content**:
-   - **Team preview**: `output/YYYYMMDD-newsletter-preview.html`
+3. **Find your generated files**:
+   - **Team preview**: `email-preview/output/YYYYMMDD-newsletter-preview.html`
    - **Web preview**: `https://rfindiana.org/email-preview/newsletter-raw.html`
-   - **Brevo-ready HTML**: `output/YYYYMMDD-newsletter-raw.html`
+   - **Brevo-ready HTML**: `email-preview/output/YYYYMMDD-newsletter-raw.html`
 
 4. **Deploy to Brevo**:
-   - Open `output/YYYYMMDD-newsletter-raw.html` in a text editor
-   - Copy all HTML content
+   - Open `email-preview/output/YYYYMMDD-newsletter-raw.html` in a text editor
+   - Copy all HTML content (Ctrl+A, Ctrl+C)
    - Paste into Brevo campaign editor
    - Send test emails before final deployment
 
