@@ -25,19 +25,19 @@ const defaultEvents: Event[] = [
     title: "How to End Christian Nationalism",
     subtitle: "(Zoom version)",
     host: "Dr. Steve Ivy",
-    description: "Dr. Steve Ivy facilitates this book study, covering two chapters per month. Steve is Baptist clergy, a retired hospital chaplain, and seminary professor. Meets every second Tuesday, for four total sessions.",
+    description: "Dr. Steve Ivy facilitates this book study, covering 2 chapters per month. Steve is Baptist clergy, a retired hospital chaplain, and seminary professor. Meets every second Tuesday, 4 sessions total.",
     email: "Steven.ivy@rfindiana.org",
     registrationUrl: "https://us06web.zoom.us/meeting/register/7D4LXKJVTgy0kAfyzrbNbg#/registration",
-    nextSession: "Tuesday, August 26",
+    nextSession: "Tuesday, Aug. 26",
     time: "7:00 PM ET"
   },
   {
     title: "How to End Christian Nationalism",
-    subtitle: "(Face-to-Face version)",
+    subtitle: "(face-to-face version)",
     host: "Dr. Steve Ivy",
     description: "Once-monthly book study at First Baptist Church of Indianapolis, 8600 N. College Ave. Also led by Dr. Ivy.",
     email: "Steven.ivy@rfindiana.org",
-    nextSession: "Tuesday, August 12",
+    nextSession: "Tuesday, Aug. 12",
     time: "7:00 PM ET"
   }
 ];
@@ -48,12 +48,12 @@ const displayEvents = events.length > 0 ? events : defaultEvents;
 <div>
   <h2 style="font-family: Arial, sans-serif; font-size: 30px; margin-bottom: 0px;">On our calendar</h2>
   
-  <table width="600" cellpadding="10" cellspacing="0" border="0" style="font-family: Arial, sans-serif; color: #000000; border-collapse: collapse; width: 600px;">
+  <table width="700" cellpadding="10" cellspacing="0" border="0" style="font-family: Arial, sans-serif; color: #000000; border-collapse: collapse; width: 700px;">
     <tr>
       <th align="left" style="border-bottom: 2px solid #cccccc; font-size: 16px; width: 160px;">Title</th>
       <th align="left" style="border-bottom: 2px solid #cccccc; font-size: 16px; width: 100px;">Host</th>
-      <th align="left" style="border-bottom: 2px solid #cccccc; font-size: 16px; width: 240px;">Description</th>
-      <th align="left" style="border-bottom: 2px solid #cccccc; font-size: 16px; width: 100px;">Time(s)</th>
+      <th align="left" style="border-bottom: 2px solid #cccccc; font-size: 16px; width: 320px;">Description</th>
+      <th align="left" style="border-bottom: 2px solid #cccccc; font-size: 16px; width: 120px;">Time(s)</th>
     </tr>
     
     {displayEvents.map((event) => (
@@ -63,24 +63,24 @@ const displayEvents = events.length > 0 ? events : defaultEvents;
           {event.subtitle && (
             <Fragment>
               <br />
-              <em>{event.subtitle}</em>
+              {event.subtitle}
             </Fragment>
           )}
         </td>
         <td valign="top" style="font-size: 18px; white-space: nowrap;">{event.host}</td>
         <td valign="top" style="font-size: 18px;">
           {event.description}
-          <br /><br />
           {event.email && (
             <Fragment>
-              For more info: 
+              For further information, contact Ivy at    
               <a href={`mailto:${event.email}`} style="color: #0066cc;">{event.email}</a>
               <br />
             </Fragment>
           )}
+          <br /><br />
           {event.registrationUrl && (
             <strong>
-              <a href={event.registrationUrl} style="color: #990000;">
+              <a href={event.registrationUrl} style="color: #990000; text-decoration: underline;">
                 Register for {event.title}
               </a>
             </strong>
@@ -95,7 +95,7 @@ const displayEvents = events.length > 0 ? events : defaultEvents;
     ))}
   </table>
 
-  <p style="font-family: Arial, sans-serif; font-size: 14px; padding-top: 16px;">
+  <p style="font-family: Arial, sans-serif; font-size: 18px; padding-top: 16px;">
     Check out our Events page at 
     <a href={eventsPageUrl} style="color: #0066cc;">{eventsPageUrl}</a>
   </p>

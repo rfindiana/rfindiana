@@ -1,53 +1,58 @@
 ---
-import Header from '../components/email-preview/Header.astro';
-import OnOurCalendar from '../components/email-preview/OnOurCalendar.astro';
-import WhatWeAreReading from '../components/email-preview/WhatWeAreReading.astro';
-import AugustPrayerWatch from '../components/email-preview/AugustPrayerWatch.astro';
-import YouHaventMissedYourChance from '../components/email-preview/YouHaventMissedYourChance.astro';
-import AdvocacyTeamNews from '../components/email-preview/AdvocacyTeamNews.astro';
-import EducationTeamNews from '../components/email-preview/EducationTeamNews.astro';
-import InTheNews from '../components/email-preview/InTheNews.astro';
+//import Header from '../components/email-preview/Header.astro';
+import OnOurCalendar from "../components/email-preview/OnOurCalendar.astro";
+import AugustPrayerWatch from "../components/email-preview/AugustPrayerWatch.astro";
+//import WhatWeAreReading from "../components/email-preview/WhatWeAreReading.astro";
+import OngoingAdvocacy from "../components/email-preview/OngoingAdvocacy.astro";
+import YouHaventMissedYourChance from "../components/email-preview/YouHaventMissedYourChance.astro";
+import VolunteersNeeded from "../components/email-preview/VolunteersNeeded.astro";
+import AdvocacyTeamNews from "../components/email-preview/AdvocacyTeamNews.astro";
+import EducationTeamNews from "../components/email-preview/EducationTeamNews.astro";
+import InTheNews from "../components/email-preview/InTheNews.astro";
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Email Preview Components</title>
     <style>
-        body { 
-            font-family: Arial, sans-serif; 
-            background-color: #f5f5f5; 
-            margin: 0; 
-            padding: 20px; 
-        }
-        .preview-container { 
-            max-width: 800px; 
-            margin: 0 auto; 
-            background: white; 
-            padding: 20px; 
-            border-radius: 8px; 
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1); 
-        }
-        .preview-title { 
-            margin-bottom: 20px; 
-            padding-bottom: 10px; 
-            border-bottom: 2px solid #eee; 
-        }
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+        margin: 0;
+        padding: 20px;
+      }
+      .preview-container {
+        max-width: 800px;
+        margin: 0 auto;
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+      .preview-title {
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+        border-bottom: 2px solid #eee;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="preview-container">
-        <h1 class="preview-title">Email Preview Components</h1>
-        <Header />
-        <OnOurCalendar />
-        <WhatWeAreReading />
-        <AugustPrayerWatch />
-        <YouHaventMissedYourChance />
-        <AdvocacyTeamNews />
-        <EducationTeamNews />
-        <InTheNews />
+      <h1 class="preview-title">Email Preview Components</h1>
+      <!-- <Header /> -->
+      <OnOurCalendar />
+      <AugustPrayerWatch />
+      <YouHaventMissedYourChance />
+      <VolunteersNeeded />
+      <OngoingAdvocacy />
+
+      <!-- <WhatWeAreReading /> -->
+      <AdvocacyTeamNews />
+      <EducationTeamNews />
+      <InTheNews />
     </div>
-</body>
+  </body>
 </html>

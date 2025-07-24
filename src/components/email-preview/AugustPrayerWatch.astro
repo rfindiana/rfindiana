@@ -16,12 +16,12 @@ export interface Props {
 const { event } = Astro.props;
 
 const defaultEvent: PrayerWatchEvent = {
-  title: "August Prayer Watch",
+  title: "Join together in prayer",
   imagePath: import.meta.env.DEV ? "/email-preview/images/AugustPrayerWatch.jpg" : "https://rfindiana.org/email-preview/images/AugustPrayerWatch.jpg",
   imageAlt: "August Prayer Watch",
   description: [
     "Inspired by the deep spiritual roots of the civil rights movement, Religious Freedom Indiana invites you to participate in a Prayer Watch on Friday, August 1, from 8:00 AM to 12:00 PM.",
-    "During the 1960s, many civil rights leaders and participants—across faith traditions—relied on prayer not just for strength, but for guidance, courage, and unity. Their testimonies remind us that prayer was not an afterthought; it was a foundation.",
+    "During the 1960s, many civil rights leaders and participants—across faith traditions—relied on prayer not just for strength, but for guidance, courage, and unity. Their testimonies remind us that prayer was not an afterthought; it was a <strong>foundation</strong>.",
     "In that same spirit, we are organizing a time of intentional, shared prayer for religious freedom for all persons of faith and no faith, of compassion for \"the least of these,\" and for mutual respect and kindness for all Hoosiers.  People of all faith traditions are warmly welcomed to sign up for a 10-minute prayer slot.  Please share the link with anyone you feel would like to participate."
   ],
   date: "Friday, August 1",
@@ -46,18 +46,18 @@ const displayEvent = event || defaultEvent;
   </div>
 
   {displayEvent.description.map((paragraph) => (
-    <p style="font-family: Arial, sans-serif; font-size: 18px; line-height: 1.6; margin-bottom: 16px;">{paragraph}</p>
+    <p style="font-family: Arial, sans-serif; font-size: 18px; line-height: 1.6; margin-bottom: 16px;" set:html={paragraph}></p>
   ))}
 
   <p style="font-family: Arial, sans-serif; font-size: 18px; line-height: 1.6;">
-    📅 <strong>Date:</strong> {displayEvent.date}<br />
-    🕗 <strong>Time:</strong> {displayEvent.time}<br />
-    🔗 <strong>Sign-Up Link:</strong> <a href={displayEvent.signUpLink} style="color: #0066cc;">{displayEvent.signUpLink}</a><br />
-    📖 <strong>Optional prayer themes and scripture reflections will be emailed the day before to help you prepare.</strong>
+    📅 Date: {displayEvent.date}<br />
+    🕗 Time: {displayEvent.time}<br />
+    🔗 Sign-Up Link:<a href={displayEvent.signUpLink} style="color: #0066cc;">{displayEvent.signUpLink}</a><br />
+    📖 Optional prayer themes and scripture reflections will be emailed the day before to help you prepare.
   </p>
 
   <p style="font-family: Arial, sans-serif; font-size: 18px; line-height: 1.6;">
-    <strong>Let's come together in prayer—each in our own way, but united in hope.</strong>
+    Let's come together in prayer—each in our own way, but united in hope.
   </p>
   
   <hr style="border: none; border-top: 1px solid #000; margin: 20px 0;" />

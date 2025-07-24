@@ -1,0 +1,43 @@
+---
+export interface AdvocacyEvent {
+  title: string;
+  content: string;
+  imagePath: string;
+  imageAlt: string;
+}
+
+export interface Props {
+  event?: AdvocacyEvent;
+}
+
+const { event } = Astro.props;
+
+const defaultEvent: AdvocacyEvent = {
+  title: "Ongoing advocacy",
+  content: "Religious Freedom Indiana continues to show up at Indiana advocacy events, for two reasons. We advocate for freedom of religion for all and the separation of church and state, and we want folks to know they can join with like-minded people to work together to confront Christian nationalist ideology. Below are new allies we met at our booth at the Indianapolis Good Trouble event July 17th.",
+  imagePath: import.meta.env.DEV ? "/email-preview/images/GoodTrouble.jpg" : "https://rfindiana.org/email-preview/images/GoodTrouble.jpg",
+  imageAlt: "Good Trouble event"
+};
+
+const displayEvent = event || defaultEvent;
+---
+
+<div>
+  <h2 style="font-family: Arial, sans-serif; font-size: 30px; margin-top: 24px; margin-bottom: 10px;">
+    {displayEvent.title}
+  </h2>
+
+  <p style="font-family: Arial, sans-serif; font-size: 18px; line-height: 1.6; margin-bottom: 16px;">
+    {displayEvent.content}
+  </p>
+
+  <div style="text-align: center; margin-bottom: 16px;">
+    <img 
+      src={displayEvent.imagePath} 
+      alt={displayEvent.imageAlt} 
+      style="max-width: 80%; height: auto; border: none; display: block; margin: 0 auto;"
+    />
+  </div>
+  
+  <hr style="border: none; border-top: 1px solid #000; margin: 20px 0;" />
+</div>

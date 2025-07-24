@@ -13,7 +13,7 @@ const { news } = Astro.props;
 
 const defaultNews: EducationNews = {
   title: "Education Team News",
-  content: "A conversation between Kristin Du Mez and Bruce Beglund on the very important, and disturbing, book On Tyranny.",
+  content: "Watch a videotaped conversation from July 10th between Kristin Du Mez, author of Jesus and John Wayne, and historian Bruce Beglund, as they discuss the important, and disturbing, book On Tyranny, by Timothy Snyder. Snyder’s very short book (2 hours to read, tops) presents 20 lessons on how to combat the rise of tyranny.",
   videoLink: "https://www.youtube.com/watch?v=mbbtjCg01Ow&pp=4gcKEghzdWJzdGFjaw%3D%3D"
 };
 
@@ -30,7 +30,7 @@ const displayNews = news || defaultNews;
   </p>
   
   <p style="font-family: Arial, sans-serif; font-size: 18px; line-height: 1.6; margin-bottom: 16px;">
-    <a href={displayNews.videoLink} style="color: #0066cc;">{displayNews.videoLink}</a>
+    <a href={displayNews.videoLink} style="color: #0066cc;">Reading On Tyranny with Kristin Du Mez and Bruce Berglund - July 10, 2025</a>
   </p>
   
   <hr style="border: none; border-top: 1px solid #000; margin: 20px 0;" />

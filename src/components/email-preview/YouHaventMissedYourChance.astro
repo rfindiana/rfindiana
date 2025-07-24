@@ -20,14 +20,14 @@ const {
 
 const defaultDiscussion: BookDiscussion = {
   title: "How to End Christian Nationalism",
-  bookImagePath: import.meta.env.DEV ? "/email-preview/images/How To End.jpg" : "https://rfindiana.org/email-preview/images/How To End.jpg",
-  authorImagePath: import.meta.env.DEV ? "/email-preview/images/AmandaTyler.jpg" : "https://rfindiana.org/email-preview/images/AmandaTyler.jpg",
-  bookImageAlt: "Book cover: How to End Christian Nationalism",
-  authorImageAlt: "Amanda Tyler",
+  bookImagePath: import.meta.env.DEV ? "/email-preview/images/AmandaTylerWithBook.jpg" : "https://rfindiana.org/email-preview/images/AmandaTylerWithBook.jpg",
+  authorImagePath: "", // No longer needed
+  bookImageAlt: "Amanda Tyler with Book: How to End Christian Nationalism",
+  authorImageAlt: "",
   description: [
     "The book discussion over Amanda Tyler's How to End Christian Nationalism started last week, but participants made it through only the introduction and Chapter 1. There's still time to catch up before the next discussion, which is August 26th.",
     "Steve Ivy, retired clergy and hospital chaplain, leads the discussions, which are scheduled for 7 - 8 pm on the 4th Thursday of each month. They occur over Zoom and each lasts an hour.",
-    "Tyler's book is an easy introduction to Christian nationalism. Chapters are short and well-supported by both research and references to scripture. Tyler lays out an 8-step program for learning about Christian nationalism and calling it to account in a loving but firm way."
+    "Tyler's book is an easy introduction to Christian nationalism. Chapters are short and well-supported by both research and references to scripture. Tyler lays out an 8-step program for learning about Christian nationalism and calling it to account in a loving but firm way. <strong><a href=\"https://us06web.zoom.us/meeting/register/7D4LXKJVTgy0kAfyzrbNbg#/registration\" style=\"color: #990000; text-decoration: underline;\">Register for How to End Christian Nationalism</a></strong>"
   ]
 };
 
@@ -40,28 +40,15 @@ const displayDiscussion = discussion || defaultDiscussion;
   </h2>
 
   <div style="text-align: center; margin-bottom: 16px;">
-    <table style="margin: 0 auto; border-collapse: collapse;">
-      <tr>
-        <td style="padding: 0 10px;">
-          <img 
-            src={displayDiscussion.bookImagePath} 
-            alt={displayDiscussion.bookImageAlt} 
-            style="max-width: 150px; height: auto; border: none; display: block;"
-          />
-        </td>
-        <td style="padding: 0 10px;">
-          <img 
-            src={displayDiscussion.authorImagePath} 
-            alt={displayDiscussion.authorImageAlt} 
-            style="max-width: 150px; height: auto; border: none; display: block;"
-          />
-        </td>
-      </tr>
-    </table>
+    <img 
+      src={displayDiscussion.bookImagePath} 
+      alt={displayDiscussion.bookImageAlt} 
+      style="max-width: 300px; height: auto; border: none; display: block; margin: 0 auto;"
+    />
   </div>
 
   {displayDiscussion.description.map((paragraph) => (
-    <p style="font-family: Arial, sans-serif; font-size: 18px; line-height: 1.6; margin-bottom: 16px;">{paragraph}</p>
+    <p style="font-family: Arial, sans-serif; font-size: 18px; line-height: 1.6; margin-bottom: 16px;" set:html={paragraph}></p>
   ))}
   
   <hr style="border: none; border-top: 1px solid #000; margin: 20px 0;" />
