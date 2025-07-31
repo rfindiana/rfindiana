@@ -61,13 +61,16 @@ class NewsletterGenerator:
         logger.info("Building Astro site...")
         
         try:
-            # Change to project root and run build
+            # Change to project root and run build with production environment
+            env = os.environ.copy()
+            env['NODE_ENV'] = 'production'
             result = subprocess.run(
                 ["npm", "run", "build"],
                 cwd=self.project_root,
                 check=True,
                 capture_output=True,
-                text=True
+                text=True,
+                env=env
             )
             
             logger.info("Astro build completed successfully")
