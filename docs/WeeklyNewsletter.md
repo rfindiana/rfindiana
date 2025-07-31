@@ -93,8 +93,9 @@ pip install -r requirements.txt
 ### Image Guidelines
 - **Optimize file sizes**: Keep images under 500KB when possible
 - **Use web-safe formats**: JPG, PNG work best for email
-- **Descriptive filenames**: Use clear, descriptive names
+- **Descriptive filenames**: Use clear, descriptive names with **lowercase letters and hyphens only** (e.g., `newsletter-header.jpg`, `protest-good-trouble.jpg`)
 - **Alt text**: Always include meaningful alt attributes
+- **CRITICAL**: Cloudflare Pages deployment is **case-sensitive**. Always use lowercase filenames to avoid 404 errors in email clients
 
 ---
 
@@ -202,8 +203,9 @@ pip install -r requirements.txt
 
 **"Images not displaying in email"**
 - Verify images are in `public/email-preview/images/`
-- Check that image paths use production URLs (https://rfindiana.org/...)
+- Check that image paths use production URLs (https://www.rfindiana.org/...)
 - Ensure image files are web-optimized (under 500KB)
+- **CRITICAL**: Ensure image filenames are **lowercase only** - Cloudflare is case-sensitive (use `newsletter-header.jpg` not `Header.jpg`)
 
 ### Debug Mode
 Add this to `generate_newsletter.py` for detailed logging:

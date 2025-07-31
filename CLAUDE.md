@@ -29,6 +29,8 @@ python generate_newsletter.py
 ```
 This generates email-safe HTML newsletters from Astro components for use in Brevo campaigns.
 
+**IMPORTANT**: When working with email-preview components or newsletter generation, always refer to `docs/WeeklyNewsletter.md` for detailed instructions, styling standards, and workflow guidelines.
+
 ## Architecture
 
 ### Tech Stack
@@ -65,6 +67,8 @@ This generates email-safe HTML newsletters from Astro components for use in Brev
    - Brevo forms embedded via iframe for newsletter signups
    - Custom newsletter generation system using Python/BeautifulSoup
    - Email-specific components in `src/components/email-preview/`
+   - **Image URLs**: Components use conditional URLs - local paths for development (`/email-preview/images/`) and absolute URLs for production (`https://www.rfindiana.org/email-preview/images/`)
+   - **CRITICAL**: New images must be committed and pushed to production before testing in Brevo, as email clients require absolute URLs to publicly accessible images
 
 3. **Styling**:
    - Tailwind CSS with custom configuration
@@ -82,6 +86,7 @@ This generates email-safe HTML newsletters from Astro components for use in Brev
 - `src/layouts/Layout.astro` - Main layout with SEO, analytics, and Brevo integration
 - `docs/architecture.md` - Core system invariants and architecture decisions
 - `docs/brevo-instructions.md` - Email integration setup guide
+- **`docs/WeeklyNewsletter.md`** - Complete newsletter system documentation, styling standards, and workflow instructions
 
 ### Deployment
 The site is deployed to Cloudflare Pages. The build process:
@@ -91,9 +96,15 @@ The site is deployed to Cloudflare Pages. The build process:
 
 ### Newsletter Workflow
 1. Create/update newsletter components in `src/components/email-preview/`
-2. Run `python email-preview/generate_newsletter.py`
-3. Output files in `email-preview/output/`:
+2. **If adding new images**: Add to `public/email-preview/images/` and commit/push before testing
+3. Run `python email-preview/generate_newsletter.py`
+4. Output files in `email-preview/output/`:
    - `newsletter-raw.html` - Clean HTML for Brevo
    - `newsletter-preview.html` - Preview with wrapper
 
 The newsletter system extracts content from the built Astro site and creates email-safe HTML with inline styles compatible with email clients.
+
+**Newsletter Image Requirements:**
+- Images must use conditional URLs: `import.meta.env.DEV ? "/email-preview/images/filename.jpg" : "https://www.rfindiana.org/email-preview/images/filename.jpg"`
+- The newsletter generation script sets `NODE_ENV=production` to ensure absolute URLs in generated HTML
+- Always push image changes to production before testing newsletters in Brevo
