@@ -13,8 +13,8 @@ const { news } = Astro.props;
 
 const defaultNews: EducationNews = {
   title: "Education Team News",
-  content: "Watch a videotaped conversation from July 10th between Kristin Du Mez, author of Jesus and John Wayne, and historian Bruce Beglund, as they discuss the important, and disturbing, book On Tyranny, by Timothy Snyder. Snyder’s very short book (2 hours to read, tops) presents 20 lessons on how to combat the rise of tyranny.",
-  videoLink: "https://www.youtube.com/watch?v=mbbtjCg01Ow&pp=4gcKEghzdWJzdGFjaw%3D%3D"
+  content: "Do you sometimes think you are reading a different Bible? An article in Baptist News Global explains ten of the Bible verses Christian nationalists wield to prove they should be in power.",
+  videoLink: "https://baptistnews.com/article/10-bible-verses-christian-nationalists-take-out-of-context-to-sieze-power/"
 };
 
 const displayNews = news || defaultNews;
@@ -30,7 +30,7 @@ const displayNews = news || defaultNews;
   </p>
   
   <p style="font-family: Arial, sans-serif; font-size: 18px; line-height: 1.6; margin-bottom: 16px;">
-    <a href={displayNews.videoLink} style="color: #0066cc;">Reading On Tyranny with Kristin Du Mez and Bruce Berglund - July 10, 2025</a>
+    <a href={displayNews.videoLink} style="color: #0066cc;">10 Bible verses Christian nationalists take out of context</a>
   </p>
   
   <hr style="border: none; border-top: 1px solid #000; margin: 20px 0;" />
