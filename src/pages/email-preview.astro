@@ -38,23 +38,30 @@ import InTheNews from "../components/email-preview/InTheNews.astro";
         padding-bottom: 10px;
         border-bottom: 2px solid #eee;
       }
+      /* Email content wrapper - 600px for email compatibility */
+      .email-wrapper {
+        width: 600px;
+        margin: 0 auto;
+      }
     </style>
   </head>
   <body>
     <div class="preview-container">
       <h1 class="preview-title">Email Preview Components</h1>
-      <Header />
-      <OnOurCalendar />
-      <AugustPrayerWatch />
-      <HelpWithProtests />
-      <!-- <YouHaventMissedYourChance /> -->
-      <VolunteersNeeded />
-      <!-- <OngoingAdvocacy /> -->
+      <div class="email-wrapper">
+        <Header />
+        <OnOurCalendar />
+        <!-- <AugustPrayerWatch /> -->
+        <HelpWithProtests />
+        <!-- <YouHaventMissedYourChance /> -->
+        <VolunteersNeeded />
+        <!-- <OngoingAdvocacy /> -->
 
-      <!-- <WhatWeAreReading /> -->
-      <AdvocacyTeamNews />
-      <EducationTeamNews />
-      <InTheNews />
+        <!-- <WhatWeAreReading /> -->
+        <AdvocacyTeamNews />
+        <EducationTeamNews />
+        <InTheNews />
+      </div>
     </div>
     
   </body>
