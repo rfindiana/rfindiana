@@ -35,16 +35,7 @@ export const exampleEvents: Event[] = [
   }
 ];
 
-export const upcomingEvents: Event[] = [
-  {
-    title: "August Prayer Watch",
-    date: "2025-08-01",
-    time: "8:00 AM - 12:00 PM",
-    description: "Inspired by the deep spiritual roots of the civil rights movement, Religious Freedom Indiana invites you to participate in a Prayer Watch on Friday, August 1, from 8:00 AM to 12:00 PM.\n\nDuring the 1960s, many civil rights leaders and participants—across faith traditions—relied on prayer not just for strength, but for guidance, courage, and unity. Their testimonies remind us that prayer was not an afterthought; it was a foundation.\n\nIn that same spirit, we are organizing a time of intentional, shared prayer for religious freedom for all persons of faith and no faith, of compassion for \"the least of these,\" and for mutual respect and kindness for all Hoosiers. People of all faith traditions are warmly welcomed to sign up for a 10-minute prayer slot.\n\n📅 Date: Friday, August 1\n🕗 Time: 8:00 AM – 12:00 PM\n📖 Optional prayer themes and scripture reflections will be emailed the day before to help you prepare.\n\nLet's come together in prayer—each in our own way, but united in hope.",
-    location: "Virtual",
-    registrationLink: "https://www.signupgenius.com/go/10C0548ADAB23ABF9C70-57599417-august#/"
-  }
-];
+export const upcomingEvents: Event[] = [];
 
 export const virtualMeetings: Meeting[] = [
   {
