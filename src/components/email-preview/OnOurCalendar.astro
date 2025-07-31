@@ -10,6 +10,7 @@ export interface Event {
   time: string;
 }
 
+
 export interface Props {
   events?: Event[];
   eventsPageUrl?: string;
@@ -24,7 +25,8 @@ const defaultEvents: Event[] = [
   {
     title: "August Prayer Watch",
     host: "Religious Freedom Indiana",
-    description: "Join us in prayer for religious freedom, compassion, and respect for all. Sign up at this link: https://www.signupgenius.com/go/10C0548ADAB23ABF9C70-57599417-august#/",
+    description: "Join us in prayer for religious freedom, compassion, and respect for all.",
+    registrationUrl: "https://www.signupgenius.com/go/10C0548ADAB23ABF9C70-57599417-august#/",
     nextSession: "Friday, August 1",
     time: "8 am to 12 pm, in 10-minute slots"
   },
@@ -46,8 +48,8 @@ const displayEvents = events.length > 0 ? events : defaultEvents;
   <table width="600" cellpadding="10" cellspacing="0" border="0" style="font-family: Arial, sans-serif; color: #000000; border-collapse: collapse; width: 600px;">
     <tr>
       <th align="left" style="border-bottom: 2px solid #cccccc; font-size: 16px; width: 160px;">Title</th>
-      <th align="left" style="border-bottom: 2px solid #cccccc; font-size: 16px; width: 300px;">Description</th>
-      <th align="left" style="border-bottom: 2px solid #cccccc; font-size: 16px; width: 140px;">Host & Times</th>
+      <th align="left" style="border-bottom: 2px solid #cccccc; font-size: 16px; width: 280px;">Description</th>
+      <th align="left" style="border-bottom: 2px solid #cccccc; font-size: 16px; width: 160px;">Host & Times</th>
     </tr>
     
     {displayEvents.map((event) => (
@@ -72,8 +74,8 @@ const displayEvents = events.length > 0 ? events : defaultEvents;
           <br /><br />
           {event.registrationUrl && (
             <strong>
-              <a href={event.registrationUrl} style="color: #990000; text-decoration: underline;">
-                Register for {event.title}
+              <a href={event.registrationUrl} style="color: #0066cc; text-decoration: underline;">
+                {event.title === "August Prayer Watch" ? "Sign up at this link" : `Register for ${event.title}`}
               </a>
             </strong>
           )}
@@ -88,9 +90,9 @@ const displayEvents = events.length > 0 ? events : defaultEvents;
     ))}
   </table>
 
-  <p style="font-family: Arial, sans-serif; font-size: 1px; padding-top: 16px;">
+  <p style="font-family: Arial, sans-serif; font-size: 16px; padding-top: 16px;">
     Check out our Events page at 
-    <a href={eventsPageUrl} style="color: #0066cc;">{eventsPageUrl}</a>
+    <a href={eventsPageUrl} style="color: #0066cc; text-decoration: underline;">{eventsPageUrl}</a> for more information.
   </p>
   
   <hr style="border: none; border-top: 1px solid #000; margin: 20px 0;" />
