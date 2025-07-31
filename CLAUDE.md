@@ -6,6 +6,13 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This is the website for Religious Freedom Indiana (rfindiana.org), built with Astro and deployed on Cloudflare Pages. The site promotes religious freedom advocacy and provides resources for Indiana residents.
 
+## Important Instructions
+
+### Git Commit Workflow
+- **ALWAYS** present the commit message for approval before creating the actual commit
+- When asked to commit, first show the proposed commit message and wait for confirmation
+- Only proceed with `git commit` after receiving explicit approval
+
 ## Key Commands
 
 ### Development
