@@ -15,11 +15,11 @@ const { volunteer } = Astro.props;
 const defaultVolunteer: VolunteerInfo = {
   title: "Volunteers needed!",
   description: [
-    "Religious Freedom Indiana can use you! As a fast-growing organization, we have more tasks to complete than we have people for. If you have a little time, the inclination to serve, and some rudimentary web skills, we'd love to have your help for these volunteer positions. Contact vivian.combs@rfindiana.org",
-    "Social media coordinator – Someone to create, collect, and curate content for our Facebook page (<a href=\"https://www.facebook.com/groups/1436924083969818\" style=\"color: #0066cc;\">Religious Freedom Indiana | Facebook</a>) and Instagram page.",
-    "News coordinator – Someone to identify news stories related to religious liberty and post them in the weekly newsletter."
+    "Religious Freedom Indiana can use you! As a fast-growing organization, we have more tasks to complete than we have people for. If you have a little time, the inclination to serve, and some rudimentary web skills, we'd love to have your help for these volunteer positions.",
+    "<strong>Social media coordinator</strong> – Someone to create, collect, and curate content for our Facebook page (<a href=\"https://www.facebook.com/groups/1436924083969818\" style=\"color: #0066cc;\">Religious Freedom Indiana | Facebook</a>) and Instagram page.",
+    "<strong>News coordinator</strong> – Someone to identify news stories related to religious liberty and post them in the weekly newsletter."
   ],
-  contactEmail: "vivian.combs@rfindiana.org",
+  contactEmail: "dale.brubaker@rfindiana.org",
   positions: []
 };
 
@@ -31,7 +31,11 @@ const displayVolunteer = volunteer || defaultVolunteer;
     {displayVolunteer.title}
   </h2>
 
-  {displayVolunteer.description.map((paragraph) => (
+  <p style="font-family: Arial, sans-serif; font-size: 18px; line-height: 1.6; margin-bottom: 16px;">
+    {displayVolunteer.description[0]} Contact <strong><a href={`mailto:${displayVolunteer.contactEmail}`} style="color: #0066cc; text-decoration: underline;">{displayVolunteer.contactEmail}</a></strong>
+  </p>
+
+  {displayVolunteer.description.slice(1).map((paragraph) => (
     <p style="font-family: Arial, sans-serif; font-size: 18px; line-height: 1.6; margin-bottom: 16px;" set:html={paragraph}></p>
   ))}
   

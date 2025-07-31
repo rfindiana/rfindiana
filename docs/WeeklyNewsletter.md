@@ -160,7 +160,8 @@ pip install -r requirements.txt
 |---------|--------|
 | Headings (H2) | `font-size: 30px; font-family: Arial; color: #333;` |
 | Body Text | `font-size: 18px; font-family: Arial; line-height: 1.6;` |
-| Lists | Proper spacing with inline styles |
+| Bulleted Lists (UL) | `margin: 4px 0 0 0; padding-left: 40px; list-style-type: disc;` |
+| List Items (LI) | `margin-bottom: 8px; list-style-type: disc; font-family: Arial, sans-serif; font-size: 18px; line-height: 1.6;` |
 | Links | Auto-converted to `mailto:` for email addresses |
 | Images | `max-width: 100%; height: auto;` |
 

@@ -19,9 +19,7 @@ const defaultProtestInfo: ProtestInfo = {
   imagePath: import.meta.env.DEV ? "/email-preview/images/ProtestGoodTrouble.jpg" : "https://rfindiana.org/email-preview/images/ProtestGoodTrouble.jpg",
   imageAlt: "Religious Freedom Indiana booth at protest event with volunteers",
   description: [
-    "Religious Freedom Indiana continues to show up at Indiana advocacy events, for two reasons:",
-    "• We advocate for freedom of religion for all, and for the separation of church and state;",
-    "• We want folks to know they can join with like-minded people to work together to confront Christian nationalist ideology.",
+    "Religious Freedom Indiana continues to show up at Indiana advocacy events, for two reasons:<ul style=\"margin: 4px 0 0 0; padding-left: 40px; list-style-type: disc;\"><li style=\"margin-bottom: 8px; list-style-type: disc; font-family: Arial, sans-serif; font-size: 18px; line-height: 1.6;\">We advocate for freedom of religion for all, and for the separation of church and state;</li><li style=\"margin-bottom: 8px; list-style-type: disc; font-family: Arial, sans-serif; font-size: 18px; line-height: 1.6;\">We want folks to know they can join with like-minded people to work together to confront Christian nationalist ideology.</li></ul>",
     "We'd love to have you join us, whether you can help once or more frequently. Below is our new tent, purchased with the help of donors (second booth from right). Your job would be to stand by the booth and visit with folks about the mission of Religious Freedom Indiana. Contact <strong><a href=\"mailto:dale.brubaker@rfindiana.org\" style=\"color: #0066cc; text-decoration: underline;\">dale.brubaker@rfindiana.org</a></strong> to volunteer."
   ]
 };
@@ -34,8 +32,8 @@ const displayProtestInfo = protestInfo || defaultProtestInfo;
     {sectionTitle}
   </h2>
 
-  {displayProtestInfo.description.map((paragraph) => (
-    <p style="font-family: Arial, sans-serif; font-size: 18px; line-height: 1.6; margin-bottom: 16px;" set:html={paragraph}></p>
+  {displayProtestInfo.description.map((paragraph, index) => (
+    <p style={`font-family: Arial, sans-serif; font-size: 18px; line-height: 1.6; margin-bottom: ${paragraph.includes('<ul') ? '0' : '16px'};`} set:html={paragraph}></p>
   ))}
 
   <div style="text-align: center; margin-bottom: 16px;">
