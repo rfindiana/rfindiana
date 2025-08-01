@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: http://rfindiana.org/sitemap-index.xml
+Sitemap: https://rfindiana.org/sitemap-index.xml
