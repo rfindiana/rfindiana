@@ -1,0 +1,35 @@
+---
+export interface ClergyInfo {
+  title: string;
+  description: string;
+  contactName: string;
+  contactEmail: string;
+}
+
+export interface Props {
+  clergy?: ClergyInfo;
+}
+
+const { clergy } = Astro.props;
+
+const defaultClergy: ClergyInfo = {
+  title: "Note for clergy",
+  description: "We are interested in identifying clergy who might desire to meet in a small group to provide mutual support for facing Christian nationalism in your field of ministry. If you identify as clergy and might have an interest, please send your name and location information to Dale Brubaker,",
+  contactName: "Dale Brubaker",
+  contactEmail: "dale.brubaker@rfindiana.org"
+};
+
+const displayClergy = clergy || defaultClergy;
+---
+
+<div>
+  <h2 style="font-family: Arial, sans-serif; font-size: 30px; margin-top: 24px; margin-bottom: 10px;">
+    {displayClergy.title}
+  </h2>
+
+  <p style="font-family: Arial, sans-serif; font-size: 18px; line-height: 1.6; margin-bottom: 16px;">
+    {displayClergy.description} <strong><a href={`mailto:${displayClergy.contactEmail}`} style="color: #0066cc; text-decoration: underline;">{displayClergy.contactEmail}</a></strong>
+  </p>
+  
+  <hr style="border: none; border-top: 1px solid #000; margin: 20px 0;" />
+</div>

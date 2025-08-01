@@ -1,0 +1,47 @@
+---
+export interface FacebookInfo {
+  title: string;
+  description: string;
+  linkText: string;
+  linkUrl: string;
+  imagePath: string;
+  imageAlt: string;
+}
+
+export interface Props {
+  facebook?: FacebookInfo;
+}
+
+const { facebook } = Astro.props;
+
+const defaultFacebook: FacebookInfo = {
+  title: "Visit us on Facebook",
+  description: "You are invited to follow Religious Freedom Indiana on Facebook, and you are welcome to post news and share links about the movement to counter Christian nationalism. The address is",
+  linkText: "Religious Freedom Indiana | Facebook",
+  linkUrl: "https://www.facebook.com/groups/1436924083969818",
+  imagePath: import.meta.env.DEV ? "/email-preview/images/cslewis-yancey.jpg" : "https://www.rfindiana.org/email-preview/images/cslewis-yancey.jpg",
+  imageAlt: "C.S. Lewis quote by Philip Yancey about religion and politics"
+};
+
+const displayFacebook = facebook || defaultFacebook;
+---
+
+<div>
+  <h2 style="font-family: Arial, sans-serif; font-size: 30px; margin-top: 24px; margin-bottom: 10px;">
+    {displayFacebook.title}
+  </h2>
+
+  <p style="font-family: Arial, sans-serif; font-size: 18px; line-height: 1.6; margin-bottom: 16px;">
+    {displayFacebook.description} <strong><a href={displayFacebook.linkUrl} style="color: #0066cc; text-decoration: underline;">{displayFacebook.linkText}</a></strong>
+  </p>
+
+  <div style="text-align: center; margin-bottom: 16px;">
+    <img 
+      src={displayFacebook.imagePath} 
+      alt={displayFacebook.imageAlt} 
+      style="max-width: 80%; height: auto; border: none; display: block; margin: 0 auto;"
+    />
+  </div>
+  
+  <hr style="border: none; border-top: 1px solid #000; margin: 20px 0;" />
+</div>

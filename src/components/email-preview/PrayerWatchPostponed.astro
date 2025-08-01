@@ -1,0 +1,47 @@
+---
+export interface PrayerWatchPostponedEvent {
+  title: string;
+  imagePath: string;
+  imageAlt: string;
+  postponementMessage: string;
+  purpose: string;
+}
+
+export interface Props {
+  event?: PrayerWatchPostponedEvent;
+}
+
+const { event } = Astro.props;
+
+const defaultEvent: PrayerWatchPostponedEvent = {
+  title: "Prayer Watch Postponed",
+  imagePath: import.meta.env.DEV ? "/email-preview/images/candles.jpg" : "https://www.rfindiana.org/email-preview/images/candles.jpg",
+  imageAlt: "Candles for Prayer Watch",
+  postponementMessage: "The August 1 Prayer Watch has been postponed. It's such a lovely event that we need more time to plan it. Watch for details about the new date!",
+  purpose: "The purpose is to join together in prayer for religious freedom for all. The event is inspired by the deep spiritual roots of the civil rights movement, for which prayer was not an afterthought; it was a <strong>foundation</strong>."
+};
+
+const displayEvent = event || defaultEvent;
+---
+
+<div>
+  <h2 style="font-family: Arial, sans-serif; font-size: 30px; margin-top: 24px; margin-bottom: 10px;">
+    {displayEvent.title}
+  </h2>
+
+  <div style="text-align: center; margin-bottom: 16px;">
+    <img 
+      src={displayEvent.imagePath} 
+      alt={displayEvent.imageAlt} 
+      style="max-width: 80%; height: auto; border: none; display: block; margin: 0 auto;"
+    />
+  </div>
+
+  <p style="font-family: Arial, sans-serif; font-size: 18px; line-height: 1.6; margin-bottom: 16px;">
+    {displayEvent.postponementMessage}
+  </p>
+
+  <p style="font-family: Arial, sans-serif; font-size: 18px; line-height: 1.6; margin-bottom: 16px;" set:html={displayEvent.purpose}></p>
+  
+  <hr style="border: none; border-top: 1px solid #000; margin: 20px 0;" />
+</div>

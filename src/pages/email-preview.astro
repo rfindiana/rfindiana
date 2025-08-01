@@ -7,6 +7,9 @@ import HelpWithProtests from "../components/email-preview/HelpWithProtests.astro
 import OngoingAdvocacy from "../components/email-preview/OngoingAdvocacy.astro";
 // import YouHaventMissedYourChance from "../components/email-preview/YouHaventMissedYourChance.astro";
 import VolunteersNeeded from "../components/email-preview/VolunteersNeeded.astro";
+import PrayerWatchPostponed from "../components/email-preview/PrayerWatchPostponed.astro";
+import NoteForClergy from "../components/email-preview/NoteForClergy.astro";
+import VisitUsOnFacebook from "../components/email-preview/VisitUsOnFacebook.astro";
 import AdvocacyTeamNews from "../components/email-preview/AdvocacyTeamNews.astro";
 import EducationTeamNews from "../components/email-preview/EducationTeamNews.astro";
 import InTheNews from "../components/email-preview/InTheNews.astro";
@@ -38,30 +41,26 @@ import InTheNews from "../components/email-preview/InTheNews.astro";
         padding-bottom: 10px;
         border-bottom: 2px solid #eee;
       }
-      /* Email content wrapper - 600px for email compatibility */
-      .email-wrapper {
-        width: 600px;
-        margin: 0 auto;
-      }
     </style>
   </head>
   <body>
     <div class="preview-container">
       <h1 class="preview-title">Email Preview Components</h1>
-      <div class="email-wrapper">
-        <Header />
-        <OnOurCalendar />
-        <!-- <AugustPrayerWatch /> -->
-        <HelpWithProtests />
-        <!-- <YouHaventMissedYourChance /> -->
-        <VolunteersNeeded />
-        <!-- <OngoingAdvocacy /> -->
+      <Header />
+      <OnOurCalendar />
+      <!-- <AugustPrayerWatch /> -->
+      <HelpWithProtests />
+      <!-- <YouHaventMissedYourChance /> -->
+      <VolunteersNeeded />
+      <PrayerWatchPostponed />
+      <!-- <OngoingAdvocacy /> -->
 
-        <!-- <WhatWeAreReading /> -->
-        <AdvocacyTeamNews />
-        <EducationTeamNews />
-        <InTheNews />
-      </div>
+      <!-- <WhatWeAreReading /> -->
+      <AdvocacyTeamNews />
+      <EducationTeamNews />
+      <NoteForClergy />
+      <VisitUsOnFacebook />
+      <InTheNews />
     </div>
     
   </body>
