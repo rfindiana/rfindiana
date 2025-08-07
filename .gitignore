@@ -23,6 +23,9 @@ pnpm-debug.log*
 # macOS-specific files
 .DS_Store
 
+# IDE files
+.idea/
+
 *.sb-*
 
 # Claude MCP and local development tools

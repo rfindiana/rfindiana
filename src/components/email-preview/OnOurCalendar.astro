@@ -23,13 +23,6 @@ const {
 
 const defaultEvents: Event[] = [
   {
-    title: "Rage Against the Regime",
-    host: "50501 Movement",
-    description: "Visit the Religious Freedom Indiana booth at this nationwide protest.",
-    nextSession: "Saturday, Aug. 2",
-    time: "12 - 4 pm., Indiana Statehouse"
-  },
-  {
     title: "How to End Christian Nationalism",
     subtitle: "(face-to-face version)",
     host: "Dr. Steve Ivy",
@@ -37,6 +30,15 @@ const defaultEvents: Event[] = [
     email: "Steven.ivy@rfindiana.org",
     nextSession: "Tues. Aug. 12",
     time: "7:00 pm ET"
+  },
+  {
+    title: "How to End Christian Nationalism",
+    host: "Dr. Steve Ivy",
+    description: "Dr. Steve Ivy facilitates this book study. Steve is Baptist clergy, a retired hospital chaplain, and seminary professor. For further information regarding the study, contact him at Steven.ivy@rfindiana.org.",
+    email: "Steven.ivy@rfindiana.org",
+    registrationUrl: "https://www.rfindiana.org/events/",
+    nextSession: "Aug. 26",
+    time: "Monthly on fourth Tuesday, 7:00 PM ET"
   }
 ];
 
@@ -46,7 +48,7 @@ const displayEvents = events.length > 0 ? events : defaultEvents;
 <div>
   <h2 style="font-family: Arial, sans-serif; font-size: 30px; margin-bottom: 0px;">On our calendar</h2>
   
-  <table width="600" cellpadding="10" cellspacing="0" border="0" style="font-family: Arial, sans-serif; color: #000000; border-collapse: collapse; width: 600px;">
+  <table width="550" cellpadding="10" cellspacing="0" border="0" style="font-family: Arial, sans-serif; color: #000000; border-collapse: collapse; width: 550px;">
     <tr>
       <th align="left" style="border-bottom: 2px solid #cccccc; font-size: 16px; width: 160px;">Title</th>
       <th align="left" style="border-bottom: 2px solid #cccccc; font-size: 16px; width: 280px;">Description</th>
