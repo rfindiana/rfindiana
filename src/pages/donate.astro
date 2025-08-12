@@ -1,0 +1,25 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Container from "@/components/container.astro";
+import PageTitle from "@/components/PageTitle.astro";
+---
+
+<Layout title="Donate">
+  <Container article>
+    <PageTitle title="Donate" />
+
+    <p class="mb-6">
+      Support Religious Freedom Indiana. Your contribution helps us organize,
+      educate, and advocate.
+    </p>
+
+    <div class="mt-4">
+      <script async src="https://js.stripe.com/v3/buy-button.js"></script>
+
+      <stripe-buy-button
+        buy-button-id="buy_btn_1RvJMPCOWnbGdAWLxsqHmsGh"
+        publishable-key="pk_live_51RpwSxCOWnbGdAWLjDb7cmrpw1moiDWIMELLmWePaQDm5rDNTCNBo9Kgl4oRSO9NbH7PX6yWsIn1yp1AwoarzEyM00zXoQ4akZ">
+      </stripe-buy-button>
+    </div>
+  </Container>
+</Layout>
