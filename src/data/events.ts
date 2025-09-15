@@ -35,7 +35,18 @@ export const exampleEvents: Event[] = [
   }
 ];
 
-export const upcomingEvents: Event[] = [];
+export const upcomingEvents: Event[] = [
+  {
+    title: "Volunteer Interest Session",
+    date: "2025-09-28",
+    time: "3:00 PM - 4:00 PM ET",
+    description:
+      "Get Involved! The need to push back on Christian Nationalism is RIGHT NOW and we need your help. Contact Vivian Combs (vivian.combs@rfindiana.org) to register and learn more about what we're planning and how you can help. Hosted by Religious Freedom Indiana.",
+    location: "Zoom",
+    registrationLink:
+      "https://us06web.zoom.us/meeting/register/V7TgEp0JTkiPb6h9qwofCQ",
+  },
+];
 
 export const virtualMeetings: Meeting[] = [
   {
