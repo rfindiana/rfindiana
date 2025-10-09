@@ -8,6 +8,12 @@ const books = [
     link: "",
   },
   {
+    date: "2024",
+    author: "Amy Hawk",
+    title: "The Judas Effect: How Evangelicals Betrayed Jesus for Power",
+    link: "https://books.google.com/books/about/The_Judas_Effect.html?id=w_HT0AEACAAJ",
+  },
+  {
     date: "2024-10",
     author: "Amanda Tyler",
     title: "How to End Christian Nationalism",
