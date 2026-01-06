@@ -37,24 +37,45 @@ export const exampleEvents: Event[] = [
 
 export const upcomingEvents: Event[] = [
   {
-    title: "Volunteer Interest Session",
-    date: "2025-09-28",
-    time: "3:00 PM - 4:00 PM ET",
+    title: "Challenging Christian Nationalism - Session 1",
+    date: "2026-02-01",
+    time: "9:30 AM - 10:25 AM ET",
     description:
-      "Get Involved! The need to push back on Christian Nationalism is RIGHT NOW and we need your help. Contact Vivian Combs (vivian.combs@rfindiana.org) to register and learn more about what we're planning and how you can help. Hosted by Religious Freedom Indiana.",
-    location: "Zoom",
-    registrationLink:
-      "https://us06web.zoom.us/meeting/register/V7TgEp0JTkiPb6h9qwofCQ",
+      "What do Christian nationalists believe as Christians and citizens? What is the danger? Speaker: Dr. Steven Ivy. Part of a 3-session series at Resurrection Lutheran Church's Adult Learning Hour. Contact: office@rlcindy.org or 317-881-7854. Hosted by Resurrection Lutheran Church.",
+    location: "Resurrection Lutheran Church, 445 East Stop 11 Rd., Indianapolis",
+  },
+  {
+    title: "Challenging Christian Nationalism - Session 2",
+    date: "2026-02-08",
+    time: "9:30 AM - 10:25 AM ET",
+    description:
+      "How has the Evangelical Lutheran Church challenged Christian nationalism? Speakers: Pastors Bailey and VanOsdol. Part of a 3-session series at Resurrection Lutheran Church's Adult Learning Hour. Contact: office@rlcindy.org or 317-881-7854. Hosted by Resurrection Lutheran Church.",
+    location: "Resurrection Lutheran Church, 445 East Stop 11 Rd., Indianapolis",
+  },
+  {
+    title: "Challenging Christian Nationalism - Session 3",
+    date: "2026-02-15",
+    time: "9:30 AM - 10:25 AM ET",
+    description:
+      "How can individuals and churches challenge Christian nationalism? Speaker: Dr. Steven Ivy. Part of a 3-session series at Resurrection Lutheran Church's Adult Learning Hour. Contact: office@rlcindy.org or 317-881-7854. Hosted by Resurrection Lutheran Church.",
+    location: "Resurrection Lutheran Church, 445 East Stop 11 Rd., Indianapolis",
   },
 ];
 
 export const virtualMeetings: Meeting[] = [
   {
-    title: "How to End Christian Nationalism",
+    title: "Religious Freedom Study Group",
     host: "Dr. Steve Ivy",
     description: "Dr. Steve Ivy facilitates this book  study. Steve is Baptist clergy, a retired hospital chaplain, and seminary professor. For further information regarding the study, contact him at Steven.ivy@rfindiana.org.",
-    times: "Monthly on fourth Tuesday, 7:00 PM ET",
+    times: "Monthly on fourth Thursday, 7:00 PM ET",
     registrationLink: "https://us06web.zoom.us/meeting/register/7D4LXKJVTgy0kAfyzrbNbg"
+  },
+  {
+    title: "Volunteer Interest Session",
+    host: "Religious Freedom Indiana",
+    description: "Get Involved! The need to push back on Christian Nationalism is RIGHT NOW and we need your help. Contact Vivian Combs (vivian.combs@rfindiana.org) to register and learn more about what we're planning and how you can help.",
+    times: "January 25, 2026, 3:00 PM - 4:00 PM ET",
+    registrationLink: "https://us06web.zoom.us/meeting/register/V7TgEp0JTkiPb6h9qwofCQ"
   }
 ];
 
