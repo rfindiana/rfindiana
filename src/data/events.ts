@@ -38,7 +38,7 @@ export const exampleEvents: Event[] = [
 export const upcomingEvents: Event[] = [
   {
     title: "Challenging Christian Nationalism - Session 1",
-    date: "2026-02-01",
+    date: "2026-02-08",
     time: "9:30 AM - 10:25 AM ET",
     description:
       "What do Christian nationalists believe as Christians and citizens? What is the danger? Speaker: Dr. Steven Ivy. Part of a 3-session series at Resurrection Lutheran Church's Adult Learning Hour. Contact: office@rlcindy.org or 317-881-7854. Hosted by Resurrection Lutheran Church.",
@@ -46,7 +46,7 @@ export const upcomingEvents: Event[] = [
   },
   {
     title: "Challenging Christian Nationalism - Session 2",
-    date: "2026-02-08",
+    date: "2026-02-15",
     time: "9:30 AM - 10:25 AM ET",
     description:
       "How has the Evangelical Lutheran Church challenged Christian nationalism? Speakers: Pastors Bailey and VanOsdol. Part of a 3-session series at Resurrection Lutheran Church's Adult Learning Hour. Contact: office@rlcindy.org or 317-881-7854. Hosted by Resurrection Lutheran Church.",
@@ -54,7 +54,7 @@ export const upcomingEvents: Event[] = [
   },
   {
     title: "Challenging Christian Nationalism - Session 3",
-    date: "2026-02-15",
+    date: "2026-02-22",
     time: "9:30 AM - 10:25 AM ET",
     description:
       "How can individuals and churches challenge Christian nationalism? Speaker: Dr. Steven Ivy. Part of a 3-session series at Resurrection Lutheran Church's Adult Learning Hour. Contact: office@rlcindy.org or 317-881-7854. Hosted by Resurrection Lutheran Church.",
