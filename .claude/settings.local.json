@@ -5,7 +5,8 @@
       "Bash(ls:*)",
       "Bash(git add:*)",
       "Bash(find:*)",
-      "Bash(npm:*)"
+      "Bash(npm:*)",
+      "Bash(npx astro build:*)"
     ],
     "deny": []
   }
