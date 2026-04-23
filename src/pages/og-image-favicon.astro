@@ -3,23 +3,26 @@ import "../styles/global.css";
 ---
 
 <div
-  class="bg-gradient-to-r from-primary-light/20 to-primary/20 w-[1200px] h-[630px] flex flex-col items-center justify-center text-center">
+  class="relative flex h-[630px] w-[1200px] flex-col items-center justify-center overflow-hidden bg-primary px-20 text-center text-white">
+  <div class="absolute inset-x-0 top-0 h-4 bg-crimson"></div>
   <div class="flex items-center gap-0.5">
     <img
-      src="/images/favicon.png"
+      src="/images/favicon-96x96.png"
       alt="Religious Freedom Indiana Favicon"
-      class="h-64 w-64 rounded-full"
+      class="h-56 w-56"
     />
     <div class="text-left">
-      <h1 class="text-8xl font-bold text-primary">Religious Freedom</h1>
-      <h2 class="text-8xl font-bold text-primary">Indiana</h2>
+      <h1 class="font-sunborn text-7xl uppercase text-white">Religious Freedom</h1>
+      <h2 class="font-sunborn text-7xl uppercase text-white">Indiana</h2>
     </div>
   </div>
-  <p class="tagline text-4xl md:text-5xl text-primary-dark">
+  <p class="tagline mt-10 font-hussar text-4xl text-white/90">
     Hoosiers Working for Religious Freedom
   </p>
-  <p
-    class="micah-quote-hero italic text-3xl md:text-4xl text-primary-dark/90 mt-2">
-    Act justly, love mercy, walk humbly (Micah 6:8)
+  <p class="micah-quote-hero mt-3 font-hussar text-3xl text-white/80">
+    Act justly, love mercy, walk humbly
+  </p>
+  <p class="mt-2 font-hussar text-lg uppercase tracking-[0.3em] text-white/65">
+    Micah 6:8
   </p>
 </div>

@@ -1,13 +1,14 @@
 ---
-import PageTitle from "@/components/PageTitle.astro";
-const currentMembers = 431;
+const currentMembers = 509;
 const goal = 100000;
 const percentage = ((currentMembers / goal) * 100).toFixed(2);
-const lastUpdated = "October 20, 2025";
+const lastUpdated = "April 23, 2026";
 ---
 
 <section class="pt-8 border-t">
-  <PageTitle title="Our Membership Goal" />
+  <div class="mb-8">
+    <h2 class="text-3xl font-bold text-primary">Our Membership Goal</h2>
+  </div>
   <p class="text-lg text-gray-700 mb-6">
     Our goal is to connect with 100,000 Hoosiers
     <span class="text-sm text-gray-600">
@@ -64,6 +65,12 @@ const lastUpdated = "October 20, 2025";
           </tr>
         </thead>
         <tbody class="bg-white divide-y divide-gray-200">
+          <tr>
+            <td class="px-4 py-2 whitespace-nowrap text-gray-900"
+              >April 23, 2026</td
+            >
+            <td class="px-4 py-2 whitespace-nowrap text-gray-900">509</td>
+          </tr>
           <tr>
             <td class="px-4 py-2 whitespace-nowrap text-gray-900"
               >October 20, 2025</td

@@ -4,10 +4,7 @@ import Footer from "@/components/footer.astro";
 import Navbar from "@/components/navbar/navbar.astro";
 import Container from "@/components/container.astro";
 import { SITE, SOCIAL } from "@/utils/constants";
-import "@fontsource-variable/inter/index.css";
-import "@fontsource-variable/bricolage-grotesque";
 import "../styles/global.css";
-import { ClientRouter } from "astro:transitions";
 
 /**
  * Props for the Layout component
@@ -45,17 +42,18 @@ const makeTitle =
       href="/images/favicon-96x96.png"
       sizes="96x96"
     />
-    <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
-    <link rel="shortcut icon" href="/images/favicon.ico" />
+    <link rel="shortcut icon" type="image/png" href="/images/favicon-96x96.png" />
     <link
       rel="apple-touch-icon"
       sizes="180x180"
       href="/images/apple-touch-icon.png"
     />
-    <meta name="apple-mobile-web-app-title" content="Release Freedom Indiana" />
+    <meta name="apple-mobile-web-app-title" content="Religious Freedom Indiana" />
     <link rel="manifest" href="/images/site.webmanifest" />
 
     <meta name="generator" content={Astro.generator} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
     <!-- Explicit OpenGraph meta tags to ensure proper formatting -->
     <meta property="og:image" content={resolvedImageWithDomain} />
@@ -87,8 +85,6 @@ const makeTitle =
         },
       }}
     />
-    <ClientRouter />
-
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-RJ6JXG6B6F"
     ></script>

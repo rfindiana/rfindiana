@@ -1,256 +1,49 @@
 ---
-// Import necessary components
-import PageTitle from "@/components/PageTitle.astro";
 ---
 
-<script is:inline>
-  // Function to initialize or reload hero background image
-  function initHeroBackground() {
-    const heroBackground = document.querySelector(".hero-background");
-    if (heroBackground) {
-      // Skip if already loaded or loading
-      if (
-        heroBackground.classList.contains("loaded") ||
-        heroBackground.dataset.loading === "true"
-      ) {
-        return;
-      }
-
-      // Mark as loading to prevent duplicate loading
-      heroBackground.dataset.loading = "true";
-
-      const imgUrl = "/images/optimized/hero-background.jpg";
-      const img = new Image();
-      img.onload = function () {
-        heroBackground.style.backgroundImage = `url('${imgUrl}')`;
-        heroBackground.classList.add("loaded");
-        heroBackground.dataset.loading = "false";
-      };
-      img.src = imgUrl;
-    }
-  }
-
-  // Initialize on first page load
-  document.addEventListener("DOMContentLoaded", initHeroBackground);
-
-  // Handle Astro View Transitions
-  document.addEventListener("astro:page-load", initHeroBackground);
-
-  // Re-initialize after a view transition completes
-  document.addEventListener("astro:after-swap", initHeroBackground);
-</script>
-
-<div
-  class="relative pt-24 pb-10 text-center mb-8 overflow-hidden min-h-screen flex flex-col justify-center">
-  <div
-    class="absolute inset-0 z-0 bg-cover bg-center hero-background transition-opacity duration-500"
-    aria-hidden="true">
+<section class="relative overflow-hidden bg-primary text-white">
+  <div class="h-[7px] bg-crimson w-full"></div>
+  <div class="absolute inset-0 opacity-20" aria-hidden="true">
+    <div class="absolute left-[-5%] top-[-10%] h-64 w-64 rounded-full bg-gold blur-3xl"></div>
+    <div class="absolute bottom-[-12%] right-[-4%] h-72 w-72 rounded-full bg-crimson blur-3xl"></div>
   </div>
-  <div class="header-content container mx-auto px-4 relative z-10 max-w-7xl">
-    <h1 class="text-4xl md:text-5xl font-bold mb-4 text-primary">
-      Religious Freedom Indiana
-    </h1>
-    <p class="tagline text-xl md:text-2xl text-primary-dark mb-2">
+  <div class="relative mx-auto flex max-w-5xl flex-col items-center px-4 pb-20 pt-36 text-center sm:px-6 lg:px-8">
+    <img
+      src="/images/Logo Narrow.jpg"
+      alt="Religious Freedom Indiana logo"
+      class="w-full max-w-[320px] rounded-sm shadow-2xl sm:max-w-[380px]"
+    />
+    <p class="font-hussar text-sm uppercase tracking-[0.45em] text-white/75">
+      Resisting Christian Nationalism
+    </p>
+    <h1 class="mt-6 max-w-4xl font-hussar text-4xl uppercase leading-[1.05] text-white sm:text-5xl lg:text-6xl">
       Hoosiers Working for Religious Freedom
+    </h1>
+    <p class="mt-6 max-w-3xl text-lg leading-relaxed text-white/90 sm:text-xl">
+      We organize Hoosiers to defend pluralism, oppose Christian nationalism,
+      and protect the freedom to worship, doubt, or disbelieve without
+      coercion.
     </p>
-    <p
-      class="micah-quote-hero italic text-lg md:text-xl text-primary-dark/90 mb-8">
-      Act justly, love mercy, walk humbly (Micah 6:8)
-    </p>
-
-    <div class="flex flex-col md:flex-row gap-6 mb-6 justify-center">
-      <!-- Who We Are Section (replaces Vision) -->
-      <div
-        class="flex-1 bg-white/40 backdrop-blur-sm p-6 rounded-lg shadow-lg border border-white/20 min-w-[300px]">
-        <h2 class="text-2xl md:text-3xl font-bold text-primary mb-2">
-          Who We Are
-        </h2>
-        <p class="text-lg text-gray-900 font-medium leading-relaxed text-left">
-          Religious Freedom Indiana (RFI) is a statewide coalition of Hoosiers
-          who affirm that religious freedom is a right belonging to all, and
-          that, in making and enforcing laws, government should not favor any
-          interpretation based on one religious belief. RFI was founded in April
-          2025 to educate about and to firmly but non-violently oppose Christian
-          nationalism and other extremist beliefs that conflate religion and
-          democracy.
-        </p>
-      </div>
-      <!-- Where We're Headed Section (replaces Mission) -->
-      <div
-        class="flex-1 bg-white/40 backdrop-blur-sm p-6 rounded-lg shadow-lg border border-white/20 min-w-[300px]">
-        <h2 class="text-2xl md:text-3xl font-bold text-primary mb-2">
-          Where We’re Headed
-        </h2>
-        <p class="text-lg text-gray-900 font-medium leading-relaxed text-left">
-          We envision a state and a nation governed by law without regard to
-          religious beliefs, where every individual can freely worship, doubt,
-          or disbelieve without facing fear, stigma, or coercion; where no
-          government action favors one religion over others; and where all
-          contribute to the common good.
-        </p>
-      </div>
+    <div class="mt-10 w-full max-w-3xl rounded-2xl border border-white/25 bg-white/12 px-6 py-6 shadow-2xl backdrop-blur-sm">
+      <p class="font-hussar text-xl leading-snug text-white sm:text-2xl">
+        Act justly, love mercy, walk humbly
+      </p>
+      <p class="mt-2 text-sm uppercase tracking-[0.35em] text-white/70">
+        Micah 6:8
+      </p>
     </div>
-    <div class="flex flex-col md:flex-row gap-6 mb-6 justify-center">
-      <!-- Why We Exist Section -->
-      <div
-        class="flex-1 bg-white/40 backdrop-blur-sm p-6 rounded-lg shadow-lg border border-white/20 min-w-[300px]">
-        <h2 class="text-2xl md:text-3xl font-bold text-primary mb-2">
-          Why We Exist
-        </h2>
-        <p class="text-lg text-gray-900 font-medium leading-relaxed text-left">
-          Movements advocating religious nationalism—whether Christian, Islamic,
-          Jewish, or secular—weaponize faith to dominate other groups holding a
-          different faith or no faith. Christian Nationalism is particularly
-          prevalent at the current time. This ideology distorts history,
-          undermines democracy, and replaces persuasion with coercion.
-        </p>
-        <p class="text-lg text-gray-900 font-medium leading-relaxed text-left">
-          We <b>oppose</b> statements that express ideas such as these:
-        </p>
-        <ul
-          class="list-disc pl-6 space-y-2 text-lg text-gray-900 font-medium leading-relaxed text-left">
-          <li>
-            The U.S. government should declare America a Christian nation.
-          </li>
-          <li>U.S. laws should be based on biblical Christian values.</li>
-          <li>Being Christian is an important part of being truly American.</li>
-          <li>
-            God has called Christians to exercise dominion over all areas of
-            American society.
-          </li>
-        </ul>
-      </div>
-      <!-- What We Do Section -->
-      <div
-        class="flex-1 bg-white/40 backdrop-blur-sm p-6 rounded-lg shadow-lg border border-white/20 min-w-[300px]">
-        <h2 class="text-2xl md:text-3xl font-bold text-primary mb-2">
-          What We Do
-        </h2>
-        <ul
-          class="list-disc pl-6 space-y-2 text-lg text-gray-900 font-medium leading-relaxed text-left">
-          <li>
-            Educate the public with accurate, accessible resources about U.S.
-            history and constitutional principles, especially separation of
-            church and state.
-          </li>
-          <li>
-            Expose and counter harmful disinformation, for example, myths of a
-            “Christian nation,” conspiracies about stolen elections, and slander
-            of immigrants.
-          </li>
-          <li>
-            Defend individuals and communities whose freedoms are under threat.
-          </li>
-          <li>
-            Foster dialogue across beliefs, especially by engaging those who
-            believe authoritarian Christian ideologies.
-          </li>
-          <li>
-            Inspire action by training people to peacefully and effectively
-            advocate in local governments, school boards, legislatures, and
-            voting booths.
-          </li>
-        </ul>
-      </div>
-    </div>
-    <div class="flex justify-center mt-8">
-      <div
-        class="w-full max-w-4xl bg-white/40 backdrop-blur-sm p-6 rounded-lg shadow-lg border border-white/20">
-        <h2
-          class="text-2xl md:text-3xl font-bold text-primary mb-4 text-left md:text-center">
-          Our Core Values
-        </h2>
-        <div class="overflow-x-auto">
-          <table
-            class="min-w-full divide-y divide-blue-300 border border-blue-300 text-left">
-            <thead class="bg-blue-50">
-              <tr>
-                <th class="px-4 py-3 text-lg font-bold text-primary"
-                  >Principles</th
-                >
-                <th class="px-4 py-3 text-lg font-bold text-primary"
-                  >Practices</th
-                >
-              </tr>
-            </thead>
-            <tbody class="bg-white/80 divide-y divide-blue-200">
-              <tr>
-                <td
-                  class="px-4 py-2 font-medium leading-relaxed text-gray-900 align-top"
-                  >Freedom</td
-                >
-                <td class="px-4 py-2 font-medium leading-relaxed text-gray-900"
-                  >We persuade respectfully; we never impose beliefs.</td
-                >
-              </tr>
-              <tr>
-                <td
-                  class="px-4 py-2 font-medium leading-relaxed text-gray-900 align-top"
-                  >Humility</td
-                >
-                <td class="px-4 py-2 font-medium leading-relaxed text-gray-900"
-                  >We stay teachable; absolute certainty fuels injustice.</td
-                >
-              </tr>
-              <tr>
-                <td
-                  class="px-4 py-2 font-medium leading-relaxed text-gray-900 align-top"
-                  >Truth</td
-                >
-                <td class="px-4 py-2 font-medium leading-relaxed text-gray-900"
-                  >Evidence matters; ideology alone is insufficient.</td
-                >
-              </tr>
-              <tr>
-                <td
-                  class="px-4 py-2 font-medium leading-relaxed text-gray-900 align-top"
-                  >Pluralism</td
-                >
-                <td class="px-4 py-2 font-medium leading-relaxed text-gray-900"
-                  >All people and identities welcomed.</td
-                >
-              </tr>
-              <tr>
-                <td
-                  class="px-4 py-2 font-medium leading-relaxed text-gray-900 align-top"
-                  >Non-partisanship</td
-                >
-                <td class="px-4 py-2 font-medium leading-relaxed text-gray-900"
-                  >We encourage critique of policies and actions, not political
-                  parties.</td
-                >
-              </tr>
-              <tr>
-                <td
-                  class="px-4 py-2 font-medium leading-relaxed text-gray-900 align-top"
-                  >Non-violence</td
-                >
-                <td class="px-4 py-2 font-medium leading-relaxed text-gray-900"
-                  >We encourage dialogue; we don't engage in threats,
-                  intimidation, and violence.</td
-                >
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
+    <div class="mt-10 flex flex-col items-center gap-4 sm:flex-row">
+      <a
+        href="/joinus"
+        data-astro-reload
+        class="inline-flex items-center justify-center rounded-full bg-gold px-8 py-3 font-hussar text-lg text-black transition hover:bg-[#e1a21e]">
+        Join Us
+      </a>
+      <a
+        href="/about"
+        class="inline-flex items-center justify-center rounded-full border border-white/35 px-8 py-3 font-hussar text-lg text-white transition hover:bg-white/10">
+        Learn More
+      </a>
     </div>
   </div>
-</div>
-
-<style>
-  .hero-background {
-    opacity: 0;
-  }
-  .hero-background.loaded {
-    opacity: 0.35;
-  }
-
-  /* Responsive adjustments */
-  @media (max-width: 768px) {
-    .header-content {
-      padding-top: 2rem;
-      padding-bottom: 2rem;
-    }
-  }
-</style>
+</section>

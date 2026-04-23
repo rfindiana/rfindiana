@@ -1,5 +1,5 @@
 {
-  "name": "Release Freedom Indiana",
+  "name": "Religious Freedom Indiana",
   "short_name": "RFI",
   "icons": [
     {
@@ -15,7 +15,7 @@
       "purpose": "maskable"
     }
   ],
-  "theme_color": "#ffffff",
-  "background_color": "#ffffff",
+  "theme_color": "#0047A6",
+  "background_color": "#0047A6",
   "display": "standalone"
 }

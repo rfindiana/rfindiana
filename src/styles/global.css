@@ -1,15 +1,11 @@
+@import "./fonts.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* @theme { ... } */
+:root {}
 
-/* Add your custom variables */
-:root {
-  /* We can keep this empty for now, or add any non-color related variables you need */
-}
-
-/* Keep the compatibility styles from the template */
 @layer base {
   *,
   ::after,
@@ -18,6 +14,18 @@
   ::file-selector-button {
     border-color: currentColor;
   }
-}
 
-/* Add any other global styles below */
+  body {
+    font-family: Verdana, Geneva, sans-serif;
+  }
+
+  h1 {
+    font-family: "Limelight", "Arial Black", Arial, sans-serif;
+    font-weight: 700;
+  }
+
+  h2, h3 {
+    font-family: "Josefin Sans", Verdana, Geneva, sans-serif;
+    font-weight: 700;
+  }
+}

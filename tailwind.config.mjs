@@ -1,40 +1,38 @@
 /** @type {import('tailwindcss').Config} */
 const config = {
   content: [
-    "./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}", // Include mdx if you use it
+    "./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}",
   ],
   theme: {
     extend: {
-      // You can merge theme settings from the template later if needed
       colors: {
-        // Brand colors
         primary: {
-          DEFAULT: "#800020", // Burgundy - for headings and accents
-          light: "#A00030", // Lighter burgundy
-          dark: "#600010", // Darker burgundy
+          DEFAULT: "#0047A6", // Indiana Blue
+          light: "#2060C0",
+          dark: "#003080",
         },
+        crimson: "#E3170A",  // Cardinal Crimson
+        gold: "#D09006",     // Victory Gold
         secondary: {
-          DEFAULT: "#000000", // Black - for secondary elements
-          light: "#333333", // Dark gray
+          DEFAULT: "#000000",
+          light: "#333333",
         },
-        // Text colors
         text: {
-          DEFAULT: "#000000", // Black - for body text
-          light: "#333333", // Dark gray - for secondary text
-          inverse: "#FFFFFF", // White - for text on dark backgrounds
+          DEFAULT: "#000000",
+          light: "#333333",
+          inverse: "#FFFFFF",
         },
       },
-      // Add font families if you want to customize them globally
-      // fontFamily: {
-      //   sans: ['Inter Variable', 'sans-serif'], // Example using Inter
-      //   serif: ['YourSerifFont', 'serif'],
-      // },
+      fontFamily: {
+        sunborn: ['"Limelight"', '"Arial Black"', "serif"],
+        hussar: ['"Josefin Sans"', "Verdana", "sans-serif"],
+        sans: ["Verdana", "Geneva", "sans-serif"],
+        body: ["Verdana", "Geneva", "sans-serif"],
+      },
     },
   },
   plugins: [
-    // Add any Tailwind plugins used by the template or your old site here
-    // e.g., require('@tailwindcss/typography'),
-    require("@tailwindcss/typography"), // Enable the typography plugin
+    require("@tailwindcss/typography"),
   ],
 };
 

@@ -1,6 +1,5 @@
 ---
 import Container from "@/components/container.astro";
-import Dropdown from "./dropdown.astro";
 import { Astronav, MenuItems, MenuIcon } from "astro-navbar";
 
 const menuitems = [
@@ -13,7 +12,7 @@ const menuitems = [
   { title: "Network", path: "/network" },
   { title: "Online Resources", path: "/onlineresources" },
   { title: "Donate", path: "/donate" },
-  { title: "Contact Us", path: "/contactform" },
+  { title: "Contact", path: "/contactform" },
 ];
 
 // Check if we're on the homepage
@@ -22,28 +21,27 @@ const isHomePage = Astro.url.pathname === "/";
 
 <Container
   class={`fixed top-0 w-full z-50 ${isHomePage ? "bg-white/40 backdrop-blur-sm shadow-sm" : "bg-white sticky"}`}>
-  <header class="flex flex-col lg:flex-row justify-start items-center my-2">
+  <header class="flex flex-col xl:flex-row justify-start items-center my-2">
     <Astronav>
-      <div class="flex w-full lg:w-auto items-center justify-between">
+      <div class="flex w-full xl:w-auto items-center justify-between">
         <a href="/" class="text-lg">
           <img
-            src="/images/logo.svg"
+            src="/images/Logo Wide.png"
             alt="Religious Freedom Indiana Logo"
-            class={`h-16 w-auto max-w-[200px] sm:max-w-none ${isHomePage ? "drop-shadow-md" : ""}`}
+            class={`h-14 w-auto max-w-[250px] sm:max-w-none xl:h-16 ${isHomePage ? "drop-shadow-md" : ""}`}
           />
         </a>
-        <div class="block lg:hidden">
+        <div class="block xl:hidden">
           <MenuIcon class="w-4 h-4 text-text" />
         </div>
       </div>
-      <!-- Add specific left margin for large screens -->
-      <MenuItems class="hidden w-full lg:w-auto mt-2 lg:flex lg:mt-0 lg:ml-8">
-        <ul class="flex flex-col lg:flex-row lg:gap-3">
-          <li class="mt-2 lg:mt-0 lg:mr-3">
+      <MenuItems class="hidden w-full xl:ml-6 xl:mt-0 xl:flex xl:w-auto mt-2">
+        <ul class="flex flex-col xl:flex-row xl:items-center xl:gap-1">
+          <li class="mt-2 xl:mt-0 xl:mr-2">
             <a
               href="/joinus"
               data-astro-reload
-              class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded shadow-md transition duration-300 ease-in-out block text-center lg:inline-block">
+              class="block rounded bg-green-600 px-4 py-2 text-center font-bold text-white shadow-md transition duration-300 ease-in-out hover:bg-green-700 xl:inline-block xl:px-3">
               Join Us
             </a>
           </li>
@@ -54,9 +52,8 @@ const isHomePage = Astro.url.pathname === "/";
                 ? Astro.url.pathname === "/"
                 : Astro.url.pathname.startsWith(item.path);
 
-              // Define base classes
-              const baseClasses = "flex lg:px-3 py-2 items-center";
-              // Define active state classes for homepage vs other pages
+              const baseClasses =
+                "flex items-center py-2 xl:px-2 xl:text-sm 2xl:px-3 2xl:text-base";
               const activeStateClasses = isHomePage
                 ? isActive
                   ? "font-bold text-primary"
