@@ -1,5 +1,11 @@
 ---
-import type { Meeting } from "@/data/events";
+interface Meeting {
+  title: string;
+  host: string;
+  description: string;
+  times: string;
+  registrationLink?: string;
+}
 
 interface Props {
   meetings: Meeting[];

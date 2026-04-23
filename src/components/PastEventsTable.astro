@@ -1,5 +1,11 @@
 ---
-import type { PastEvent } from "@/data/events";
+interface PastEvent {
+  title: string;
+  date: string;
+  time: string;
+  description?: string;
+  location?: string;
+}
 
 interface Props {
   pastEvents: PastEvent[];

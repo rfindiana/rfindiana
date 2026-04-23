@@ -7,7 +7,7 @@ import { SITE, SOCIAL } from "@/utils/constants";
 import "@fontsource-variable/inter/index.css";
 import "@fontsource-variable/bricolage-grotesque";
 import "../styles/global.css";
-import { ViewTransitions } from "astro:transitions";
+import { ClientRouter } from "astro:transitions";
 
 /**
  * Props for the Layout component
@@ -87,7 +87,7 @@ const makeTitle =
         },
       }}
     />
-    <ViewTransitions />
+    <ClientRouter />
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-RJ6JXG6B6F"

@@ -2,6 +2,14 @@
 import Layout from "@/layouts/Layout.astro";
 import Container from "@/components/container.astro";
 import PageTitle from "@/components/PageTitle.astro";
+import { getCollection } from "astro:content";
+
+const allBooks = await getCollection("books");
+const books = allBooks.sort((a, b) => {
+  if (a.data.sortOrder != null && b.data.sortOrder != null)
+    return a.data.sortOrder - b.data.sortOrder;
+  return b.data.publishDate.localeCompare(a.data.publishDate);
+});
 ---
 
 <Layout title="Books">
@@ -9,7 +17,6 @@ import PageTitle from "@/components/PageTitle.astro";
     <PageTitle title="Books" />
 
     <div class="bg-white rounded-lg shadow-md">
-      <!-- Added overflow-x-auto to enable horizontal scrolling on mobile -->
       <div class="overflow-x-auto w-full">
         <table class="min-w-full divide-y divide-gray-200">
           <thead class="bg-gray-50">
@@ -37,222 +44,21 @@ import PageTitle from "@/components/PageTitle.astro";
             </tr>
           </thead>
           <tbody class="bg-white divide-y divide-gray-200">
-            <tr>
-              <td class="px-4 py-2 text-sm text-gray-900">2025</td>
-              <td class="px-4 py-2 text-sm text-gray-900">John Fugelsang</td>
-              <td class="px-4 py-2 text-sm text-gray-900">
-                Separation of Church and Hate: A Sane Person's Guide to Taking Back the Bible
-              </td>
-              <td class="px-4 py-2 text-sm">
-                <!-- Empty cell, no info link available -->
-              </td>
-            </tr>
-            <tr>
-              <td class="px-4 py-2 text-sm text-gray-900">2025</td>
-              <td class="px-4 py-2 text-sm text-gray-900">Elizabeth Hinson-Hasty</td>
-              <td class="px-4 py-2 text-sm text-gray-900">
-                Authentic Christian Freedom: Deconstructing the American Gospel of Liberty
-              </td>
-              <td class="px-4 py-2 text-sm">
-                <!-- Empty cell, no info link available -->
-              </td>
-            </tr>
-            <tr>
-              <td class="px-4 py-2 text-sm text-gray-900">2025</td>
-              <td class="px-4 py-2 text-sm text-gray-900">Brian Kaylor</td>
-              <td class="px-4 py-2 text-sm text-gray-900">
-                The Bible According to Christian Nationalists: Exploiting Scripture for Political Power
-              </td>
-              <td class="px-4 py-2 text-sm">
-                <!-- Empty cell, no info link available -->
-              </td>
-            </tr>
-            <tr>
-              <td class="px-4 py-2 text-sm text-gray-900">2025-02</td>
-              <td class="px-4 py-2 text-sm text-gray-900">Katherine Stewart</td>
-              <td class="px-4 py-2 text-sm text-gray-900"
-                >Money, Lies, and God: Inside the Movement to Destroy American
-                Democracy</td
-              >
-              <td class="px-4 py-2 text-sm">
-                <!-- Empty cell, no info link available -->
-              </td>
-            </tr>
-            <tr>
-              <td class="px-4 py-2 text-sm text-gray-900">2024</td>
-              <td class="px-4 py-2 text-sm text-gray-900">Amy Hawk</td>
-              <td class="px-4 py-2 text-sm text-gray-900"
-                >The Judas Effect: How Evangelicals Betrayed Jesus for Power</td
-              >
-              <td class="px-4 py-2 text-sm">
-                <a
-                  href="https://books.google.com/books/about/The_Judas_Effect.html?id=w_HT0AEACAAJ"
-                  target="_blank"
-                  class="text-primary hover:text-primary-dark">More Info</a
-                >
-              </td>
-            </tr>
-            <tr>
-              <td class="px-4 py-2 text-sm text-gray-900">2024-10</td>
-              <td class="px-4 py-2 text-sm text-gray-900">Amanda Tyler</td>
-              <td class="px-4 py-2 text-sm text-gray-900"
-                >How to End Christian Nationalism</td
-              >
-              <td class="px-4 py-2 text-sm">
-                <a
-                  href="https://www.broadleafbooks.com/store/product/9781506498287/How-to-End-Christian-Nationalism"
-                  target="_blank"
-                  class="text-primary hover:text-primary-dark">More Info</a
-                >
-              </td>
-            </tr>
-            <tr>
-              <td class="px-4 py-2 text-sm text-gray-900">2024-09</td>
-              <td class="px-4 py-2 text-sm text-gray-900">Taylor, Matthew D.</td
-              >
-              <td class="px-4 py-2 text-sm text-gray-900"
-                >The Violent Take it by Force</td
-              >
-              <td class="px-4 py-2 text-sm">
-                <a
-                  href="https://icjs.org/the-violent-take-it-by-force/"
-                  target="_blank"
-                  class="text-primary hover:text-primary-dark">More Info</a
-                >
-              </td>
-            </tr>
-            <tr>
-              <td class="px-4 py-2 text-sm text-gray-900">2024-07</td>
-              <td class="px-4 py-2 text-sm text-gray-900">Drew J. Strait</td>
-              <td class="px-4 py-2 text-sm text-gray-900">Strange Worship</td>
-              <td class="px-4 py-2 text-sm">
-                <a
-                  href="https://www.drewstrait.com/"
-                  target="_blank"
-                  class="text-primary hover:text-primary-dark">More Info</a
-                >
-              </td>
-            </tr>
-            <tr>
-              <td class="px-4 py-2 text-sm text-gray-900">2024-06</td>
-              <td class="px-4 py-2 text-sm text-gray-900"
-                >Brian Kaylor & Beau Underwood</td
-              >
-              <td class="px-4 py-2 text-sm text-gray-900"
-                >Baptizing America: How Mainline Protestants Helped Build
-                Christian Nationalism</td
-              >
-              <td class="px-4 py-2 text-sm">
-                <!-- Empty cell, no info link available -->
-              </td>
-            </tr>
-            <tr>
-              <td class="px-4 py-2 text-sm text-gray-900">2024-04</td>
-              <td class="px-4 py-2 text-sm text-gray-900">Jim Wallis</td>
-              <td class="px-4 py-2 text-sm text-gray-900"
-                >The False White Gospel</td
-              >
-              <td class="px-4 py-2 text-sm">
-                <!-- Empty cell, no info link available -->
-              </td>
-            </tr>
-            <tr>
-              <td class="px-4 py-2 text-sm text-gray-900">2023-10</td>
-              <td class="px-4 py-2 text-sm text-gray-900">David Gushee</td>
-              <td class="px-4 py-2 text-sm text-gray-900"
-                >Defending Democracy from Its Christian Enemies</td
-              >
-              <td class="px-4 py-2 text-sm">
-                <!-- Empty cell, no info link available -->
-              </td>
-            </tr>
-            <tr>
-              <td class="px-4 py-2 text-sm text-gray-900">2023-09</td>
-              <td class="px-4 py-2 text-sm text-gray-900">Robert P. Jones</td>
-              <td class="px-4 py-2 text-sm text-gray-900"
-                >The Hidden Roots of White Supremacy and the Path to a Shared
-                American Future</td
-              >
-              <td class="px-4 py-2 text-sm">
-                <!-- Empty cell, no info link available -->
-              </td>
-            </tr>
-            <tr>
-              <td class="px-4 py-2 text-sm text-gray-900">2023-08</td>
-              <td class="px-4 py-2 text-sm text-gray-900">Andrew Whitehead</td>
-              <td class="px-4 py-2 text-sm text-gray-900"
-                >American Idolatry: How Christian Nationalism Betrays the Gospel
-                and Threatens the Church</td
-              >
-              <td class="px-4 py-2 text-sm">
-                <!-- Empty cell, no info link available -->
-              </td>
-            </tr>
-            <tr>
-              <td class="px-4 py-2 text-sm text-gray-900">2021-02</td>
-              <td class="px-4 py-2 text-sm text-gray-900">Anthea Butler</td>
-              <td class="px-4 py-2 text-sm text-gray-900"
-                >White Evangelical Racism: The Politics of Racism in America</td
-              >
-              <td class="px-4 py-2 text-sm">
-                <!-- Empty cell, no info link available -->
-              </td>
-            </tr>
-            <tr>
-              <td class="px-4 py-2 text-sm text-gray-900">2020-07</td>
-              <td class="px-4 py-2 text-sm text-gray-900">Robert P. Jones</td>
-              <td class="px-4 py-2 text-sm text-gray-900"
-                >White Too Long: The Legacy of White Supremacy in American
-                Christianity</td
-              >
-              <td class="px-4 py-2 text-sm">
-                <!-- Empty cell, no info link available -->
-              </td>
-            </tr>
-            <tr>
-              <td class="px-4 py-2 text-sm text-gray-900">2020-06</td>
-              <td class="px-4 py-2 text-sm text-gray-900"
-                >Kristin Kobes Du Mez</td
-              >
-              <td class="px-4 py-2 text-sm text-gray-900"
-                >Jesus and John Wayne - How White Evangelicals Corrupted a Faith
-                and Fractured a Nation</td
-              >
-              <td class="px-4 py-2 text-sm">
-                <a
-                  href="https://kristindumez.com/books/jesus-and-john-wayne/"
-                  target="_blank"
-                  class="text-primary hover:text-primary-dark">More Info</a
-                >
-              </td>
-            </tr>
-            <tr>
-              <td class="px-4 py-2 text-sm text-gray-900">2020-03</td>
-              <td class="px-4 py-2 text-sm text-gray-900"
-                >Andrew L. Whitehead & Samuel L. Perry</td
-              >
-              <td class="px-4 py-2 text-sm text-gray-900"
-                >Taking America Back for God: Christian Nationalism in the
-                United States</td
-              >
-              <td class="px-4 py-2 text-sm">
-                <a
-                  href="https://readingreligion.org/9780190057886/"
-                  target="_blank"
-                  class="text-primary hover:text-primary-dark">More Info</a
-                >
-              </td>
-            </tr>
-            <tr>
-              <td class="px-4 py-2 text-sm text-gray-900">2018-05</td>
-              <td class="px-4 py-2 text-sm text-gray-900">John Meachum</td>
-              <td class="px-4 py-2 text-sm text-gray-900"
-                >The Soul of America</td
-              >
-              <td class="px-4 py-2 text-sm">
-                <!-- Empty cell, no info link available -->
-              </td>
-            </tr>
+            {books.map((book) => (
+              <tr>
+                <td class="px-4 py-2 text-sm text-gray-900">{book.data.publishDate}</td>
+                <td class="px-4 py-2 text-sm text-gray-900">{book.data.author}</td>
+                <td class="px-4 py-2 text-sm text-gray-900">{book.data.title}</td>
+                <td class="px-4 py-2 text-sm">
+                  {book.data.infoLink && (
+                    <a
+                      href={book.data.infoLink}
+                      target="_blank"
+                      class="text-primary hover:text-primary-dark">More Info</a>
+                  )}
+                </td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>
@@ -262,6 +68,6 @@ import PageTitle from "@/components/PageTitle.astro";
 
 <style>
   .bg-primary-dark {
-    background-color: #1a5c36; /* A slightly darker shade of your primary color */
+    background-color: #1a5c36;
   }
 </style>

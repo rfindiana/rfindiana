@@ -1,0 +1,46 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Container from "@/components/container.astro";
+import { getCollection, render } from "astro:content";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("updates");
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+
+<Layout title={post.data.title}>
+  <Container article>
+    <div class="max-w-3xl mx-auto">
+      <p class="text-sm text-gray-500 mb-2">
+        {post.data.pubDate.toLocaleDateString("en-US", {
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        })}
+        {post.data.updatedDate && (
+          <span class="ml-2 italic">
+            (Updated {post.data.updatedDate.toLocaleDateString("en-US", {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+            })})
+          </span>
+        )}
+      </p>
+      <h1 class="text-3xl font-bold text-primary mb-6">{post.data.title}</h1>
+      <div class="prose max-w-none text-gray-800">
+        <Content />
+      </div>
+      <div class="mt-8">
+        <a href="/updates" class="text-primary hover:underline text-sm">&larr; Back to Updates</a>
+      </div>
+    </div>
+  </Container>
+</Layout>

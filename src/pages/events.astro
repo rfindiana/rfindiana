@@ -4,57 +4,54 @@ import Container from "@/components/container.astro";
 import PageTitle from "@/components/PageTitle.astro";
 import MeetingsTable from "@/components/MeetingsTable.astro";
 import PastEventsTable from "@/components/PastEventsTable.astro";
-import { upcomingEvents, virtualMeetings, physicalMeetings, pastEvents } from "@/data/events";
+import { getCollection } from "astro:content";
 
-// Helper function to format date
+const allEvents = await getCollection("events");
+const upcomingEvents = allEvents
+  .filter((e) => e.data.status === "upcoming")
+  .sort((a, b) => a.data.date.localeCompare(b.data.date));
+const pastEvents = allEvents
+  .filter((e) => e.data.status === "past")
+  .sort((a, b) => b.data.date.localeCompare(a.data.date));
+
+const allMeetings = await getCollection("meetings");
+const virtualMeetings = allMeetings.filter(
+  (m) => m.data.meetingType === "virtual"
+);
+const physicalMeetings = allMeetings.filter(
+  (m) => m.data.meetingType === "physical"
+);
+
 function formatEventDate(dateString: string) {
-  // Parse date in local timezone to avoid UTC conversion issues
-  const [year, month, day] = dateString.split('-').map(Number);
-  const date = new Date(year, month - 1, day); // month is 0-indexed
-  const dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-  const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-  
+  const [year, month, day] = dateString.split("-").map(Number);
+  const date = new Date(year, month - 1, day);
+  const dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
   return {
     dayName: dayNames[date.getDay()],
     dayNumber: date.getDate(),
     month: monthNames[date.getMonth()],
-    year: date.getFullYear()
+    year: date.getFullYear(),
   };
 }
 ---
 
 <Layout title="Events">
   <Container article>
-   
-    <PageTitle title="Events Calendar & Details" />
 
-    <!-- Google Calendar Embed -->
-    <section class="mb-12">
-      <h2 class="text-2xl font-semibold text-primary mb-4">Calendar View</h2>
-      <div class="relative w-full h-0 pb-[75%]">
-        <!-- Aspect ratio container -->
-        <iframe
-          title="Religious Freedom Indiana Events Calendar"
-          src="https://calendar.google.com/calendar/embed?src=rfindiana2025%40gmail.com&ctz=America%2FIndiana%2FIndianapolis"
-          style="border: 0; position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
-          width="800"
-          height="600"
-          loading="lazy">
-        </iframe>
-      </div>
-    </section>
+    <PageTitle title="Events Calendar & Details" />
 
     <!-- Upcoming Events Section -->
     <section class="mb-16">
       <h2 class="text-2xl font-semibold text-primary mb-4">Upcoming Events</h2>
 
-      {upcomingEvents.map(event => {
-        const eventDate = formatEventDate(event.date);
+      {upcomingEvents.map((event) => {
+        const eventDate = formatEventDate(event.data.date);
         return (
           <div class="bg-white rounded-lg shadow-md p-4 mb-6">
             <div class="flex items-center gap-4">
               <div class="bg-primary text-white p-3 rounded-lg text-center flex-shrink-0 min-w-28">
-                <time datetime={event.date}>
+                <time datetime={event.data.date}>
                   <div class="text-sm font-bold">{eventDate.dayName}</div>
                   <div class="text-xl font-bold">{eventDate.month} {eventDate.dayNumber}</div>
                   <div class="text-xs">{eventDate.year}</div>
@@ -62,20 +59,20 @@ function formatEventDate(dateString: string) {
               </div>
               <div class="flex-grow">
                 <h3 class="text-xl font-semibold text-primary mb-1">
-                  {event.title}
+                  {event.data.title}
                 </h3>
                 <p class="text-sm text-gray-600 mb-2 whitespace-pre-line">
-                  {event.description}
-                  {event.registrationLink && (
+                  {event.data.description}
+                  {event.data.registrationLink && (
                     <>
                       {" "}
-                      <a href={event.registrationLink} class="text-primary underline hover:opacity-80" target="_blank">
-                        Register for {event.title}
+                      <a href={event.data.registrationLink} class="text-primary underline hover:opacity-80" target="_blank">
+                        Register for {event.data.title}
                       </a>
                     </>
                   )}
                 </p>
-              
+
                 <div class="flex flex-wrap items-center gap-x-4 text-sm text-gray-700">
                   <span class="flex items-center">
                     <svg
@@ -89,7 +86,7 @@ function formatEventDate(dateString: string) {
                         stroke-width="2"
                         d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                     </svg>
-                    <time>{event.time}</time>
+                    <time>{event.data.time}</time>
                   </span>
                   <span class="flex items-center">
                     <svg
@@ -104,7 +101,7 @@ function formatEventDate(dateString: string) {
                         d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 002 2z"
                         ></path>
                     </svg>
-                    {event.location}
+                    {event.data.location}
                   </span>
                 </div>
               </div>
@@ -116,26 +113,20 @@ function formatEventDate(dateString: string) {
       <h3 class="text-xl font-semibold text-primary mt-6 mb-3">
         Recurring Virtual Meetings
       </h3>
-      <MeetingsTable meetings={virtualMeetings} />
+      <MeetingsTable meetings={virtualMeetings.map((m) => m.data)} />
 
       <h3 class="text-xl font-semibold text-primary mt-6 mb-3">
         Recurring Physical Meetings
       </h3>
-      <MeetingsTable meetings={physicalMeetings} hostColumnTitle="Host / Location" />
-      <!-- Add physical meetings here -->
-
-      <div class="grid grid-cols-1 gap-6 mt-6">
-        <!-- Event Item -->
-        <!-- The existing May 18th event item that was here has been moved above -->
-      </div>
+      <MeetingsTable meetings={physicalMeetings.map((m) => m.data)} hostColumnTitle="Host / Location" />
     </section>
 
     <!-- Past Events Section -->
     <section>
       <h2 class="text-2xl font-semibold text-primary mb-4">Past Events</h2>
-      <PastEventsTable pastEvents={pastEvents} />
+      <PastEventsTable pastEvents={pastEvents.map((e) => e.data)} />
     </section>
-     <div
+    <div
       class="max-w-4xl text-sm text-gray-700 bg-yellow-50 border border-yellow-200 rounded p-4 mb-6 italic">
       <strong class="font-semibold">Note:</strong>
       The organizations and groups featured here have interests or missions that
@@ -149,6 +140,6 @@ function formatEventDate(dateString: string) {
 
 <style>
   .bg-primary-dark {
-    background-color: #1a5c36; /* A slightly darker shade of your primary color */
+    background-color: #1a5c36;
   }
 </style>
