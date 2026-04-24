@@ -30,5 +30,6 @@ pnpm-debug.log*
 
 # Claude MCP and local development tools
 .claude_mcp_config.json
+.superpowers/
 playwright-report/
 test-results/

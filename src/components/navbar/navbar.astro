@@ -20,7 +20,7 @@ const isHomePage = Astro.url.pathname === "/";
 ---
 
 <Container
-  class={`fixed top-0 w-full z-50 ${isHomePage ? "bg-white/40 backdrop-blur-sm shadow-sm" : "bg-white sticky"}`}>
+  class="fixed top-0 w-full z-50 bg-white shadow-sm">
   <header class="flex flex-col xl:flex-row justify-start items-center my-2">
     <Astronav>
       <div class="flex w-full xl:w-auto items-center justify-between">
