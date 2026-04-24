@@ -2,10 +2,23 @@
 import Layout from "@/layouts/Layout.astro";
 import Container from "@/components/container.astro";
 import PageTitle from "@/components/PageTitle.astro";
+import { getCollection, render } from "astro:content";
+
+const allOrganizations = await getCollection("organizations");
+const sorted = allOrganizations.sort((a, b) => a.data.sortOrder - b.data.sortOrder);
+const rendered = await Promise.all(
+  sorted.map(async (org) => ({
+    data: org.data,
+    Content: (await render(org)).Content,
+  }))
+);
+const nationalOrganizations = rendered.filter((org) => org.data.category === "national");
+const statewideOrganizations = rendered.filter((org) => org.data.category === "statewide");
 ---
 
 <Layout title="Network">
   <Container article>
+    <PageTitle title="Featured Organizations" />
     <div
       class="max-w-4xl text-sm text-gray-700 bg-yellow-50 border border-yellow-200 rounded p-4 mb-6 italic">
       <strong class="font-semibold">Note:</strong>
@@ -15,7 +28,6 @@ import PageTitle from "@/components/PageTitle.astro";
       a 501(c)(3) nonprofit, we remain strictly non-partisan, even when sharing information
       from groups with a variety of perspectives.
     </div>
-    <PageTitle title="Featured Organizations" />
     <p class="text-lg mb-4">
       Religious Freedom Indiana believes in the power of working together. By
       building a diverse network of like-minded organizations — from national
@@ -32,7 +44,6 @@ import PageTitle from "@/components/PageTitle.astro";
     <h2 class="text-2xl font-semibold text-primary mb-6">National</h2>
 
     <div class="bg-white rounded-lg shadow-md overflow-hidden mb-8">
-      <!-- Add overflow-x-auto wrapper div for horizontal scrolling on mobile -->
       <div class="overflow-x-auto w-full">
         <table class="min-w-full divide-y divide-gray-200">
           <thead class="bg-gray-50">
@@ -50,72 +61,31 @@ import PageTitle from "@/components/PageTitle.astro";
             </tr>
           </thead>
           <tbody class="bg-white divide-y divide-gray-200">
-            <tr>
-              <td class="px-4 py-4 w-40 align-middle">
-                <a
-                  href="https://www.christiansagainstchristiannationalism.org/"
-                  target="_blank"
-                  rel="noopener noreferrer">
-                  <img
-                    src="/images/cacn.jpg"
-                    alt="Christians Against Christian Nationalism Logo"
-                    class="h-16 w-auto object-contain align-middle"
-                    style="vertical-align: middle;"
-                  />
-                </a>
-              </td>
-              <td class="px-4 py-4 align-top">
-                <a
-                  href="https://www.christiansagainstchristiannationalism.org/localgroups/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="text-lg font-medium text-primary hover:text-primary-dark underline">
-                  Christians Against Christian Nationalism
-                </a>
-                <p class="mt-2 text-gray-600">
-                  Christians Against Christian Nationalism is a grassroots
-                  campaign to combat Christian nationalism in local, state and
-                  national contexts. Launched in 2019, this effort is not in
-                  response to any one event or statement; rather, it's a
-                  sustained campaign built to resist Christian nationalism and
-                  the threat it poses to our faith and country.
-                </p>
-              </td>
-            </tr>
-            <tr>
-              <td class="px-4 py-4 w-40 align-middle">
-                <a
-                  href="https://faithfulamerica.org/"
-                  target="_blank"
-                  rel="noopener noreferrer">
-                  <img
-                    src="/images/FA.jpg"
-                    alt="Faithful America Logo"
-                    class="h-16 w-auto object-contain align-middle"
-                  />
-                </a>
-              </td>
-              <td class="px-4 py-4 align-top">
-                <a
-                  href="https://faithfulamerica.org/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="text-lg font-medium text-primary hover:text-primary-dark underline">
-                  Faithful America
-                </a>
-                <p class="mt-2 text-gray-600">
-                  Faithful America is the largest online community of Christians
-                  putting faith into action for love and social justice. Our
-                  members -- Catholic, Protestant, Exvangelical, and more -- are
-                  sick of sitting by quietly while Jesus' message of good news
-                  is hijacked by the religious right to serve a hateful
-                  political agenda. We're organizing the faithful to challenge
-                  Christian nationalism and white supremacy and to renew the
-                  church's prophetic role in building a more free and just
-                  society.
-                </p>
-              </td>
-            </tr>
+            {nationalOrganizations.map(({ data, Content }) => (
+              <tr>
+                <td class="px-4 py-4 w-40 align-middle">
+                  <a href={data.websiteUrl} target="_blank" rel="noopener noreferrer">
+                    <img
+                      src={data.logoImage}
+                      alt={`${data.title} Logo`}
+                      class="h-16 w-auto object-contain align-middle"
+                    />
+                  </a>
+                </td>
+                <td class="px-4 py-4 align-top">
+                  <a
+                    href={data.websiteUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-lg font-medium text-primary hover:text-primary-dark underline">
+                    {data.title}
+                  </a>
+                  <div class="mt-2 text-gray-600 prose prose-sm max-w-none">
+                    <Content />
+                  </div>
+                </td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>
@@ -138,45 +108,31 @@ import PageTitle from "@/components/PageTitle.astro";
             </tr>
           </thead>
           <tbody class="bg-white divide-y divide-gray-200">
-            <tr>
-              <td class="px-4 py-4 w-40 align-middle">
-                <a
-                  href="https://organizingindiana.org/"
-                  target="_blank"
-                  rel="noopener noreferrer">
-                  <img
-                    src="/images/OrganizingIndiana.jpg"
-                    alt="Organizing Indiana Logo"
-                    class="h-16 w-auto object-contain align-middle"
-                  />
-                </a>
-              </td>
-              <td class="px-4 py-4 align-top">
-                <a
-                  href="https://organizingindiana.org/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="text-lg font-medium text-primary hover:text-primary-dark underline"
-                  >Organizing Indiana</a
-                >
-                <p class="mt-2 text-gray-600">
-                  In early 2025, the Committee for Organizing Indiana, a
-                  Political Action Committee (PAC), launched Organizing Indiana
-                  as a resource hub focused on realizing a common challenge:
-                  many of us were doing important work across Indiana, but often
-                  in silos - disconnected from each other, duplicating efforts,
-                  and missing key opportunities for collective impact.
-                </p>
-                <p class="mt-2 text-gray-600">
-                  Our vision is simple: better alignment, not reinvention. Like
-                  a solar array, each of our organizations and networks is a
-                  vital panel. Some lead long-term campaigns, others power local
-                  action. But when the moment calls for statewide mobilization,
-                  we need a way to harness and direct all of our collective
-                  energy.
-                </p>
-              </td>
-            </tr>
+            {statewideOrganizations.map(({ data, Content }) => (
+              <tr>
+                <td class="px-4 py-4 w-40 align-middle">
+                  <a href={data.websiteUrl} target="_blank" rel="noopener noreferrer">
+                    <img
+                      src={data.logoImage}
+                      alt={`${data.title} Logo`}
+                      class="h-16 w-auto object-contain align-middle"
+                    />
+                  </a>
+                </td>
+                <td class="px-4 py-4 align-top">
+                  <a
+                    href={data.websiteUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-lg font-medium text-primary hover:text-primary-dark underline"
+                    >{data.title}</a
+                  >
+                  <div class="mt-2 text-gray-600 prose prose-sm max-w-none">
+                    <Content />
+                  </div>
+                </td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>

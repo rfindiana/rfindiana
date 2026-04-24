@@ -2,7 +2,16 @@
 import Layout from "@/layouts/Layout.astro";
 import Container from "@/components/container.astro";
 import PageTitle from "@/components/PageTitle.astro";
-import { onlineResources } from "@/data/onlineResources";
+import { getCollection, render } from "astro:content";
+
+const allResources = await getCollection("onlineresources");
+const sorted = allResources.sort((a, b) => a.data.sortOrder - b.data.sortOrder);
+const rendered = await Promise.all(
+  sorted.map(async (resource) => ({
+    data: resource.data,
+    Content: (await render(resource)).Content,
+  }))
+);
 ---
 
 <Layout title="Online Resources">
@@ -33,24 +42,23 @@ import { onlineResources } from "@/data/onlineResources";
           </thead>
           <tbody class="bg-white divide-y divide-gray-200">
             {
-              onlineResources.map((resource) => (
+              rendered.map(({ data, Content }) => (
                 <tr>
                   <td class="px-4 py-2 text-sm text-gray-900">
-                    {resource.name}
+                    {data.name}
                   </td>
                   <td class="px-4 py-2 text-sm">
                     <a
-                      href={resource.website.url}
+                      href={data.websiteUrl}
                       target="_blank"
                       class="text-primary hover:text-primary-dark underline">
-                      {resource.website.text}
+                      {data.websiteText}
                     </a>
                   </td>
-                  <td class="px-4 py-2 text-sm" set:html={resource.focus} />
-                  <td
-                    class="px-4 py-2 text-sm"
-                    set:html={resource.additionalInfo}
-                  />
+                  <td class="px-4 py-2 text-sm text-gray-900">{data.focus}</td>
+                  <td class="px-4 py-2 text-sm text-gray-900 prose prose-sm max-w-none">
+                    <Content />
+                  </td>
                 </tr>
               ))
             }
