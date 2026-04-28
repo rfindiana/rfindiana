@@ -1,5 +1,5 @@
 ---
-title: "Volunteer Interest Session"
+title: "Orientation to Religious Freedom Indiana."
 host: "Orientation to Religious Freedom Indiana."
 description: "Get Involved! The need to push back on Christian Nationalism is
   RIGHT NOW and we need your help. Contact Steve Ivy (steven.ivy@rfindiana.org)
