@@ -1,0 +1,27 @@
+{
+  "site": {
+    "name": "Religious Freedom Indiana",
+    "title": "Religious Freedom Indiana",
+    "titleTemplate": "%s | Religious Freedom Indiana",
+    "description": "Hoosiers working for religious freedom.",
+    "url": "https://rfindiana.org"
+  },
+  "social": {
+    "twitter": "@rfindiana",
+    "twitterCreator": "@dalebrubaker",
+    "twitterCardType": "summary_large_image"
+  },
+  "navigation": {
+    "main": [
+      { "label": "Home", "href": "/" },
+      { "label": "Events", "href": "/events" },
+      { "label": "Meetings", "href": "/meetings" },
+      { "label": "Resources", "href": "/resources" },
+      { "label": "Team", "href": "/team" },
+      { "label": "Updates", "href": "/updates" }
+    ]
+  },
+  "content": {
+    "amazonNote": "Note: Most videos listed here are available on Amazon Prime for a small fee or included with a subscription. Some may also be available for free elsewhere online."
+  }
+}
