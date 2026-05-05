@@ -6,7 +6,8 @@
       "Bash(git add:*)",
       "Bash(find:*)",
       "Bash(npm:*)",
-      "Bash(npx astro build:*)"
+      "Bash(npx astro build:*)",
+      "PowerShell(& \"C:\\\\Program Files\\\\Microsoft Visual Studio\\\\2022\\\\Community\\\\MSBuild\\\\Current\\\\Bin\\\\MSBuild.exe\" \"E:\\\\GitDev\\\\BruTrader26\\\\BruScCpp\\\\BruScCpp.vcxproj\" -p:Configuration=Release -p:Platform=x64 -m -v:minimal -nologo 2>&1 | Select-Object -Last 60)"
     ],
     "deny": []
   }
