@@ -19,16 +19,16 @@ const menuitems = [
 const isHomePage = Astro.url.pathname === "/";
 ---
 
-<Container
-  class="fixed top-0 w-full z-50 bg-white shadow-sm">
-  <header class="flex flex-col xl:flex-row justify-start items-center my-2">
+<div class="fixed top-0 left-0 right-0 w-full z-50 bg-white shadow-sm">
+  <Container>
+    <header class="flex flex-col xl:flex-row justify-start items-center my-2">
     <Astronav>
       <div class="flex w-full xl:w-auto items-center justify-between">
         <a href="/" class="text-lg">
           <img
             src="/images/Logo Wide.png"
             alt="Religious Freedom Indiana Logo"
-            class={`h-14 w-auto max-w-[250px] sm:max-w-none xl:h-16 ${isHomePage ? "drop-shadow-md" : ""}`}
+            class={`h-12 sm:h-14 xl:h-16 w-auto ${isHomePage ? "drop-shadow-md" : ""}`}
           />
         </a>
         <div class="block xl:hidden">
@@ -77,4 +77,5 @@ const isHomePage = Astro.url.pathname === "/";
       </MenuItems>
     </Astronav>
   </header>
-</Container>
+  </Container>
+</div>
