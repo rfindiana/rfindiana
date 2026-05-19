@@ -1,6 +1,6 @@
 ---
 title: Another book
-publishDate: ""
-infoLink: ""
+publishDate: "12-23-2025"
+infoLink: "amazon.com"
 ---
 
