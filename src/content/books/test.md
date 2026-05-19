@@ -1,6 +1,6 @@
 ---
 title: Test
-publishDate: ""
+publishDate: "today"
 infoLink: ""
 ---
 
