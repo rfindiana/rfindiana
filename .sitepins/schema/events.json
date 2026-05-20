@@ -68,7 +68,10 @@
       "isIgnored": false,
       "defaultValue": "upcoming",
       "required": true,
-      "options": ["upcoming", "past"]
+      "options": [
+        { "value": "upcoming", "label": "Upcoming" },
+        { "value": "past", "label": "Past" }
+      ]
     }
   ]
 }
