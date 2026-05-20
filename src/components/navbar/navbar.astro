@@ -28,7 +28,11 @@ const isHomePage = Astro.url.pathname === "/";
           <img
             src="/images/Logo Wide.png"
             alt="Religious Freedom Indiana Logo"
-            class={`h-14 w-auto max-w-[250px] sm:max-w-none xl:h-16 ${isHomePage ? "drop-shadow-md" : ""}`}
+            width="600"
+            height="200"
+            fetchpriority="high"
+            decoding="sync"
+            class={`logo-img h-14 w-auto max-w-[250px] sm:max-w-none xl:h-16 ${isHomePage ? "drop-shadow-md" : ""}`}
           />
         </a>
         <div class="block xl:hidden">

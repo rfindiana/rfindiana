@@ -60,7 +60,12 @@ const makeTitle =
     <meta property="og:image:url" content={resolvedImageWithDomain} />
     <meta property="og:image:alt" content={SITE.name} />
 
-    <!-- <link rel="preload" as="image" href={src} alt="Hero" /> -->
+    <link rel="preload" as="image" href="/images/Logo Wide.png" fetchpriority="high" />
+    {
+      Astro.url.pathname === "/" && (
+        <link rel="preload" as="image" href="/images/Logo Narrow.jpg" fetchpriority="high" />
+      )
+    }
     <SEO
       title={makeTitle}
       description={SITE.description}
@@ -105,15 +110,5 @@ const makeTitle =
     <Container>
       <Footer />
     </Container>
-
-    
-
-    <style is:global>
-      /* Improve Page speed */
-      /* https://css-tricks.com/almanac/properties/c/content-visibility/ */
-      img {
-        content-visibility: auto;
-      }
-    </style>
   </body>
 </html>

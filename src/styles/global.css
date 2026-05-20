@@ -28,4 +28,11 @@
     font-family: "Josefin Sans", Verdana, Geneva, sans-serif;
     font-weight: 700;
   }
+
+  /* Suppress alt-text fallback flash on logos while the image is decoding.
+     Screen readers still read the alt attribute. */
+  .logo-img {
+    color: transparent;
+    font-size: 0;
+  }
 }
