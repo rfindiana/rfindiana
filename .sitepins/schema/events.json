@@ -1,0 +1,74 @@
+{
+  "file": "src/content/events/2025-07-09-andrew-whitehead.md",
+  "name": "events",
+  "fileType": "md",
+  "fmType": "yaml",
+  "template": [
+    {
+      "name": "title",
+      "label": "Title",
+      "type": "string",
+      "value": "",
+      "isIgnored": false,
+      "defaultValue": "",
+      "required": true
+    },
+    {
+      "name": "date",
+      "label": "Date",
+      "type": "string",
+      "value": "",
+      "isIgnored": false,
+      "defaultValue": "",
+      "required": true,
+      "description": "Event date in YYYY-MM-DD format"
+    },
+    {
+      "name": "time",
+      "label": "Time",
+      "type": "string",
+      "value": "",
+      "isIgnored": false,
+      "defaultValue": "",
+      "required": true,
+      "description": "Display time, e.g. \"5:30 PM ET\""
+    },
+    {
+      "name": "description",
+      "label": "Description",
+      "type": "string",
+      "value": "",
+      "isIgnored": false,
+      "defaultValue": "",
+      "required": false
+    },
+    {
+      "name": "location",
+      "label": "Location",
+      "type": "string",
+      "value": "",
+      "isIgnored": false,
+      "defaultValue": "",
+      "required": false
+    },
+    {
+      "name": "registrationLink",
+      "label": "Registration Link",
+      "type": "string",
+      "value": "",
+      "isIgnored": false,
+      "defaultValue": "",
+      "required": false
+    },
+    {
+      "name": "status",
+      "label": "Status",
+      "type": "select",
+      "value": "",
+      "isIgnored": false,
+      "defaultValue": "upcoming",
+      "required": true,
+      "options": ["upcoming", "past"]
+    }
+  ]
+}
