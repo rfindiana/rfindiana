@@ -1,0 +1,51 @@
+{
+  "file": "src/content/documents/getting-started-local-group.md",
+  "name": "documents",
+  "fileType": "md",
+  "fmType": "yaml",
+  "template": [
+    {
+      "name": "title",
+      "label": "Title",
+      "type": "string",
+      "value": "",
+      "isIgnored": false,
+      "defaultValue": ""
+    },
+    {
+      "name": "description",
+      "label": "Description",
+      "type": "string",
+      "value": "",
+      "isIgnored": false,
+      "defaultValue": ""
+    },
+    {
+      "name": "fileLink",
+      "label": "File Link",
+      "type": "string",
+      "value": "",
+      "description": "Path to the PDF or document, e.g. \"/docs/foo.pdf\"",
+      "isIgnored": false,
+      "defaultValue": ""
+    },
+    {
+      "name": "thumbnailImage",
+      "label": "Thumbnail Image",
+      "type": "string",
+      "value": "",
+      "description": "Path to the thumbnail, e.g. \"/docs/thumbnails/foo-thumb.jpg\"",
+      "isIgnored": false,
+      "defaultValue": ""
+    },
+    {
+      "name": "sortOrder",
+      "label": "Sort Order",
+      "type": "number",
+      "value": 0,
+      "description": "Lower numbers appear first",
+      "isIgnored": false,
+      "defaultValue": 0
+    }
+  ]
+}

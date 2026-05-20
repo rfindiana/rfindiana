@@ -1,0 +1,51 @@
+{
+  "file": "src/content/onlineresources/baptist-joint-committee.md",
+  "name": "onlineresources",
+  "fileType": "md",
+  "fmType": "yaml",
+  "template": [
+    {
+      "name": "name",
+      "label": "Name",
+      "type": "string",
+      "value": "",
+      "isIgnored": false,
+      "defaultValue": ""
+    },
+    {
+      "name": "websiteUrl",
+      "label": "Website URL",
+      "type": "string",
+      "value": "",
+      "isIgnored": false,
+      "defaultValue": ""
+    },
+    {
+      "name": "websiteText",
+      "label": "Website Display Text",
+      "type": "string",
+      "value": "",
+      "description": "Visible link text, often the domain itself",
+      "isIgnored": false,
+      "defaultValue": ""
+    },
+    {
+      "name": "focus",
+      "label": "Focus",
+      "type": "string",
+      "value": "",
+      "description": "Short description of the organization's focus",
+      "isIgnored": false,
+      "defaultValue": ""
+    },
+    {
+      "name": "sortOrder",
+      "label": "Sort Order",
+      "type": "number",
+      "value": 0,
+      "description": "Lower numbers appear first",
+      "isIgnored": false,
+      "defaultValue": 0
+    }
+  ]
+}

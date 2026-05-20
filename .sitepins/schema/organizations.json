@@ -1,0 +1,51 @@
+{
+  "file": "src/content/organizations/faithful-america.md",
+  "name": "organizations",
+  "fileType": "md",
+  "fmType": "yaml",
+  "template": [
+    {
+      "name": "title",
+      "label": "Title",
+      "type": "string",
+      "value": "",
+      "isIgnored": false,
+      "defaultValue": ""
+    },
+    {
+      "name": "websiteUrl",
+      "label": "Website URL",
+      "type": "string",
+      "value": "",
+      "isIgnored": false,
+      "defaultValue": ""
+    },
+    {
+      "name": "logoImage",
+      "label": "Logo Image",
+      "type": "string",
+      "value": "",
+      "description": "Path to the logo image, e.g. \"/images/FA.jpg\"",
+      "isIgnored": false,
+      "defaultValue": ""
+    },
+    {
+      "name": "category",
+      "label": "Category",
+      "type": "string",
+      "value": "",
+      "description": "Must be 'national', 'statewide', or 'local'",
+      "isIgnored": false,
+      "defaultValue": "national"
+    },
+    {
+      "name": "sortOrder",
+      "label": "Sort Order",
+      "type": "number",
+      "value": 0,
+      "description": "Lower numbers appear first",
+      "isIgnored": false,
+      "defaultValue": 0
+    }
+  ]
+}

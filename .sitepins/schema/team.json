@@ -1,0 +1,68 @@
+{
+  "file": "src/content/team/janette-lynch.md",
+  "name": "team",
+  "fileType": "md",
+  "fmType": "yaml",
+  "template": [
+    {
+      "name": "draft",
+      "label": "Draft",
+      "type": "boolean",
+      "value": false,
+      "description": "If true, hides this team member from the site",
+      "isIgnored": false,
+      "defaultValue": false
+    },
+    {
+      "name": "name",
+      "label": "Name",
+      "type": "string",
+      "value": "",
+      "isIgnored": false,
+      "defaultValue": ""
+    },
+    {
+      "name": "title",
+      "label": "Title",
+      "type": "string",
+      "value": "",
+      "isIgnored": false,
+      "defaultValue": ""
+    },
+    {
+      "name": "avatar",
+      "label": "Avatar",
+      "type": "object",
+      "value": {},
+      "isIgnored": false,
+      "defaultValue": {},
+      "template": [
+        {
+          "name": "src",
+          "label": "Image URL",
+          "type": "string",
+          "value": "",
+          "isIgnored": false,
+          "defaultValue": ""
+        },
+        {
+          "name": "alt",
+          "label": "Alt Text",
+          "type": "string",
+          "value": "",
+          "isIgnored": false,
+          "defaultValue": ""
+        }
+      ]
+    },
+    {
+      "name": "publishDate",
+      "label": "Publish Date",
+      "type": "string",
+      "value": "",
+      "description": "YYYY-MM-DD HH:MM format",
+      "isIgnored": false,
+      "defaultValue": ""
+    }
+  ]
+}

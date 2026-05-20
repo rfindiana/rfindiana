@@ -1,0 +1,51 @@
+{
+  "file": "src/content/updates/2026-04-23-welcome.md",
+  "name": "updates",
+  "fileType": "md",
+  "fmType": "yaml",
+  "template": [
+    {
+      "name": "title",
+      "label": "Title",
+      "type": "string",
+      "value": "",
+      "isIgnored": false,
+      "defaultValue": ""
+    },
+    {
+      "name": "description",
+      "label": "Description",
+      "type": "string",
+      "value": "",
+      "isIgnored": false,
+      "defaultValue": ""
+    },
+    {
+      "name": "pubDate",
+      "label": "Publish Date",
+      "type": "string",
+      "value": "",
+      "description": "YYYY-MM-DD format",
+      "isIgnored": false,
+      "defaultValue": ""
+    },
+    {
+      "name": "updatedDate",
+      "label": "Updated Date",
+      "type": "string",
+      "value": "",
+      "description": "YYYY-MM-DD format (optional)",
+      "isIgnored": false,
+      "defaultValue": ""
+    },
+    {
+      "name": "heroImage",
+      "label": "Hero Image",
+      "type": "string",
+      "value": "",
+      "description": "Path to a hero image (optional)",
+      "isIgnored": false,
+      "defaultValue": ""
+    }
+  ]
+}

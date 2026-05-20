@@ -1,6 +1,6 @@
 {
-  "file": "src/content/events/2025-07-09-andrew-whitehead.md",
-  "name": "events",
+  "file": "src/content/meetings/christians-against-christian-nationalism.md",
+  "name": "meetings",
   "fileType": "md",
   "fmType": "yaml",
   "template": [
@@ -13,20 +13,10 @@
       "defaultValue": ""
     },
     {
-      "name": "date",
-      "label": "Date",
+      "name": "host",
+      "label": "Host",
       "type": "string",
       "value": "",
-      "description": "Event date in YYYY-MM-DD format",
-      "isIgnored": false,
-      "defaultValue": ""
-    },
-    {
-      "name": "time",
-      "label": "Time",
-      "type": "string",
-      "value": "",
-      "description": "Display time, e.g. \"5:30 PM ET\"",
       "isIgnored": false,
       "defaultValue": ""
     },
@@ -39,10 +29,11 @@
       "defaultValue": ""
     },
     {
-      "name": "location",
-      "label": "Location",
+      "name": "times",
+      "label": "Times",
       "type": "string",
       "value": "",
+      "description": "When the meeting takes place, e.g. \"Monthly on second Tuesday, 7:00-8:30pm\"",
       "isIgnored": false,
       "defaultValue": ""
     },
@@ -55,13 +46,13 @@
       "defaultValue": ""
     },
     {
-      "name": "status",
-      "label": "Status",
+      "name": "meetingType",
+      "label": "Meeting Type",
       "type": "string",
       "value": "",
-      "description": "Must be 'upcoming' or 'past'",
+      "description": "Must be 'virtual' or 'physical'",
       "isIgnored": false,
-      "defaultValue": "upcoming"
+      "defaultValue": "virtual"
     }
   ]
 }

@@ -1,0 +1,42 @@
+{
+  "file": "src/content/videos/bad-faith.md",
+  "name": "videos",
+  "fileType": "md",
+  "fmType": "yaml",
+  "template": [
+    {
+      "name": "title",
+      "label": "Title",
+      "type": "string",
+      "value": "",
+      "isIgnored": false,
+      "defaultValue": ""
+    },
+    {
+      "name": "watchLink",
+      "label": "Watch Link",
+      "type": "string",
+      "value": "",
+      "isIgnored": false,
+      "defaultValue": ""
+    },
+    {
+      "name": "watchLabel",
+      "label": "Watch Label",
+      "type": "string",
+      "value": "",
+      "description": "Button text, e.g. \"Watch on Amazon Prime\"",
+      "isIgnored": false,
+      "defaultValue": ""
+    },
+    {
+      "name": "sortOrder",
+      "label": "Sort Order",
+      "type": "number",
+      "value": 0,
+      "description": "Lower numbers appear first",
+      "isIgnored": false,
+      "defaultValue": 0
+    }
+  ]
+}

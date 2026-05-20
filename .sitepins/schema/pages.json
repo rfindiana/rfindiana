@@ -1,0 +1,25 @@
+{
+  "file": "src/content/pages/about.md",
+  "name": "pages",
+  "fileType": "md",
+  "fmType": "yaml",
+  "template": [
+    {
+      "name": "title",
+      "label": "Title",
+      "type": "string",
+      "value": "",
+      "isIgnored": false,
+      "defaultValue": ""
+    },
+    {
+      "name": "lastUpdated",
+      "label": "Last Updated",
+      "type": "string",
+      "value": "",
+      "description": "Optional date stamp",
+      "isIgnored": false,
+      "defaultValue": ""
+    }
+  ]
+}
