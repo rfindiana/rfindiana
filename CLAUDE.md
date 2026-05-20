@@ -12,6 +12,7 @@ This is the website for Religious Freedom Indiana (rfindiana.org), built with As
 - **ALWAYS** present the commit message for approval before creating the actual commit
 - When asked to commit, first show the proposed commit message and wait for confirmation
 - Only proceed with `git commit` after receiving explicit approval
+- Keep commit messages brief — subject line only, no body unless the user asks
 
 ## Key Commands
 
