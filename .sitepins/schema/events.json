@@ -1,6 +1,5 @@
 {
   "file": "src/content/events/2025-07-09-andrew-whitehead.md",
-  "name": "events",
   "fileType": "md",
   "fmType": "yaml",
   "template": [
@@ -10,28 +9,25 @@
       "type": "string",
       "value": "",
       "isIgnored": false,
-      "defaultValue": "",
-      "required": true
+      "defaultValue": ""
     },
     {
       "name": "date",
       "label": "Date",
       "type": "string",
       "value": "",
+      "description": "Event date in YYYY-MM-DD format",
       "isIgnored": false,
-      "defaultValue": "",
-      "required": true,
-      "description": "Event date in YYYY-MM-DD format"
+      "defaultValue": ""
     },
     {
       "name": "time",
       "label": "Time",
       "type": "string",
       "value": "",
+      "description": "Display time, e.g. \"5:30 PM ET\"",
       "isIgnored": false,
-      "defaultValue": "",
-      "required": true,
-      "description": "Display time, e.g. \"5:30 PM ET\""
+      "defaultValue": ""
     },
     {
       "name": "description",
@@ -39,8 +35,7 @@
       "type": "string",
       "value": "",
       "isIgnored": false,
-      "defaultValue": "",
-      "required": false
+      "defaultValue": ""
     },
     {
       "name": "location",
@@ -48,8 +43,7 @@
       "type": "string",
       "value": "",
       "isIgnored": false,
-      "defaultValue": "",
-      "required": false
+      "defaultValue": ""
     },
     {
       "name": "registrationLink",
@@ -57,20 +51,24 @@
       "type": "string",
       "value": "",
       "isIgnored": false,
-      "defaultValue": "",
-      "required": false
+      "defaultValue": ""
     },
     {
       "name": "status",
       "label": "Status",
-      "type": "select",
-      "value": "",
+      "type": "string",
+      "value": "upcoming",
       "isIgnored": false,
       "defaultValue": "upcoming",
-      "required": true,
       "options": [
-        { "value": "upcoming", "label": "Upcoming" },
-        { "value": "past", "label": "Past" }
+        {
+          "value": "upcoming",
+          "label": "Upcoming"
+        },
+        {
+          "value": "past",
+          "label": "Past"
+        }
       ]
     }
   ]
