@@ -1,5 +1,5 @@
 {
-  "file": "src/content/books/2024-10-tyler-end.md",
+  "file": "src/content/books/2024-09-taylor-violent.md",
   "name": "books",
   "fileType": "md",
   "fmType": "yaml",
@@ -9,7 +9,14 @@
       "label": "Title",
       "type": "string",
       "value": "",
-      "description": "Another book",
+      "isIgnored": false,
+      "defaultValue": ""
+    },
+    {
+      "name": "author",
+      "label": "Author",
+      "type": "string",
+      "value": "",
       "isIgnored": false,
       "defaultValue": ""
     },
