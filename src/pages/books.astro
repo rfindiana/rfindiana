@@ -6,9 +6,9 @@ import { getCollection } from "astro:content";
 
 const allBooks = await getCollection("books");
 const books = allBooks.sort((a, b) => {
-  if (a.data.sortOrder != null && b.data.sortOrder != null)
-    return a.data.sortOrder - b.data.sortOrder;
-  return b.data.publishDate.localeCompare(a.data.publishDate);
+  const orderA = a.data.sortOrder ?? Number.MAX_SAFE_INTEGER;
+  const orderB = b.data.sortOrder ?? Number.MAX_SAFE_INTEGER;
+  return orderA - orderB || b.data.publishDate.localeCompare(a.data.publishDate);
 });
 ---
 

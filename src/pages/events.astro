@@ -15,10 +15,15 @@ const pastEvents = allEvents
   .sort((a, b) => b.data.date.localeCompare(a.data.date));
 
 const allMeetings = await getCollection("meetings");
-const virtualMeetings = allMeetings.filter(
+const sortedMeetings = allMeetings.sort((a, b) => {
+  const orderA = a.data.sortOrder ?? Number.MAX_SAFE_INTEGER;
+  const orderB = b.data.sortOrder ?? Number.MAX_SAFE_INTEGER;
+  return orderA - orderB || a.data.title.localeCompare(b.data.title);
+});
+const virtualMeetings = sortedMeetings.filter(
   (m) => m.data.meetingType === "virtual"
 );
-const physicalMeetings = allMeetings.filter(
+const physicalMeetings = sortedMeetings.filter(
   (m) => m.data.meetingType === "physical"
 );
 

@@ -35,6 +35,7 @@ const meetingsCollection = defineCollection({
     times: z.string(),
     registrationLink: z.string().optional(),
     meetingType: z.enum(["virtual", "physical"]),
+    sortOrder: z.number().optional(),
   }),
 });
 

@@ -35,6 +35,15 @@
       "value": "",
       "isIgnored": false,
       "defaultValue": ""
+    },
+    {
+      "name": "sortOrder",
+      "label": "Sort Order",
+      "type": "number",
+      "value": 0,
+      "description": "Lower numbers appear first. Leave blank to sort by publishDate.",
+      "isIgnored": false,
+      "defaultValue": 0
     }
   ]
 }

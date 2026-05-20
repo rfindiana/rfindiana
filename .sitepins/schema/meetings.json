@@ -53,6 +53,15 @@
       "description": "Must be 'virtual' or 'physical'",
       "isIgnored": false,
       "defaultValue": "virtual"
+    },
+    {
+      "name": "sortOrder",
+      "label": "Sort Order",
+      "type": "number",
+      "value": 0,
+      "description": "Lower numbers appear first within the virtual / physical group",
+      "isIgnored": false,
+      "defaultValue": 0
     }
   ]
 }
