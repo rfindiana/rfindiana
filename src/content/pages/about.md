@@ -1,5 +1,6 @@
 ---
 title: "About Us"
+lastUpdated: ""
 ---
 
 Religious Freedom Indiana (RFI) is a nonprofit organization incorporated in Indiana in April 2025 to support Hoosiers who are committed to protecting true religious freedom for all. We are a 501(c)(3) organization and donations are tax-deductible. RFI is governed by a board of directors and is not a membership-based organization under Indiana law. We are non-partisan and non-sectarian: we advocate for religious freedom without promoting any political party, religious group, or ideology. We are also committed to non-violence in all of our actions and advocacy.

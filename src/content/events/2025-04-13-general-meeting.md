@@ -5,4 +5,5 @@ time: "2:00 PM ET"
 description: "Monthly organizational meeting"
 location: "Virtual"
 status: "past"
+registrationLink: ""
 ---

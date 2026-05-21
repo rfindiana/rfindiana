@@ -5,4 +5,5 @@ description: "Dr. Steve Ivy facilitates this book study. Steve is Baptist clergy
 times: "Monthly on fourth Thursday, 7:00 PM ET"
 registrationLink: "https://us06web.zoom.us/meeting/register/7D4LXKJVTgy0kAfyzrbNbg"
 meetingType: "virtual"
+sortOrder: 0
 ---

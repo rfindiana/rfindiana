@@ -7,5 +7,6 @@ description: "Get Involved! The need to push back on Christian Nationalism is
 times: "May 24, 2026, 3:00 PM - 4:00 PM ET"
 registrationLink: "https://us06web.zoom.us/meeting/register/V7TgEp0JTkiPb6h9qwofCQ"
 meetingType: "virtual"
+sortOrder: 0
 ---
 ​
